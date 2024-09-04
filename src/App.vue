@@ -6,7 +6,7 @@ import AppFooter from "@/components/navigation/AppFooter.vue";
 </script>
 
 <template>
-  <div class="flex flex-col h-screen container mx-auto"> <!-- container h-screen mx-auto -->
+  <div class="flex flex-col min-h-screen container mx-auto"> <!-- container h-screen mx-auto -->
     <header>
         <AppHeader></AppHeader>
     </header>
@@ -15,7 +15,7 @@ import AppFooter from "@/components/navigation/AppFooter.vue";
       <RouterView />
     </main>
 
-    <footer>
+    <footer class="">
         <AppFooter></AppFooter>
     </footer>
   </div>

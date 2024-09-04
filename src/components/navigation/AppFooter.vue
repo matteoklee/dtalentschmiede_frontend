@@ -1,5 +1,5 @@
 <template>
-  <footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
+  <footer class="p-4 md:p-8 lg:p-10">
     <div class="mx-auto max-w-screen-xl text-center">
       <FooterLogo></FooterLogo>
       <FooterInfo></FooterInfo>

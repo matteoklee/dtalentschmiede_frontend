@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
+  <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900">
     <li>
       <RouterLink to="/about" class="mr-4 hover:underline md:mr-6 ">About</RouterLink>
     </li>

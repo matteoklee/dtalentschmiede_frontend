@@ -1,13 +1,7 @@
-<template>
-
-</template>
-
-<script>
-export default {
-  name: "ProjectView"
-}
+<script setup>
+import ProjectMain from "@/components/project/ProjectMain.vue";
 </script>
 
-<style scoped>
-
-</style>
+<template>
+  <ProjectMain></ProjectMain>
+</template>
