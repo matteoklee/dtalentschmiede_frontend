@@ -1,13 +1,11 @@
 <template>
-
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: "ProfileView"
+  name: 'ProfileView'
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

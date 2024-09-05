@@ -3,19 +3,16 @@
     <HeaderProfileInfo></HeaderProfileInfo>
     <HeaderProfileActions></HeaderProfileActions>
   </div>
-
 </template>
 
 <script>
-import HeaderProfileActions from "@/components/navigation/header/profile/HeaderProfileActions.vue";
-import HeaderProfileInfo from "@/components/navigation/header/profile/HeaderProfileInfo.vue";
+import HeaderProfileActions from '@/components/navigation/header/profile/HeaderProfileActions.vue'
+import HeaderProfileInfo from '@/components/navigation/header/profile/HeaderProfileInfo.vue'
 
 export default {
-  name: "HeaderProfile",
-  components: {HeaderProfileInfo, HeaderProfileActions}
+  name: 'HeaderProfile',
+  components: { HeaderProfileInfo, HeaderProfileActions }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

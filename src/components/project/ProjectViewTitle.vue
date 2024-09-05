@@ -6,10 +6,8 @@
 
 <script>
 export default {
-  name: "ProjectViewTitle"
+  name: 'ProjectViewTitle'
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,15 +1,11 @@
 <template>
-  <div>
-    dTalentschmiede
-  </div>
+  <div>dTalentschmiede</div>
 </template>
 
 <script>
 export default {
-  name: "FooterLogoTitle"
+  name: 'FooterLogoTitle'
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

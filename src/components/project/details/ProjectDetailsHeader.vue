@@ -10,11 +10,9 @@
 
 <script>
 export default {
-  name: "ProjectDetailsHeader",
-  props: ['project'],
+  name: 'ProjectDetailsHeader',
+  props: ['project']
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
