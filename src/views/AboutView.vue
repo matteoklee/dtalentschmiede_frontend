@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center items-center">
-    <h1 class="text-center">This is an about page!</h1>
+    <h1 class="text-center">Todo: Info Page</h1>
   </div>
 </template>
 

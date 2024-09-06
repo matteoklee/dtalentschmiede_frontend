@@ -1,6 +1,6 @@
 <template>
   <div v-if="project">
-    <div class="p-4 bg-white rounded-lg shadow-lg mb-4">
+    <div class="p-4 bg-white shadow-lg mb-4">
       <p class="mt-4">{{ project.description }}</p>
       <p class="mt-4">
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor

@@ -1,6 +1,6 @@
 <template>
-  <div class="p-4">
-    <div class="bg-white shadow-lg rounded-lg">
+  <div class="m-4">
+    <div class="bg-white shadow-md">
       <div
         v-for="project in projects"
         :key="project.id"

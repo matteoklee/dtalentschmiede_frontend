@@ -2,6 +2,6 @@
 
 <template>
   <div class="text-center">
-    <h1>This is the main page</h1>
+    <h1>TODO: Landing Page</h1>
   </div>
 </template>

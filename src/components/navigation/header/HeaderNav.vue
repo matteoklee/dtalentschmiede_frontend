@@ -5,7 +5,7 @@
         to="/"
         class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
       >
-        Home
+        <span :class="[isActiveRoute('Start') ? 'text-primary-700' : '']"> Start </span>
       </RouterLink>
     </li>
     <li>
@@ -13,7 +13,7 @@
         to="/about"
         class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
       >
-        About
+        <span :class="[isActiveRoute('About') ? 'text-primary-700' : '']"> About </span>
       </RouterLink>
     </li>
     <li>
@@ -21,7 +21,7 @@
         to="/projects"
         class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
       >
-        Projekte
+        <span :class="[isActiveRoute('Projekte') ? 'text-primary-700' : '']"> Projekte </span>
       </RouterLink>
     </li>
   </ul>
@@ -29,7 +29,12 @@
 
 <script>
 export default {
-  name: 'HeaderNav'
+  name: 'HeaderNav',
+  methods: {
+    isActiveRoute(name) {
+      return this.$route.name === name
+    }
+  }
 }
 </script>
 

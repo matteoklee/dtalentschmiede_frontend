@@ -1,8 +1,8 @@
 <template>
   <div v-if="project">
-    <div class="p-4 bg-white rounded-lg shadow-lg">
+    <div class="p-4 bg-white shadow-lg">
       <button
-        class="p-4 button bg-red-700 rounded-lg font-medium text-lg text-white w-full shadow hover:bg-white hover:text-black cursor-pointer hover:shadow hover:shadow-red-600"
+        class="p-4 button bg-red-700 font-medium text-lg text-white w-full hover:bg-white hover:text-primary-700 cursor-pointer hover:border-primary-700 hover:border-2"
       >
         Jetzt bewerben!
       </button>
