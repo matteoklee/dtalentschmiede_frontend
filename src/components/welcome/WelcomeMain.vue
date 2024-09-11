@@ -28,7 +28,7 @@
         </div>
 
         <div class="col-span-2 rounded-lg bg-gray-100 text-black shadow-lg p-8 m-8">
-          Test
+          <WelcomeStepper></WelcomeStepper>
         </div>
       </div>
     </div>
@@ -40,10 +40,11 @@
 <script>
 import HeaderTitle from "@/components/navigation/header/HeaderTitle.vue";
 import FooterCopyright from "@/components/navigation/footer/FooterCopyright.vue";
+import WelcomeStepper from "@/components/welcome/WelcomeStepper.vue";
 
 export default {
   name: "WelcomeMain",
-  components: {FooterCopyright, HeaderTitle}
+  components: {WelcomeStepper, FooterCopyright, HeaderTitle}
 }
 </script>
 
