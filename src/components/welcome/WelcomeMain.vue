@@ -19,13 +19,16 @@
             <p class="text-2xl font-bold">Willkommen!</p>
             <p class="text-lg font-thin pt-4">Explore our intuitive dashboard and set up your account in just a few clicks.</p>
           </div>
-          <div class="mt-auto">
+          <div class="mt-auto py-4">
+            <RouterLink to="/" class="text-blue-500 hover:underline">Setup überspringen</RouterLink>
+          </div>
+          <div class="">
             <FooterCopyright></FooterCopyright>
           </div>
         </div>
 
         <div class="col-span-2 rounded-lg bg-gray-100 text-black shadow-lg p-8 m-8">
-          Test
+          <WelcomeStepper></WelcomeStepper>
         </div>
       </div>
     </div>
@@ -37,10 +40,11 @@
 <script>
 import HeaderTitle from "@/components/navigation/header/HeaderTitle.vue";
 import FooterCopyright from "@/components/navigation/footer/FooterCopyright.vue";
+import WelcomeStepper from "@/components/welcome/WelcomeStepper.vue";
 
 export default {
   name: "WelcomeMain",
-  components: {FooterCopyright, HeaderTitle}
+  components: {WelcomeStepper, FooterCopyright, HeaderTitle}
 }
 </script>
 

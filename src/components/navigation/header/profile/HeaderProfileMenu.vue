@@ -32,13 +32,13 @@
     </div>
     <div class="py-2">
       <div v-if="profile">
-        <a
-          href="#"
+        <RouterLink
+          to="/welcome"
           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 inline-flex w-full"
         >
           <IconSignOut class="w-5 h-5 mr-2"></IconSignOut>
           <span>Abmelden</span>
-        </a>
+        </RouterLink>
       </div>
       <div v-else>
         <RouterLink
