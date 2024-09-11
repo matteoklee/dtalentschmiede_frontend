@@ -1,7 +1,12 @@
-<script setup></script>
+<script>
+import {defineComponent} from "vue";
+import LandingTitle from "@/components/home/LandingTitle.vue";
+
+export default defineComponent({
+  components: {LandingTitle}
+})
+</script>
 
 <template>
-  <div class="text-center">
-    <h1>TODO: Landing Page</h1>
-  </div>
+    <LandingTitle></LandingTitle>
 </template>
