@@ -4,20 +4,11 @@
       <ProfileGeneral></ProfileGeneral>
     </div>
     <div class="bg-white m-4 p-4 shadow lg:col-span-2">
-      <div class="px-2">
-        <p class="text-xl font-bold">Skills</p>
-        <ul class="flex flex-wrap items-center mt-2">
-          <li v-for="skill in profileSkills" :key="skill" class="my-1 px-3 py-2 bg-green-100 text-green-700 mr-1 rounded-lg">
-            {{ skill }}
-          </li>
-        </ul>
-      </div>
+      <ProfileSkills></ProfileSkills>
     </div>
 
-
     <div class="lg:col-start-2 bg-white m-4 p-4 shadow lg:col-span-2">
-      Software/Programming Language
-      oder Skill Rating
+      <ProfileSkills></ProfileSkills>
     </div>
 
 
@@ -29,13 +20,14 @@
 
 <script>
 import ProfileGeneral from "@/components/profile/ProfileGeneral.vue";
+import ProfileSkills from "@/components/profile/ProfileSkills.vue";
 
 export default {
   name: "ProfileMain",
-  components: {ProfileGeneral},
+  components: {ProfileSkills, ProfileGeneral},
   data () {
     return {
-      profileSkills: ["Brand Design", "Logo Design", "Software Development", "Wordpress", "Figma", "Prototyping", "UI Design"],
+
     }
   }
 }
