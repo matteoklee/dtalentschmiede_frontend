@@ -35,17 +35,15 @@
 </template>
 
 <script>
-import IconJob from "@/components/profile/icons/IconJob.vue";
-import IconUserCircle from "@/components/navigation/header/profile/icons/IconUserCircle.vue";
-import IconLocation from "@/components/profile/icons/IconLocation.vue";
-import IconStar from "@/components/profile/icons/IconStar.vue";
+import IconJob from '@/components/profile/icons/IconJob.vue'
+import IconUserCircle from '@/components/navigation/header/profile/icons/IconUserCircle.vue'
+import IconLocation from '@/components/profile/icons/IconLocation.vue'
+import IconStar from '@/components/profile/icons/IconStar.vue'
 
 export default {
-  name: "ProfileGeneral",
-  components: {IconStar, IconLocation, IconUserCircle, IconJob}
+  name: 'ProfileGeneral',
+  components: { IconStar, IconLocation, IconUserCircle, IconJob }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

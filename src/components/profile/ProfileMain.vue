@@ -10,29 +10,21 @@
     <div class="lg:col-start-2 bg-white m-4 p-4 shadow lg:col-span-2">
       <ProfileSkills></ProfileSkills>
     </div>
-
-
   </div>
-  <div class="bg-white m-4 p-4 shadow">
-    Projekte
-  </div>
+  <div class="bg-white m-4 p-4 shadow">Projekte</div>
 </template>
 
 <script>
-import ProfileGeneral from "@/components/profile/ProfileGeneral.vue";
-import ProfileSkills from "@/components/profile/ProfileSkills.vue";
+import ProfileGeneral from '@/components/profile/ProfileGeneral.vue'
+import ProfileSkills from '@/components/profile/ProfileSkills.vue'
 
 export default {
-  name: "ProfileMain",
-  components: {ProfileSkills, ProfileGeneral},
-  data () {
-    return {
-
-    }
+  name: 'ProfileMain',
+  components: { ProfileSkills, ProfileGeneral },
+  data() {
+    return {}
   }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
