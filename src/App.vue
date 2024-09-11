@@ -7,7 +7,7 @@ import AppFooter from '@/components/navigation/AppFooter.vue'
 <template>
   <div class="flex flex-col min-h-screen container mx-auto">
     <!-- container h-screen mx-auto -->
-    <header>
+    <header v-if="$route.meta.header === true">
       <AppHeader></AppHeader>
     </header>
 
@@ -15,7 +15,7 @@ import AppFooter from '@/components/navigation/AppFooter.vue'
       <RouterView />
     </main>
 
-    <footer class="">
+    <footer v-if="$route.meta.footer === true">
       <AppFooter></AppFooter>
     </footer>
   </div>
