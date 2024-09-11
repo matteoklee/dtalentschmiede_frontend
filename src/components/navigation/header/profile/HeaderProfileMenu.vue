@@ -19,7 +19,9 @@
         aria-labelledby="dropdownInformationButton"
       >
         <li>
-          <RouterLink to="/settings" class="block px-4 py-2 hover:bg-gray-100">Profil</RouterLink>
+          <RouterLink to="/profile" class="block px-4 py-2 hover:bg-gray-100">
+            Profil
+          </RouterLink>
         </li>
         <li>
           <RouterLink to="/settings" class="block px-4 py-2 hover:bg-gray-100"

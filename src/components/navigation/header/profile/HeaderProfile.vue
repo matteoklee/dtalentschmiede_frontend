@@ -1,16 +1,24 @@
 <template>
   <div class="flex items-center space-x-4 border-x border-gray-200 px-4">
-    <HeaderProfileInfo :profile="profile"></HeaderProfileInfo>
-    <!-- <HeaderProfileActions></HeaderProfileActions> -->
+    <div class="inline-flex">
+      <!-- <p class="hover:text-primary-600 hover:underline mr-3">Matteo Kleemann</p> -->
+      <a class="" id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation">
+        <IconUserCircle
+            class="h-6 w-6 hover:scale-105 text-gray-800 hover:text-primary-700"
+        ></IconUserCircle>
+      </a>
+      <HeaderProfileMenu :profile="profile"></HeaderProfileMenu>
+    </div>
   </div>
 </template>
 
 <script>
-import HeaderProfileInfo from '@/components/navigation/header/profile/HeaderProfileInfo.vue'
+import HeaderProfileMenu from "@/components/navigation/header/profile/HeaderProfileMenu.vue";
+import IconUserCircle from "@/components/navigation/header/profile/icons/IconUserCircle.vue";
 
 export default {
   name: 'HeaderProfile',
-  components: { HeaderProfileInfo },
+  components: {IconUserCircle, HeaderProfileMenu },
   props: ['profile']
 }
 </script>
