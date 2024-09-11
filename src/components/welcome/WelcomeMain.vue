@@ -19,7 +19,10 @@
             <p class="text-2xl font-bold">Willkommen!</p>
             <p class="text-lg font-thin pt-4">Explore our intuitive dashboard and set up your account in just a few clicks.</p>
           </div>
-          <div class="mt-auto">
+          <div class="mt-auto py-4">
+            <RouterLink to="/" class="text-blue-500 hover:underline">Setup überspringen</RouterLink>
+          </div>
+          <div class="">
             <FooterCopyright></FooterCopyright>
           </div>
         </div>
