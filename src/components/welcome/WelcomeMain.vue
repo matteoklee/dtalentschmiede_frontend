@@ -1,7 +1,7 @@
 <template>
   <div class="my-auto flex flex-col justify-center items-center h-screen">
     <!--<div class="bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Dataport_Logo.svg/2560px-Dataport_Logo.svg.png')] bg-contain bg-no-repeat bg-center min-h-screen">-->
-    <div class="h-[800px] bg-gray-900 rounded-lg w-full text-white">
+    <div class="h-[800px] rounded-lg w-full text-white bg-20% bg-left bg-no-repeat bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Dataport_Logo.svg/1200px-Dataport_Logo.svg.png')] bg-gray-900 bg-blend-multiply">
       <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-4 gap-0 h-full">
         <div class="p-12 flex flex-col">
           <div>
