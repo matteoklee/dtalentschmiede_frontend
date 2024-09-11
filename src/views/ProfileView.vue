@@ -1,10 +1,13 @@
 <template>
-  <div></div>
+  <ProfileMain></ProfileMain>
 </template>
 
 <script>
+import ProfileMain from "@/components/profile/ProfileMain.vue";
+
 export default {
-  name: 'ProfileView'
+  name: 'ProfileView',
+  components: {ProfileMain}
 }
 </script>
 
