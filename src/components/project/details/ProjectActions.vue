@@ -1,6 +1,6 @@
 <template>
   <div v-if="project">
-    <div class="text-right p-2">
+    <div class="text-right pb-2">
       <button @click="closeProject">
         <IconProjectClose class="w-6 h-6"></IconProjectClose>
       </button>

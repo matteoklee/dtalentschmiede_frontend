@@ -3,14 +3,12 @@
 </template>
 
 <script>
-import WelcomeMain from "@/components/welcome/WelcomeMain.vue";
+import WelcomeMain from '@/components/welcome/WelcomeMain.vue'
 
 export default {
-  name: "WelcomeView",
-  components: {WelcomeMain}
+  name: 'WelcomeView',
+  components: { WelcomeMain }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
