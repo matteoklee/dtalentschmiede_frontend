@@ -11,7 +11,9 @@
     </div>
 
     <div class="" v-for="(step, index) in steps" :key="index">
-      <component v-if="currentStep === index" :is="step"></component>
+      <KeepAlive>
+        <component v-if="currentStep === index" :is="step"></component>
+      </KeepAlive>
     </div>
     <div class="ml-auto">
       <div class="inline-flex">

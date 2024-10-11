@@ -2,7 +2,7 @@
   <div class="m-4">
     <div class="bg-white shadow-md">
       <div
-        v-for="project in projects"
+        v-for="project in filterProjects"
         :key="project.id"
         @click="selectProject(project)"
         :class="[
@@ -25,7 +25,7 @@
 <script>
 export default {
   name: 'ProjectList',
-  props: [],
+  props: ['searchQuery'],
   data() {
     return {
       projects: [
@@ -43,19 +43,19 @@ export default {
         },
         {
           id: 3,
-          title: 'Konfiguration Manager2 (m/w/d)',
+          title: 'Konfiguration Manager2 (m/w/d) Beta',
           company: 'TeamPower GmbH',
           location: 'Pforzheim'
         },
         {
           id: 4,
-          title: 'Konfiguration Manager3 (m/w/d)',
+          title: 'Konfiguration Manager3 (m/w/d) Gamma',
           company: 'TeamPower GmbH',
           location: 'Pforzheim'
         },
         {
           id: 5,
-          title: 'Konfiguration Manager4 (m/w/d)',
+          title: 'Konfiguration Manager4 (m/w/d) Epsilon',
           company: 'TeamPower GmbH',
           location: 'Pforzheim'
         },
@@ -116,8 +116,25 @@ export default {
       this.selectedProject = project
       this.$emit('selectProject', project)
       console.log(project)
+    },
+  },
+  computed: {
+    filterProjects() {
+      if(this.searchQuery !== '' && this.searchQuery !== undefined) {
+        return this.projects.filter(project => {
+          const query = this.searchQuery.toLowerCase();
+          return (
+              project.title.toLowerCase().includes(query) ||
+              project.company.toLowerCase().includes(query) ||
+              project.location.toLowerCase().includes(query)
+          );
+        });
+      } else {
+        return this.projects;
+      }
+
     }
-  }
+  },
 }
 </script>
 

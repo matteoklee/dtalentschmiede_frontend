@@ -1,8 +1,8 @@
 <template>
-  <ProjectViewTitle></ProjectViewTitle>
+  <!--<ProjectViewTitle></ProjectViewTitle>-->
   <div v-if="project">
-    <ProjectActions :project="project" @closeProject="closeProject"></ProjectActions>
-    <ProjectDetailsHeader :project="project"></ProjectDetailsHeader>
+
+    <ProjectDetailsHeader :project="project" @closeProject="closeProject"></ProjectDetailsHeader>
     <ProjectDetails :project="project"></ProjectDetails>
     <ProjectApply :project="project"></ProjectApply>
   </div>
@@ -14,16 +14,12 @@
 <script>
 import ProjectDetailsHeader from '@/components/project/details/ProjectDetailsHeader.vue'
 import ProjectDetails from '@/components/project/details/ProjectDetails.vue'
-import ProjectViewTitle from '@/components/project/ProjectViewTitle.vue'
 import ProjectApply from '@/components/project/details/ProjectApply.vue'
-import ProjectActions from '@/components/project/details/ProjectActions.vue'
 
 export default {
   name: 'ProjectInfo',
   components: {
-    ProjectActions,
     ProjectApply,
-    ProjectViewTitle,
     ProjectDetails,
     ProjectDetailsHeader
   },
