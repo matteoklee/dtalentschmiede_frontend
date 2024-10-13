@@ -1,42 +1,34 @@
 <template>
-  <div v-if="project">
-    <div class="p-4 bg-white shadow-lg mb-4">
-      <p class="mt-4">{{ project.description }}</p>
-      <p class="mt-4">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      </p>
-      <p class="mt-4">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      </p>
-      <p class="mt-4">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      </p>
+  <div class="flex lg:flex-row flex-col">
+    <div class="inline-flex lg:justify-center items-center mr-8 mb-2">
+      <div class="bg-blue-200 px-2 py-1.5 rounded-lg mr-2">
+        <IconLocation class="w-4 text-gray-800"></IconLocation>
+      </div>
+      Magdeburg
+    </div>
+    <div class="inline-flex lg:justify-center items-center mr-8 mb-2">
+      <div class="bg-blue-200 px-2 py-1.5 rounded-lg mr-2">
+        <IconHourglass class="w-4 text-gray-800"></IconHourglass>
+      </div>
+      zum 01.12.2025
+    </div>
+    <div class="inline-flex lg:justify-center items-center mr-8 mb-2">
+      <div class="bg-blue-200 px-2 py-1.5 rounded-lg mr-2">
+        <IconCalendar class="w-4 text-gray-800"></IconCalendar>
+      </div>
+      vor 2 Tagen
     </div>
   </div>
 </template>
 
 <script>
+import IconLocation from '@/components/profile/icons/IconLocation.vue'
+import IconCalendar from '@/components/project/details/icon/IconCalendar.vue'
+import IconHourglass from '@/components/project/details/icon/IconHourglass.vue'
+
 export default {
   name: 'ProjectDetails',
-  props: ['project']
+  components: { IconHourglass, IconCalendar, IconLocation }
 }
 </script>
 

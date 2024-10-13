@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 shadow-md m-4">
+    <nav class="px-4 lg:px-6 py-4 mx-4 mt-0 mb-4 border-x border-b">
       <div class="flex flex-wrap items-center">
         <HeaderLogo></HeaderLogo>
 

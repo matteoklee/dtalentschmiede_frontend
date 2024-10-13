@@ -1,0 +1,46 @@
+<template>
+  <div class="flex lg:flex-row flex-col justify-center items-center">
+    <RouterLink to="/projects" class="mx-8">
+      <div
+        class="bg-white shadow-gray-400 shadow-md rounded-lg h-48 w-52 mx-auto m-4 group flex flex-col items-center justify-center cursor-pointer transition-all duration-300 hover:scale-105"
+      >
+        <div class="w-full p-6 text-center">
+          <IconList
+            class="w-10 inline-flex my-2 text-gray-900 group-hover:text-primary-700"
+          ></IconList>
+          <p class="lg:text-xl text-lg font-bold py-3">Projekte und Ideen anzeigen</p>
+          <hr
+            class="w-full border-t-2 border-gray-200 mt-4 transition-all duration-200 group-hover:border-primary-700 w-3/4 mx-auto"
+          />
+        </div>
+      </div>
+    </RouterLink>
+    <RouterLink to="/projects" class="mx-8">
+      <div
+        class="bg-white shadow-gray-400 shadow-md rounded-lg h-48 w-52 mx-auto m-4 group flex flex-col items-center justify-center cursor-pointer transition-all duration-300 hover:scale-105"
+      >
+        <div class="w-full p-6 text-center">
+          <IconFolder
+            class="w-10 inline-flex my-2 text-gray-900 group-hover:text-primary-700"
+          ></IconFolder>
+          <p class="lg:text-xl text-lg font-bold py-3">Neues Projekt anelgen</p>
+          <hr
+            class="w-full border-t-2 border-gray-200 mt-4 transition-all duration-200 group-hover:border-primary-700 w-3/4 mx-auto"
+          />
+        </div>
+      </div>
+    </RouterLink>
+  </div>
+</template>
+
+<script>
+import IconFolder from '@/components/home/icons/IconFolder.vue'
+import IconList from '@/components/home/icons/IconList.vue'
+
+export default {
+  name: 'LandingActions',
+  components: { IconList, IconFolder }
+}
+</script>
+
+<style scoped></style>
