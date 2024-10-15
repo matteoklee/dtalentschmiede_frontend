@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'IconProjectClose'
+  name: 'IconClose'
 }
 </script>
 

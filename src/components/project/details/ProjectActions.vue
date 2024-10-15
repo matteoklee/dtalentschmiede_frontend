@@ -2,18 +2,18 @@
   <div v-if="project">
     <div class="text-right pb-2">
       <button @click="closeProject">
-        <IconProjectClose class="w-6 h-6"></IconProjectClose>
+        <IconClose class="w-6 h-6"></IconClose>
       </button>
     </div>
   </div>
 </template>
 
 <script>
-import IconProjectClose from '@/components/project/details/icon/IconProjectClose.vue'
+import IconClose from '@/components/project/details/icon/IconClose.vue'
 
 export default {
   name: 'ProjectActions',
-  components: { IconProjectClose },
+  components: { IconClose },
   props: ['project'],
   data() {
     return {}

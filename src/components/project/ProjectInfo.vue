@@ -1,30 +1,28 @@
 <template>
-  <ProjectViewTitle></ProjectViewTitle>
+  <!--<ProjectViewTitle></ProjectViewTitle>-->
   <div v-if="project">
-    <ProjectActions :project="project" @closeProject="closeProject"></ProjectActions>
-    <ProjectDetailsHeader :project="project"></ProjectDetailsHeader>
-    <ProjectDetails :project="project"></ProjectDetails>
+    <ProjectDetailsHeader :project="project" @closeProject="closeProject"></ProjectDetailsHeader>
+    <ProjectDescription :project="project"></ProjectDescription>
     <ProjectApply :project="project"></ProjectApply>
+    <ProjectCreator :project="project"></ProjectCreator>
   </div>
   <div v-else class="text-left">
-    <p class="text-gray-500">Bitte wähle ein Project aus der Liste aus.</p>
+    <p class="text-gray-500">Bitte wähle ein Projekt aus der Liste.</p>
   </div>
 </template>
 
 <script>
 import ProjectDetailsHeader from '@/components/project/details/ProjectDetailsHeader.vue'
-import ProjectDetails from '@/components/project/details/ProjectDetails.vue'
-import ProjectViewTitle from '@/components/project/ProjectViewTitle.vue'
+import ProjectDescription from '@/components/project/details/ProjectDescription.vue'
 import ProjectApply from '@/components/project/details/ProjectApply.vue'
-import ProjectActions from '@/components/project/details/ProjectActions.vue'
+import ProjectCreator from '@/components/project/details/ProjectCreator.vue'
 
 export default {
   name: 'ProjectInfo',
   components: {
-    ProjectActions,
+    ProjectCreator,
     ProjectApply,
-    ProjectViewTitle,
-    ProjectDetails,
+    ProjectDescription,
     ProjectDetailsHeader
   },
   props: ['project'],

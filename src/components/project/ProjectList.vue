@@ -1,12 +1,12 @@
 <template>
-  <div class="m-4">
-    <div class="bg-white shadow-md">
+  <div class="m-4 mr-2">
+    <div class="bg-white shadow shadow-gray-400 rounded-md">
       <div
-        v-for="project in projects"
+        v-for="project in filterProjects"
         :key="project.id"
         @click="selectProject(project)"
         :class="[
-          'border-b border-gray-200 hover:bg-gray-100 cursor-pointer',
+          'border-b-2 border-gray-200 hover:bg-gray-100 cursor-pointer',
           selectedProject && selectedProject.id === project.id
             ? 'border-l-4 border-b-gray-200 border-red-500'
             : ''
@@ -25,37 +25,37 @@
 <script>
 export default {
   name: 'ProjectList',
-  props: [],
+  props: ['searchQuery'],
   data() {
     return {
       projects: [
         {
           id: 1,
-          title: 'Softwareentwickler (m/w/d)',
-          company: 'expo3 GmbH',
-          location: 'Tuttlingen'
+          title: 'Marktpreise 2024',
+          company: 'TQ6',
+          location: 'Altenholz'
         },
         {
           id: 2,
-          title: 'Konfiguration Manager (m/w/d)',
-          company: 'TeamPower GmbH',
-          location: 'Pforzheim'
+          title: 'dProjektbörse',
+          company: 'DS44',
+          location: 'Halle (Saale)'
         },
         {
           id: 3,
-          title: 'Konfiguration Manager2 (m/w/d)',
+          title: 'Konfiguration Manager2 (m/w/d) Beta',
           company: 'TeamPower GmbH',
           location: 'Pforzheim'
         },
         {
           id: 4,
-          title: 'Konfiguration Manager3 (m/w/d)',
+          title: 'Konfiguration Manager3 (m/w/d) Gamma',
           company: 'TeamPower GmbH',
           location: 'Pforzheim'
         },
         {
           id: 5,
-          title: 'Konfiguration Manager4 (m/w/d)',
+          title: 'Konfiguration Manager4 (m/w/d) Epsilon',
           company: 'TeamPower GmbH',
           location: 'Pforzheim'
         },
@@ -116,6 +116,22 @@ export default {
       this.selectedProject = project
       this.$emit('selectProject', project)
       console.log(project)
+    }
+  },
+  computed: {
+    filterProjects() {
+      if (this.searchQuery !== '' && this.searchQuery !== undefined) {
+        return this.projects.filter((project) => {
+          const query = this.searchQuery.toLowerCase()
+          return (
+            project.title.toLowerCase().includes(query) ||
+            project.company.toLowerCase().includes(query) ||
+            project.location.toLowerCase().includes(query)
+          )
+        })
+      } else {
+        return this.projects
+      }
     }
   }
 }
