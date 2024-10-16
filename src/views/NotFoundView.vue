@@ -14,7 +14,7 @@
         </p>
         <RouterLink
           to="/"
-          class="inline-flex text-white bg-primary-700 hover:bg-white hover:text-primary-700 hover:border-2 hover:border-primary-700 font-medium px-5 py-2.5 text-center my-4"
+          class="inline-flex text-white rounded-lg bg-primary-700 hover:bg-white hover:text-primary-700 hover:border-2 hover:border-primary-700 font-medium px-5 py-2.5 text-center my-4"
         >
           Zurück zur Startseite
         </RouterLink>

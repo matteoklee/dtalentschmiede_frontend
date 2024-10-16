@@ -8,7 +8,10 @@
         </div>
 
         <!-- Navigationsleiste in der Mitte -->
-        <div class="hidden w-full lg:w-auto lg:block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2" id="mobile-menu-2">
+        <div
+          class="hidden w-full lg:w-auto lg:block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2"
+          id="mobile-menu-2"
+        >
           <HeaderNav></HeaderNav>
         </div>
 

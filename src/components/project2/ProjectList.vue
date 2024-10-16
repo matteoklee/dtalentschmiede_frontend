@@ -1,75 +1,233 @@
 <template>
-  <div class="bg-white">
-    <div class="max-w-screen-xl mx-auto py-8">
-      <div class="flex flex-row justify-between items-center">
-        <p class="font-bold text-2xl">Featured Projects</p>
-        <div>
+  <div id="projects" class="bg-white">
+    <div class="max-w-screen-xl mx-auto py-2">
+      <div class="flex flex-col lg:flex-row justify-between lg:items-center items-start">
+        <p class="font-bold text-2xl lg:px-0 px-6">Featured Projects</p>
+        <div class="lg:px-0 px-6 py-2 lg:py-0">
           <button
-              type="button"
-              @click="clear"
-              class="bg-primary-600 shadow-md shadow-primary-600/50 px-6 py-3 rounded-lg text-white hover:bg-primary-700 transition mr-4"
-          >Projekt hinzufügen</button>
+            type="button"
+            @click="clear"
+            class="bg-gray-200 shadow-md px-6 py-3 rounded-lg hover:bg-gray-600 hover:text-white transition mr-4"
+          >
+            Projekt hinzufügen
+          </button>
           <button
-              type="button"
-              @click="clear"
-              class="bg-emerald-600 shadow-md shadow-emerald-600/50 px-6 py-3 rounded-lg text-white hover:bg-emerald-700 transition"
-          >Idee hinzufügen</button>
+            type="button"
+            @click="clear"
+            class="bg-gray-400 shadow-md px-6 py-3 text-white rounded-lg hover:bg-gray-800 hover:text-white transition"
+          >
+            Idee hinzufügen
+          </button>
         </div>
-
       </div>
 
       <div class="my-6">
-        <div v-for="i in 6" :key="i">
-          <div class="group border rounded-xl hover:shadow-xl duration-300 transition-all lg:my-6 my-4 lg:mx-0 mx-4 lg:py-6 py-4 px-8">
-            <div class="flex lg:flex-row flex-col lg:items-center items-start justify-between space-y-2">
-              <IconLightbulb class="text-gray-400 h-12 bg-gray-100 rounded-full shrink-0 grow-0 p-2 avatar aspect-square"></IconLightbulb>
-              <div class="flex flex-col justify-center text-left">
-                <p class="text-gray-800 text-lg font-medium group-hover:font-bold group-hover:text-blue-600">Marktpreise 2024</p>
-                <p class="text-gray-400">TQ6 – Altenholz</p>
-              </div>
-              <div class="flex flex-col justify-center text-left">
-                <p class="text-gray-600">Matteo Kleemann</p>
-                <p class="text-gray-400 text-sm">matteo.kleemann@dataport.de</p>
-              </div>
-              <div class="flex flex-row justify-center items-center">
-                <p class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 group-hover:bg-blue-500">Vue</p>
-                <p class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 group-hover:bg-blue-500">React</p>
-                <p class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg group-hover:bg-blue-500">Spring Boot</p>
-              </div>
-              <div class="flex flex-col justify-center text-left">
-                <p class="text-gray-400 text-sm">16.10.2024</p>
-              </div>
-              <div>
+        <div v-if="filterProjects.length == 0">
+          <div class="flex flex-col items-center">
+            <div class="text-gray-800 inline-flex bg-red-200 p-4 w-1/2 justify-center rounded-lg">
+              <IconError class="h-5 text-primary-700 mr-4"></IconError>
+              <span>Es konnten keine Projekte gefunden werden.</span>
+            </div>
+          </div>
+        </div>
+        <div
+          v-for="project in filterProjects"
+          :key="project.id"
+          @click="selectProject(project)"
+          :class="[
+            'group border hover:border-blue-500 rounded-xl hover:shadow-xl duration-300 transition-all lg:my-6 my-4 lg:mx-0 mx-4 lg:py-6 py-4 px-8',
+            selectedProject && selectedProject.id === project.id
+              ? 'group border-2 border-blue-500 rounded-xl hover:shadow-xl duration-300 transition-all lg:my-6 my-4 lg:mx-0 mx-4 lg:py-6 py-4 px-8'
+              : ''
+          ]"
+        >
+          <div
+            class="flex lg:flex-row flex-col lg:items-center items-start justify-between space-y-2"
+          >
+            <IconLightbulb
+              class="text-gray-400 h-12 bg-gray-100 rounded-full shrink-0 grow-0 p-2 avatar aspect-square"
+            ></IconLightbulb>
+            <div class="flex flex-col justify-center text-left lg:w-[200px]">
+              <p
+                class="text-gray-800 text-lg font-medium group-hover:font-bold group-hover:text-blue-600"
+              >
+                {{ project.title }}
+              </p>
+              <p class="text-gray-400">TQ6 – Altenholz</p>
+            </div>
+            <div class="flex flex-col justify-center text-left lg:w-[200px]">
+              <p class="text-gray-600">Matteo Kleemann</p>
+              <p class="text-gray-400 text-sm">matteo.kleemann@dataport.de</p>
+            </div>
+            <div class="flex flex-row justify-center items-center">
+              <p
+                class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 group-hover:bg-blue-500"
+              >
+                Vue
+              </p>
+              <p
+                class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 group-hover:bg-blue-500"
+              >
+                React
+              </p>
+              <p
+                class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg group-hover:bg-blue-500"
+              >
+                Spring Boot
+              </p>
+            </div>
+            <div class="flex flex-col justify-center text-left">
+              <p class="text-gray-400 text-sm">16.10.2024</p>
+            </div>
+            <div>
+              <!--
                 <button
                     type="button"
                     @click="clear"
                     class="bg-blue-600 shadow-md shadow-blue-600/50 px-6 py-3 rounded-lg text-white hover:bg-blue-700 transition"
                 >Ansehen</button>
-              </div>
+                -->
+              <ProjectDrawer
+                :project="selectedProject"
+                @closeProject="closeProject"
+              ></ProjectDrawer>
             </div>
           </div>
         </div>
       </div>
       <div class="flex justify-center mt-8">
         <button
-            type="button"
-            @click="clear"
-            class="w-1/4 bg-gray-400 shadow-lg text-white px-6 py-3 rounded-lg hover:bg-gray-500 transition"
-        >Alle anzeigen</button>
+          type="button"
+          @click="clear"
+          class="w-1/4 bg-gray-400 shadow-lg text-white px-6 py-3 rounded-lg hover:bg-gray-500 transition"
+        >
+          Alle anzeigen
+        </button>
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
-import IconLightbulb from "@/components/project2/icons/IconLightbulb.vue";
+import IconLightbulb from '@/components/project2/icons/IconLightbulb.vue'
+import ProjectDrawer from '@/components/project2/ProjectDrawer.vue'
+import IconError from '@/components/project2/icons/IconError.vue'
 export default {
-  name: "ProjectList",
-  components: { IconLightbulb}
+  name: 'ProjectList',
+  components: { IconError, ProjectDrawer, IconLightbulb },
+  props: ['searchQuery'],
+  data() {
+    return {
+      projects: [
+        {
+          id: 1,
+          title: 'Marktpreise 2024',
+          company: 'TQ6',
+          location: 'Altenholz'
+        },
+        {
+          id: 2,
+          title: 'dProjektbörse',
+          company: 'DS44',
+          location: 'Halle (Saale)'
+        },
+        {
+          id: 3,
+          title: 'Konfiguration Manager2 (m/w/d) Beta',
+          company: 'TeamPower GmbH',
+          location: 'Pforzheim'
+        },
+        {
+          id: 4,
+          title: 'Konfiguration Manager3 (m/w/d) Gamma',
+          company: 'TeamPower GmbH',
+          location: 'Pforzheim'
+        },
+        {
+          id: 5,
+          title: 'Konfiguration Manager4 (m/w/d) Epsilon',
+          company: 'TeamPower GmbH',
+          location: 'Pforzheim'
+        },
+        {
+          id: 6,
+          title: 'Konfiguration Manager5 (m/w/d)',
+          company: 'TeamPower GmbH',
+          location: 'Pforzheim'
+        },
+        {
+          id: 7,
+          title: 'Konfiguration Manager6 (m/w/d)',
+          company: 'TeamPower GmbH',
+          location: 'Pforzheim'
+        },
+        {
+          id: 8,
+          title: 'Konfiguration Manager4 (m/w/d)',
+          company: 'TeamPower GmbH',
+          location: 'Pforzheim'
+        },
+        {
+          id: 9,
+          title: 'Konfiguration Manager5 (m/w/d)',
+          company: 'TeamPower GmbH',
+          location: 'Pforzheim'
+        },
+        {
+          id: 10,
+          title: 'Konfiguration Manager6 (m/w/d)',
+          company: 'TeamPower GmbH',
+          location: 'Pforzheim'
+        },
+        {
+          id: 11,
+          title: 'Konfiguration Manager4 (m/w/d)',
+          company: 'TeamPower GmbH',
+          location: 'Pforzheim'
+        },
+        {
+          id: 12,
+          title: 'Konfiguration Manager5 (m/w/d)',
+          company: 'TeamPower GmbH',
+          location: 'Pforzheim'
+        },
+        {
+          id: 13,
+          title: 'Konfiguration Manager6 (m/w/d)',
+          company: 'TeamPower GmbH',
+          location: 'Pforzheim'
+        }
+      ],
+      selectedProject: null
+    }
+  },
+  methods: {
+    selectProject(project) {
+      this.selectedProject = project
+      this.$emit('selectProject', project)
+      console.log(project)
+    },
+    closeProject() {
+      this.selectedProject = null
+    }
+  },
+  computed: {
+    filterProjects() {
+      if (this.searchQuery !== '' && this.searchQuery !== undefined) {
+        return this.projects.filter((project) => {
+          const query = this.searchQuery.toLowerCase()
+          return (
+            project.title.toLowerCase().includes(query) ||
+            project.company.toLowerCase().includes(query) ||
+            project.location.toLowerCase().includes(query)
+          )
+        })
+      } else {
+        return this.projects
+      }
+    }
+  }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

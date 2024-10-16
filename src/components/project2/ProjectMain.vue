@@ -1,26 +1,42 @@
 <template>
   <div class="">
-    <ProjectLanding></ProjectLanding>
+    <ProjectLanding @searchProject="searchProject"></ProjectLanding>
   </div>
   <div>
     <ProjectCategories></ProjectCategories>
   </div>
   <div>
-    <ProjectList></ProjectList>
+    <ProjectList :searchQuery="searchQuery" @selectProject="selectProject"></ProjectList>
   </div>
 </template>
 
 <script>
-import ProjectLanding from "@/components/project2/ProjectLanding.vue";
-import ProjectCategories from "@/components/project2/ProjectCategories.vue";
-import ProjectList from "@/components/project2/ProjectList.vue";
+import ProjectLanding from '@/components/project2/ProjectLanding.vue'
+import ProjectCategories from '@/components/project2/ProjectCategories.vue'
+import ProjectList from '@/components/project2/ProjectList.vue'
 
 export default {
-  name: "ProjectMain",
-  components: {ProjectList, ProjectCategories, ProjectLanding}
+  name: 'ProjectMain',
+  components: { ProjectList, ProjectCategories, ProjectLanding },
+  data() {
+    return {
+      selectedProject: null,
+      searchQuery: ''
+    }
+  },
+  methods: {
+    selectProject(project) {
+      this.selectedProject = project
+    },
+    closeProject() {
+      this.selectedProject = null
+    },
+    searchProject(value) {
+      this.searchQuery = value
+      console.log('Search: ' + value)
+    }
+  }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

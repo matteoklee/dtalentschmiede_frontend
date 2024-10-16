@@ -1,9 +1,12 @@
 <template>
-  <div class="my-auto flex flex-col justify-center items-center lg:h-screen">
+  <div
+    class="my-auto flex flex-col justify-center items-center lg:h-screen max-w-screen-2xl mx-auto"
+  >
     <!--<div class="bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Dataport_Logo.svg/2560px-Dataport_Logo.svg.png')] bg-contain bg-no-repeat bg-center min-h-screen">-->
     <div
-      class="lg:h-[800px] lg:rounded-lg w-full text-white bg-contain bg-no-repeat bg-[url('https://www.dataport.de/fileadmin/user_upload/unternehmen/partner/grafik_netzwerk-von-dataport.png')] bg-gray-900 bg-blend-multiply"
+      class="lg:h-[800px] lg:rounded-lg w-full text-white bg-contain bg-no-repeat bg-gray-800 bg-blend-multiply bg-[url('@/assets/image-removebg-preview.png')]"
     >
+      <!-- bg-[url('https://www.dataport.de/fileadmin/user_upload/unternehmen/partner/grafik_netzwerk-von-dataport.png')]  -->
       <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-4 gap-0 h-full">
         <div class="p-12 flex flex-col">
           <div>
