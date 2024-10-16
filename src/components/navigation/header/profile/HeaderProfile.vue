@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center space-x-4 border-x border-gray-200 px-4">
+  <div class="flex justify-center items-center">
     <div class="inline-flex">
       <!-- <p class="hover:text-primary-600 hover:underline mr-3">Matteo Kleemann</p> -->
       <a class="" id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation">

@@ -1,13 +1,13 @@
 <template>
-  <nav class="flex mx-6" aria-label="Breadcrumb">
+  <nav class="flex px-6 pb-2" aria-label="Breadcrumb">
     <ol class="inline-flex items-center space-x-1 md:space-x-2">
       <li class="inline-flex items-center">
-        <a
-          href="#"
+        <RouterLink
+          to="/"
           class="inline-flex items-center text-lg font-medium text-gray-700 hover:text-primary-700"
         >
           <IconHome class="w-4 h-4"></IconHome>
-        </a>
+        </RouterLink>
       </li>
       <li v-for="(crumb, index) in breadcrumbs" :key="index">
         <div class="flex items-center">

@@ -1,5 +1,5 @@
 <template>
-  <div>dTalentschmiede</div>
+  <p class="font-medium text-primary-700">dProjektbörse</p>
 </template>
 
 <script>

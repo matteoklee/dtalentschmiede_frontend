@@ -1,23 +1,27 @@
 <template>
   <header>
-    <nav class="px-4 lg:px-6 py-4 mx-4 mt-0 mb-4 bg-white shadow">
-      <div class="flex flex-wrap items-center">
-        <HeaderLogo></HeaderLogo>
+    <nav class="px-4 lg:px-6 pt-4 pb-2 bg-transparent max-w-screen-xl mx-auto my-4 relative">
+      <div class="flex flex-wrap items-center justify-between">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <HeaderLogo></HeaderLogo>
+        </div>
 
+        <!-- Navigationsleiste in der Mitte -->
+        <div class="absolute left-1/2 transform -translate-x-1/2">
+          <HeaderNav></HeaderNav>
+        </div>
+
+        <!-- Profil und mobile Navigation -->
         <div class="flex items-center ml-auto lg:order-2">
           <HeaderProfile :profile="profile"></HeaderProfile>
           <HeaderMobileNav></HeaderMobileNav>
         </div>
-
-        <div
-          class="hidden justify-between items-start w-full lg:ml-12 lg:flex lg:w-auto lg:order-1 border-x border-gray-200 px-4"
-          id="mobile-menu-2"
-        >
-          <HeaderNav></HeaderNav>
-        </div>
       </div>
     </nav>
-    <BreadcrumbNav></BreadcrumbNav>
+    <div class="max-w-screen-xl mx-auto">
+      <BreadcrumbNav></BreadcrumbNav>
+    </div>
   </header>
 </template>
 

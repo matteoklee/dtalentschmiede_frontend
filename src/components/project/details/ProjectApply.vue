@@ -1,6 +1,6 @@
 <template>
   <div v-if="project">
-    <div class="p-4 bg-white shadow-lg rounded-lg mb-4">
+    <div class="p-4 bg-gray-50 shadow-lg rounded-lg mb-4">
       <div class="flex flex-col justify-center items-center py-4">
         <p class="font-bold text-lg">Bewerbe dich direkt hier, falls dir dieses Projekt zusagt:</p>
 

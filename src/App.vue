@@ -5,10 +5,10 @@ import AppFooter from '@/components/navigation/AppFooter.vue'
 </script>
 
 <template>
-  <div class="bg-gray-100">
-    <div class="container mx-auto flex flex-col min-h-screen">
+  <div class="bg-gray-50">
+    <div class="mx-auto flex flex-col min-h-screen">
       <!-- container h-screen mx-auto -->
-      <header v-if="$route.meta.header === true">
+      <header v-if="$route.meta.header === true" class="bg-transparent">
         <AppHeader></AppHeader>
       </header>
 

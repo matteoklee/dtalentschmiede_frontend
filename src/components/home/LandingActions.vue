@@ -10,7 +10,7 @@
           ></IconList>
           <p class="lg:text-xl text-lg font-bold py-3">Projekte und Ideen anzeigen</p>
           <hr
-            class="w-full border-t-2 border-gray-200 mt-4 transition-all duration-200 group-hover:border-primary-700 w-3/4 mx-auto"
+            class="w-3/4 border-t-2 border-gray-200 mt-4 transition-all duration-200 group-hover:border-primary-700 w-3/4 mx-auto"
           />
         </div>
       </div>
@@ -25,7 +25,7 @@
           ></IconFolder>
           <p class="lg:text-xl text-lg font-bold py-3">Neues Projekt anelgen</p>
           <hr
-            class="w-full border-t-2 border-gray-200 mt-4 transition-all duration-200 group-hover:border-primary-700 w-3/4 mx-auto"
+            class="w-3/4 border-t-2 border-gray-200 mt-4 transition-all duration-200 group-hover:border-primary-700 w-3/4 mx-auto"
           />
         </div>
       </div>

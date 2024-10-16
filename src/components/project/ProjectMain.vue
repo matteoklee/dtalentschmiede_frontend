@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-md border border m-4">
+  <div class="bg-gray-50 rounded-md border border m-4">
     <!--
     <ProjectViewTitle></ProjectViewTitle>
     -->

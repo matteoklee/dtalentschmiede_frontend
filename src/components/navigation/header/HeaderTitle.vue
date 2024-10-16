@@ -1,6 +1,6 @@
 <template>
-  <span class="self-center text-xl font-semibold whitespace-nowrap hidden lg:block"
-    >dTalentschmiede</span
+  <span class="self-center text-xl font-bold whitespace-nowrap hidden lg:block text-primary-700"
+    >dProjektbörse</span
   >
 </template>
 

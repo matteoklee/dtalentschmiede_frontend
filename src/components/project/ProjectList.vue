@@ -1,6 +1,6 @@
 <template>
   <div class="m-4 mr-2">
-    <div class="bg-white shadow shadow-gray-400 rounded-md">
+    <div class="bg-gray-50 shadow shadow-gray-400 rounded-md">
       <div
         v-for="project in filterProjects"
         :key="project.id"

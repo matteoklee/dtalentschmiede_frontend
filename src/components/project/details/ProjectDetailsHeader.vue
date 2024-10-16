@@ -1,6 +1,6 @@
 <template>
   <div v-if="project">
-    <div class="p-4 bg-white shadow-lg mb-4 rounded-lg">
+    <div class="p-4 bg-gray-50 shadow-lg mb-4 rounded-lg">
       <div class="flex flex-row items-center justify-between">
         <div class="inline-flex">
           <div class="mb-2 px-4 py-2 bg-green-100 mr-1 rounded-lg mr-2">Projekt</div>
