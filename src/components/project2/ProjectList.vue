@@ -14,7 +14,7 @@
           <button
             type="button"
             @click="clear"
-            class="bg-gray-400 shadow-md px-6 py-3 text-white rounded-lg hover:bg-gray-800 hover:text-white transition"
+            class="bg-gray-400 shadow-md px-6 py-3 text-white rounded-lg hover:bg-gray-800 hover:text-white transition lg:mt-0 mt-4"
           >
             Idee hinzufügen
           </button>
@@ -23,8 +23,8 @@
 
       <div class="my-6">
         <div v-if="filterProjects.length == 0">
-          <div class="flex flex-col items-center">
-            <div class="text-gray-800 inline-flex bg-red-200 p-4 w-1/2 justify-center rounded-lg">
+          <div class="flex flex-col items-center mx-4">
+            <div class="text-gray-800 inline-flex bg-red-200 p-4 lg:w-1/2 w-full justify-center rounded-lg">
               <IconError class="h-5 text-primary-700 mr-4"></IconError>
               <span>Es konnten keine Projekte gefunden werden.</span>
             </div>
@@ -95,11 +95,11 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-center mt-8">
+      <div class="flex justify-center my-8">
         <button
           type="button"
           @click="clear"
-          class="w-1/4 bg-gray-400 shadow-lg text-white px-6 py-3 rounded-lg hover:bg-gray-500 transition"
+          class="lg:w-1/4 w-3/4 bg-gray-400 shadow-lg text-white px-6 py-3 rounded-lg hover:bg-gray-500 transition"
         >
           Alle anzeigen
         </button>

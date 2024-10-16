@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="pt-4 pb-4">
-        <div class="flex lg:flex-row flex-col lg:items-center items-start">
+        <div class="flex lg:flex-row flex-col lg:items-center items-start break-all">
           <div class="ml-32">
             <h1 class="text-xl font-bold text-gray-900">Matteo Kleemann</h1>
             <p class="pt-1 text-gray-600">matteoachim.kleemann@dataport.de</p>
