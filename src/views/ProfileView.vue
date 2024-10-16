@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ProfileMain from '@/components/profile/ProfileMain.vue'
+import ProfileMain from '@/components/profile2/ProfileMain.vue'
 
 export default {
   name: 'ProfileView',
