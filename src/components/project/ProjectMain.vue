@@ -3,19 +3,7 @@
     <!--
     <ProjectViewTitle></ProjectViewTitle>
     -->
-    <div class="grid grid-cols-2">
-      <div class="lg:col-span-1 col-span-2">
-        <ProjectSearch @searchProject="searchProject"></ProjectSearch>
-      </div>
-      <div class="flex flex-col justify-end items-center lg:col-span-1 col-span-2 mx-4">
-        <button class="m-4 p-4 bg-primary-700 rounded-lg text-white font-medium w-full">
-          Neues Projekt/Idee eintragen
-        </button>
-      </div>
-      <div class="">
-        <p class="font-medium text-lg mx-5 my-2">220 Projekte</p>
-      </div>
-    </div>
+    <ProjectSearch @searchProject="searchProject"></ProjectSearch>
   </div>
   <div class="my-6 flex lg:flex-row flex-col">
     <!-- lg:w-1/3 w-full border-r-2 border-gray-200 lg:max-h-[800px] max-h-[300px] overflow-auto -->

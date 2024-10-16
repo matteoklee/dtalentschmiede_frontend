@@ -2,7 +2,7 @@
   <div v-if="project">
     <div class="text-right pb-2">
       <button @click="closeProject">
-        <IconClose class="w-6 h-6"></IconClose>
+        <IconClose class="w-6 h-6 text-gray-400 hover:text-gray-600 hover:scale-105"></IconClose>
       </button>
     </div>
   </div>
