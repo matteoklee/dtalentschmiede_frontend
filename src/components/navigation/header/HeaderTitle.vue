@@ -1,5 +1,5 @@
 <template>
-  <span class="self-center text-xl font-bold whitespace-nowrap hidden lg:block text-primary-700"
+  <span class="self-center text-xl font-bold whitespace-nowrap hidden lg:block text-primary-600"
     >dProjektbörse</span
   >
 </template>

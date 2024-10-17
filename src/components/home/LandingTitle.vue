@@ -1,10 +1,10 @@
 <template>
   <div class="max-w-screen-xl mx-auto">
     <div class="grid lg:grid-cols-2 grid-cols-1 gap-2">
-      <div class="flex flex-col justify-center items-center p-4 max-w-screen-md mx-auto">
+      <div class="flex flex-col justify-center p-4 max-w-screen-md mx-auto">
         <div class="text-4xl font-bold leading-none text-gray-900 lg:text-5xl text-justify">
           <Typer
-              :text="['Finde ein IT-Projekt in der dProjektbörse.']"
+              :text="['Finde ein IT-Projekt \nin der dProjektbörse.']"
               :erase-on-complete="false"
               caret-animation="smooth"
               :repeat="infinity"
@@ -40,4 +40,6 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

@@ -3,7 +3,8 @@
     <div class="max-w-screen-xl mx-auto py-2">
       <div class="flex flex-col lg:flex-row justify-between lg:items-center items-start">
         <p class="font-bold text-2xl lg:px-0 px-6">Featured Projects</p>
-        <div class="lg:px-0 px-6 py-2 lg:py-0">
+        <div class="lg:px-0 px-6 py-2 lg:py-0 flex lg:flex-row flex-col lg:items-center">
+          <!--
           <button
             type="button"
             @click="clear"
@@ -11,6 +12,8 @@
           >
             Projekt hinzufügen
           </button>
+          -->
+          <ProjectAddDrawer></ProjectAddDrawer>
           <button
             type="button"
             @click="clear"
@@ -112,9 +115,10 @@
 import IconLightbulb from '@/components/project2/icons/IconLightbulb.vue'
 import ProjectDrawer from '@/components/project2/ProjectDrawer.vue'
 import IconError from '@/components/project2/icons/IconError.vue'
+import ProjectAddDrawer from "@/components/project2/ProjectAddDrawer.vue";
 export default {
   name: 'ProjectList',
-  components: { IconError, ProjectDrawer, IconLightbulb },
+  components: {ProjectAddDrawer, IconError, ProjectDrawer, IconLightbulb },
   props: ['searchQuery'],
   data() {
     return {
