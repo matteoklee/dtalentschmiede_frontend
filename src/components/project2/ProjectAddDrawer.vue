@@ -384,8 +384,8 @@
                     <!-- Technology -->
                     <div class="">
                       <input
-                          type="radio"
-                          v-model="selectedTechnology"
+                          type="checkbox"
+                          v-model="selectedTechnologies"
                           :id="`technology-${index}`"
                           :value="item.title"
                           class="hidden peer"
@@ -393,17 +393,17 @@
                       <label
                           :for="`technology-${index}`"
                           class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                          :class="selectedTechnology === item.title ? 'bg-gray-100' : 'bg-white'"
+                          :class="selectedTechnologies.includes(item.title) ? 'bg-gray-100' : 'bg-white'"
                       >
                         <div
                             class="inline-flex flex-col items-center my-2 mt-auto"
                         >
-                          <component :is="item.icon" class="w-10 h-10" :class="selectedTechnology === item.title ? 'text-blue-600' : 'text-gray-300'"></component>
+                          <component :is="item.icon" class="w-10 h-10" :class="selectedTechnologies.includes(item.title) ? 'text-blue-600' : 'text-gray-300'"></component>
 
                           <span class="text-lg font-medium text-gray-700 pt-2">{{ item.title }}</span>
                         </div>
                         <IconCheck
-                            v-if="selectedTechnology === item.title"
+                            v-if="selectedTechnologies.includes(item.title)"
                             class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                         ></IconCheck>
                       </label>
@@ -554,7 +554,7 @@ export default {
       title: '',
       titleValidated: false,
       selectedCategory: 'project',
-      selectedTechnology: '',
+      selectedTechnologies: [],
 
       project: {
         title: '',
