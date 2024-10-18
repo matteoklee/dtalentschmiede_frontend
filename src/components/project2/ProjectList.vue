@@ -13,7 +13,9 @@
             Projekt hinzufügen
           </button>
           -->
-          <ProjectAddDrawer></ProjectAddDrawer>
+          <!--<ProjectAddDrawer></ProjectAddDrawer>-->
+          <ProjectNewModal></ProjectNewModal>
+          <!--
           <button
             type="button"
             @click="clear"
@@ -21,6 +23,7 @@
           >
             Idee hinzufügen
           </button>
+          -->
         </div>
       </div>
 
@@ -116,9 +119,10 @@ import IconLightbulb from '@/components/project2/icons/IconLightbulb.vue'
 import ProjectDrawer from '@/components/project2/ProjectDrawer.vue'
 import IconError from '@/components/project2/icons/IconError.vue'
 import ProjectAddDrawer from "@/components/project2/ProjectAddDrawer.vue";
+import ProjectNewModal from "@/components/project2/ProjectNewModal.vue";
 export default {
   name: 'ProjectList',
-  components: {ProjectAddDrawer, IconError, ProjectDrawer, IconLightbulb },
+  components: {ProjectNewModal, ProjectAddDrawer, IconError, ProjectDrawer, IconLightbulb },
   props: ['searchQuery'],
   data() {
     return {
