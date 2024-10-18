@@ -6,8 +6,8 @@ import router from './router'
 
 import './assets/main.scss'
 
-import {Typer} from "vue3-typer";
-import "vue3-typer/dist/vue-typer.css";
+import { Typer } from 'vue3-typer'
+import 'vue3-typer/dist/vue-typer.css'
 
 const app = createApp(App)
 

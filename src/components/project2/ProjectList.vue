@@ -30,7 +30,9 @@
       <div class="my-6">
         <div v-if="filterProjects.length == 0">
           <div class="flex flex-col items-center mx-4">
-            <div class="text-gray-800 inline-flex bg-red-200 p-4 lg:w-1/2 w-full justify-center rounded-lg">
+            <div
+              class="text-gray-800 inline-flex bg-red-200 p-4 lg:w-1/2 w-full justify-center rounded-lg"
+            >
               <IconError class="h-5 text-primary-700 mr-4"></IconError>
               <span>Es konnten keine Projekte gefunden werden.</span>
             </div>
@@ -103,11 +105,20 @@
       </div>
       <div class="flex justify-center my-8">
         <button
+          v-if="projectViewLimit !== -1"
           type="button"
-          @click="clear"
+          @click="showAllProjects"
           class="lg:w-1/4 w-3/4 bg-gray-400 shadow-lg text-white px-6 py-3 rounded-lg hover:bg-gray-500 transition"
         >
           Alle anzeigen
+        </button>
+        <button
+          v-else
+          type="button"
+          @click="showLessProjects"
+          class="lg:w-1/4 w-3/4 bg-gray-400 shadow-lg text-white px-6 py-3 rounded-lg hover:bg-gray-500 transition"
+        >
+          Weniger anzeigen
         </button>
       </div>
     </div>
@@ -118,14 +129,14 @@
 import IconLightbulb from '@/components/project2/icons/IconLightbulb.vue'
 import ProjectDrawer from '@/components/project2/ProjectDrawer.vue'
 import IconError from '@/components/project2/icons/IconError.vue'
-import ProjectAddDrawer from "@/components/project2/ProjectAddDrawer.vue";
-import ProjectNewModal from "@/components/project2/ProjectNewModal.vue";
+import ProjectNewModal from '@/components/project2/ProjectNewModal.vue'
 export default {
   name: 'ProjectList',
-  components: {ProjectNewModal, ProjectAddDrawer, IconError, ProjectDrawer, IconLightbulb },
+  components: { ProjectNewModal, IconError, ProjectDrawer, IconLightbulb },
   props: ['searchQuery'],
   data() {
     return {
+      projectViewLimit: 5,
       projects: [
         {
           id: 1,
@@ -217,12 +228,20 @@ export default {
     },
     closeProject() {
       this.selectedProject = null
+    },
+    showAllProjects() {
+      this.projectViewLimit = -1
+    },
+    showLessProjects() {
+      this.projectViewLimit = 5
     }
   },
   computed: {
     filterProjects() {
+      let filteredProjects
+
       if (this.searchQuery !== '' && this.searchQuery !== undefined) {
-        return this.projects.filter((project) => {
+        filteredProjects = this.projects.filter((project) => {
           const query = this.searchQuery.toLowerCase()
           return (
             project.title.toLowerCase().includes(query) ||
@@ -231,7 +250,12 @@ export default {
           )
         })
       } else {
-        return this.projects
+        filteredProjects = this.projects
+      }
+      if (this.projectViewLimit > 0) {
+        return filteredProjects.slice(0, this.projectViewLimit)
+      } else {
+        return filteredProjects
       }
     }
   }

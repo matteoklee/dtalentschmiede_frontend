@@ -4,12 +4,12 @@
       <div class="flex flex-col justify-center p-4 max-w-screen-md mx-auto">
         <div class="text-4xl font-bold leading-none text-gray-900 lg:text-5xl text-justify">
           <Typer
-              :text="['Finde ein IT-Projekt \nin der dProjektbörse.']"
-              :erase-on-complete="false"
-              caret-animation="smooth"
-              :repeat="infinity"
-              :shuffle="false"
-              :type-delay="70"
+            :text="['Finde ein IT-Projekt \nin der dProjektbörse.']"
+            :erase-on-complete="false"
+            caret-animation="smooth"
+            :repeat="infinity"
+            :shuffle="false"
+            :type-delay="70"
           />
         </div>
         <p class="text-lg font-normal lg:text-xl pt-8">
@@ -29,17 +29,14 @@
 
 <script>
 import LandingActions from '@/components/home/LandingActions.vue'
-import {Typer} from "vue3-typer";
+import { Typer } from 'vue3-typer'
 export default {
   name: 'LandingTitle',
   components: { LandingActions, Typer },
   data() {
-    return {
-    }
-  },
+    return {}
+  }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
