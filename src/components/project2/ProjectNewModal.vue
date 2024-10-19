@@ -3,7 +3,7 @@
   <button
     data-modal-target="select-modal"
     data-modal-toggle="select-modal"
-    class="bg-red-700 shadow-md px-6 py-3 rounded-lg hover:bg-red-800 text-white lg:mr-4"
+    class="bg-red-700 shadow-md px-6 py-3 rounded-lg hover:bg-red-800 text-white mr-1"
     type="button"
   >
     Erstellen
@@ -47,7 +47,7 @@
               />
               <label
                 for="job-1"
-                class="aspect-square h-48 inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-dashed border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100"
+                class="aspect-square h-48 inline-flex items-center justify-center w-full p-5 text-gray-900 bg-white border border-dashed border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100"
               >
                 <div class="block">
                   <div class="w-full text-lg font-semibold">Leeres Projekt</div>
@@ -59,7 +59,7 @@
               <input type="radio" id="job-2" name="job" value="job-2" class="hidden peer" />
               <label
                 for="job-2"
-                class="aspect-square h-48 border-dashed border-2 inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500"
+                class="aspect-square h-48 border-dashed border-2 inline-flex items-center justify-center w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500"
               >
                 <div class="block">
                   <div class="w-full text-lg font-semibold">Projekt erstellen</div>
@@ -71,7 +71,7 @@
               <input type="radio" id="job-3" name="job" value="job-3" class="hidden peer" />
               <label
                 for="job-3"
-                class="aspect-square h-48 border-dashed border-2 inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500"
+                class="aspect-square h-48 border-dashed border-2 inline-flex items-center justify-center w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500"
               >
                 <div class="block">
                   <div class="w-full text-lg font-semibold">Idee erstellen</div>

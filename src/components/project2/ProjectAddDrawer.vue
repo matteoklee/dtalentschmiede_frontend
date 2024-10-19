@@ -80,6 +80,7 @@
 
       <div class="max-w-screen-xl mx-auto w-full">
         <div class="w-full">
+          <h2 class="text-xl font-bold my-4">Projektname</h2>
           <div
               class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
           >
@@ -116,7 +117,7 @@
                 v-if="!titleValidated"
                 type="button"
                 @click="validateTitle"
-                class="bg-primary-600 shadow-lg shadow-primary-600/50 px-6 py-3 rounded-lg text-white hover:bg-primary-700 transition"
+                class="hidden bg-primary-600 shadow-lg shadow-primary-600/50 px-6 py-3 rounded-lg text-white hover:bg-primary-700 transition"
             >
               Bestätigen
             </button>
@@ -151,7 +152,7 @@
             </div>
           </div>
 
-          <div class="grid lg:grid-cols-2 grid-cols-1 gap-8 py-6">
+          <div class="hidden grid lg:grid-cols-2 grid-cols-1 gap-8 py-6">
             <div class="">
               <p class="text-2xl font-bold">Kategorie</p>
               <div

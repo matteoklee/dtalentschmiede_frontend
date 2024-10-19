@@ -6,6 +6,10 @@
     <ProjectCategories></ProjectCategories>
   </div>
   <div>
+    <ProjectFilter></ProjectFilter>
+  </div>
+
+  <div>
     <ProjectList :searchQuery="searchQuery" @selectProject="selectProject"></ProjectList>
   </div>
 </template>
@@ -14,10 +18,11 @@
 import ProjectLanding from '@/components/project2/ProjectLanding.vue'
 import ProjectCategories from '@/components/project2/ProjectCategories.vue'
 import ProjectList from '@/components/project2/ProjectList.vue'
+import ProjectFilter from "@/components/project2/ProjectFilter.vue";
 
 export default {
   name: 'ProjectMain',
-  components: { ProjectList, ProjectCategories, ProjectLanding },
+  components: {ProjectFilter, ProjectList, ProjectCategories, ProjectLanding },
   data() {
     return {
       selectedProject: null,
