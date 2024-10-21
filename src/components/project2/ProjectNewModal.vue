@@ -81,7 +81,8 @@
             </li>
           </ul>
 
-          <ProjectAddDrawer></ProjectAddDrawer>
+          <ProjectAddDrawer @submitProject="submitProject"></ProjectAddDrawer>
+
         </div>
       </div>
     </div>
@@ -97,15 +98,24 @@ export default {
   components: { ProjectAddDrawer, IconClose },
   data() {
     return {
-      isModalOpen: false
     }
   },
   methods: {
-    toggleModal() {
-      this.isModalOpen = !this.isModalOpen
+    closeModal() {
+      const modalToggle = document.querySelector('[data-modal-toggle="select-modal"]');
+      if (modalToggle) {
+        modalToggle.click();
+      }
+    },
+    submitProject() {
+      console.log("DEBUG TEST3")
+      this.closeModal();
+      this.$emit("submitProject", true);
     }
   },
-  mounted() {}
+  mounted() {
+
+  }
 }
 </script>
 

@@ -1,11 +1,11 @@
 <template>
   <div class="bg-white">
-    <div class="max-w-screen-xl mx-auto py-8">
+    <div class="max-w-screen-xl mx-auto pb-8">
       <p class="font-bold text-2xl lg:px-0 px-6">Filtern und suchen nach</p>
       <div class="flex lg:flex-row flex-col justify-start mt-6 lg:mx-0 mx-6">
 
         <button id="dropdownDefault" data-dropdown-toggle="dropdown"
-                class="mr-4 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
                 type="button">
           Filter nach Fachlichen Fähigkeiten
           <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -32,7 +32,7 @@
 
 
         <button id="dropdownDefault2" data-dropdown-toggle="dropdown2"
-                class="mr-4 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
                 type="button">
           Filter nach Technischen Fähigkeiten
           <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -59,7 +59,7 @@
 
 
         <button id="dropdownDefault3" data-dropdown-toggle="dropdown3"
-                class="mr-4 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
                 type="button">
           Filter nach Technologien
           <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -118,6 +118,7 @@ export default {
   components: {IconClose, IconSearch},
   data() {
     return {
+      searchQuery: '',
       technologies: [
         { id: 'java', name: 'Java' },
         { id: 'vue', name: 'Vue.js' },
@@ -146,6 +147,15 @@ export default {
         { id: 'cybersecurity', name: 'Cybersecurity' },
         { id: 'devops', name: 'DevOps und CI/CD' }
       ],
+    }
+  },
+  methods: {
+    searchProject() {
+      this.$emit("searchProject", this.searchQuery);
+    },
+    clear() {
+      this.searchQuery = "";
+      this.searchProject()
     }
   },
   mounted() {

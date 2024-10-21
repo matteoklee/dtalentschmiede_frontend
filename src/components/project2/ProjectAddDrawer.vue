@@ -92,7 +92,7 @@
                   id="projectSearch"
                   placeholder="Titel des Projekts"
                   required
-                  class="border-0 text-xl w-full outline-none focus:ring-0 placeholder-gray-300 pr-6 font-medium"
+                  class="border-0 text-xl w-full outline-none focus:ring-0 placeholder-gray-300 pr-6 font-medium text-center"
                   :disabled="titleValidated"
               />
               <button
@@ -241,7 +241,7 @@
           <div class="p-4 w-full bg-white rounded-lg shadow-lg">
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-8">
 
-              <div class="lg:border-r-2 lg:border-0 lg:px-8">
+              <div class="lg:border-r-2 lg:border-0 lg:px-4">
                 <h2 class="text-xl font-bold my-4">Kategorie</h2>
 
                 <div class="grid lg:grid-cols-4 grid-cols-2 gap-4 mb-4">
@@ -446,7 +446,7 @@
 
                 </div>
 
-                <div class="mb-4">
+                <div class="hidden mb-4">
                   <label for="device" class="block text-sm font-medium pb-1">Auswahl *</label>
                   <select
                     id="device"
@@ -458,21 +458,37 @@
                   </select>
                 </div>
 
-                <div class="mb-4">
-                  <label for="name" class="block text-sm font-medium pb-1">Projektansprechpartner (E-Mail) *</label>
-                  <input
-                      type="email"
-                      id="name"
-                      class="w-full p-4 bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0"
-                      placeholder="matteoachim.kleemann@dataport.de"
-                      required
-                  />
+                <div class="mb-4 mt-6">
+                  <h2 class="text-xl font-bold my-4">Projektansprechpartner</h2>
+                    <div class="w-full mb-4">
+                      <label for="name" class="block text-sm font-medium pb-1">Name</label>
+                      <input
+                          type="email"
+                          id="name"
+                          class="w-full p-4 bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0"
+                          placeholder="Matteo Kleemann"
+                          required
+                      />
+                    </div>
+                    <div class="w-full">
+                      <label for="name" class="block text-sm font-medium pb-1">E-Mail</label>
+                      <input
+                          type="email"
+                          id="name"
+                          class="w-full p-4 bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0"
+                          placeholder="matteoachim.kleemann@dataport.de"
+                          required
+                      />
+                    </div>
+
+
                 </div>
 
+
                 <div class="mt-6 flex justify-end">
-                  <button type="button" class="inline-flex items-center bg-primary-700 rounded-lg px-4 py-2.5 text-white">
+                  <button type="button" @click="submit" data-drawer-hide="drawer-full-example" class="inline-flex items-center bg-primary-700 rounded-lg px-4 py-2.5 text-white">
                     <IconSubmit class="w-5 h-5 mr-4 font-normal"></IconSubmit>
-                    Absenden
+                    Erstellen
                   </button>
                 </div>
               </div>
@@ -617,8 +633,14 @@ export default {
       this.titleValidated = false
       this.title = ''
     },
+    clear() {
+      this.title = ''
+    },
     toggleDrawer() {
       this.isDrawerOpen = !this.isDrawerOpen
+    },
+    submit() {
+      this.$emit("submitProject", true);
     },
     submitForm() {
       console.log('Projekt wurde angelegt:', this.project)
@@ -634,8 +656,8 @@ export default {
     }
   },
   mounted() {
-    initFlowbite()
-  }
+    initFlowbite();
+  },
 }
 </script>
 

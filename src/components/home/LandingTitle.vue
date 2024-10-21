@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-screen-xl mx-auto">
-    <div class="grid lg:grid-cols-2 grid-cols-1 gap-2">
-      <div class="flex flex-col justify-center p-4 max-w-screen-md mx-auto">
+    <div class="grid lg:grid-cols-2 grid-cols-1 gap-2 mx-auto max-w-screen-lg">
+      <div class="flex flex-col justify-center p-4">
         <div class="text-4xl font-bold leading-none text-gray-900 lg:text-5xl text-justify">
           <Typer
             :text="['Finde ein IT-Projekt \nin der dProjektbörse.']"
@@ -18,7 +18,7 @@
         </p>
       </div>
       <div class="lg:block hidden flex flex-row justify-center items-center p-4">
-        <img src="@/assets/img_4.png" />
+        <img class="" src="@/assets/img_4.png" />
       </div>
     </div>
     <div class="col-span-2 py-4">

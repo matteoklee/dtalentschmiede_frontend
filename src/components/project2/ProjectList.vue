@@ -14,7 +14,7 @@
           </button>
           -->
           <!--<ProjectAddDrawer></ProjectAddDrawer>-->
-          <ProjectNewModal></ProjectNewModal>
+          <ProjectNewModal @submitProject="submitProject"></ProjectNewModal>
           <!--
           <button
             type="button"
@@ -25,6 +25,21 @@
           </button>
           -->
         </div>
+      </div>
+
+      <div>
+        <button
+            @click="triggerSnackbar"
+            class="hidden bg-blue-500 text-white px-4 py-2 rounded-lg"
+        >
+          Zeige Snackbar
+        </button>
+        <ProjectInfoSnackbar
+            v-if="snackbarVisible"
+            :message="snackbarMessage"
+            :snackbarType="snackbarType"
+            :duration="snackbarDuration"
+        />
       </div>
 
       <div class="my-6">
@@ -130,9 +145,10 @@ import IconLightbulb from '@/components/project2/icons/IconLightbulb.vue'
 import ProjectDrawer from '@/components/project2/ProjectDrawer.vue'
 import IconError from '@/components/project2/icons/IconError.vue'
 import ProjectNewModal from '@/components/project2/ProjectNewModal.vue'
+import ProjectInfoSnackbar from "@/components/project2/ProjectInfoSnackbar.vue";
 export default {
   name: 'ProjectList',
-  components: { ProjectNewModal, IconError, ProjectDrawer, IconLightbulb },
+  components: {ProjectInfoSnackbar, ProjectNewModal, IconError, ProjectDrawer, IconLightbulb },
   props: ['searchQuery'],
   data() {
     return {
@@ -217,7 +233,12 @@ export default {
           location: 'Pforzheim'
         }
       ],
-      selectedProject: null
+      selectedProject: null,
+
+      snackbarVisible: false,
+      snackbarMessage: "Projekt wurde erfolgreich angelegt.",
+      snackbarType: "success",
+      snackbarDuration: 5000,
     }
   },
   methods: {
@@ -234,6 +255,16 @@ export default {
     },
     showLessProjects() {
       this.projectViewLimit = 5
+    },
+    triggerSnackbar() {
+      this.snackbarVisible = true;
+      this.snackbarDuration = 5000;
+      setTimeout(() => {
+        this.snackbarVisible = false;
+      }, 5000);
+    },
+    submitProject() {
+      this.triggerSnackbar();
     }
   },
   computed: {

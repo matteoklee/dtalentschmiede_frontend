@@ -1,8 +1,8 @@
 <template>
   <div class="bg-white">
-    <div class="max-w-screen-xl mx-auto py-8">
+    <div class="max-w-screen-xl mx-auto py-8 pb-4">
       <p class="font-bold text-2xl lg:px-0 px-6">Sortieren nach</p>
-      <div class="grid lg:grid-cols-6 grid-cols-2 gap-8 my-6 lg:mx-0 mx-6">
+      <div class="grid lg:grid-cols-8 grid-cols-3 gap-8 my-6 lg:mx-0 mx-6">
         <div
           class="group bg-gray-50 rounded-xl flex flex-col justify-center items-center aspect-square hover:scale-105 hover:bg-primary-600 duration-300 transition-all shadow-lg hover:shadow-primary-600/50"
         >

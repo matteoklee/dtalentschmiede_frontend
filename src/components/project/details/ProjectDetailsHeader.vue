@@ -6,7 +6,7 @@
           <div class="mb-2 px-4 py-2 bg-green-100 mr-1 rounded-lg mr-2">Projekt</div>
           <div class="mb-2 px-4 py-2 bg-green-100 mr-1 rounded-lg mr-2">Idee</div>
         </div>
-        <ProjectActions :project="project" @closeProject="closeProject"></ProjectActions>
+        <ProjectActions class="hidden" :project="project" @closeProject="closeProject"></ProjectActions>
       </div>
       <h2 class="text-2xl font-bold mb-1">{{ project.title }}</h2>
       <p class="text-lg mb-4">{{ project.company }}</p>

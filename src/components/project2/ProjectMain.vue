@@ -6,7 +6,7 @@
     <ProjectCategories></ProjectCategories>
   </div>
   <div>
-    <ProjectFilter></ProjectFilter>
+    <ProjectFilter @searchProject="searchProject"></ProjectFilter>
   </div>
 
   <div>
