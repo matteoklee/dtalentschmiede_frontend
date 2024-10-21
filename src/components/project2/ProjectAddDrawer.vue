@@ -262,7 +262,7 @@
                       :class="selectedCategory === 'project' ? 'bg-gray-100' : 'bg-white'"
                     >
                       <div
-                        class="inline-flex flex-col items-center my-2 mt-auto"
+                        class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
                       >
                         <IconLightbulb
                           class="w-10 h-10"
@@ -294,7 +294,7 @@
                         :class="selectedCategory === 'practice' ? 'bg-gray-100' : 'bg-white'"
                     >
                       <div
-                          class="inline-flex flex-col items-center my-2 mt-auto"
+                          class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
                       >
                         <IconTools
                             class="w-10 h-10"
@@ -326,7 +326,7 @@
                         :class="selectedCategory === 'thesis' ? 'bg-gray-100' : 'bg-white'"
                     >
                       <div
-                          class="inline-flex flex-col items-center my-2 mt-auto"
+                          class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
                       >
                         <IconBook
                             class="w-10 h-10"
@@ -358,7 +358,7 @@
                         :class="selectedCategory === 'other' ? 'bg-gray-100' : 'bg-white'"
                     >
                       <div
-                          class="inline-flex flex-col items-center my-2 mt-auto"
+                          class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
                       >
                         <IconOther
                             class="w-10 h-10"
@@ -379,7 +379,7 @@
 
                 <h2 class="text-xl font-bold my-4">Technologien</h2>
 
-                <div class="grid lg:grid-cols-4 grid-cols-2 gap-4 mb-4">
+                <div class="grid lg:grid-cols-6 grid-cols-3 gap-4 mb-4">
 
                   <div v-for="(item, index) in technologies" :key="index">
                     <!-- Technology -->
@@ -397,20 +397,92 @@
                           :class="selectedTechnologies.includes(item.title) ? 'bg-gray-100' : 'bg-white'"
                       >
                         <div
-                            class="inline-flex flex-col items-center my-2 mt-auto"
+                            class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
                         >
-                          <component :is="item.icon" class="w-10 h-10" :class="selectedTechnologies.includes(item.title) ? 'text-blue-600' : 'text-gray-300'"></component>
+                          <component :is="item.icon" class="w-8 h-8" :class="selectedTechnologies.includes(item.title) ? 'text-blue-600' : 'text-gray-300'"></component>
 
-                          <span class="text-lg font-medium text-gray-700 pt-2">{{ item.title }}</span>
+                          <span class="text-sm font-medium text-gray-700 pt-2">{{ item.title }}</span>
                         </div>
                         <IconCheck
                             v-if="selectedTechnologies.includes(item.title)"
-                            class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
+                            class="w-4 h-4 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                         ></IconCheck>
                       </label>
                     </div>
                   </div>
 
+                </div>
+
+                <h2 class="text-xl font-bold my-4">Hard Skills</h2>
+
+                <div class="grid lg:grid-cols-6 grid-cols-3 gap-4 mb-4">
+
+                  <div v-for="(item, index) in hardSkills" :key="index">
+                    <!-- Technology -->
+                    <div class="">
+                      <input
+                          type="checkbox"
+                          v-model="selectedHardSkills"
+                          :id="`hardSkill-${index}`"
+                          :value="item.title"
+                          class="hidden peer"
+                      />
+                      <label
+                          :for="`hardSkill-${index}`"
+                          class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
+                          :class="selectedHardSkills.includes(item.title) ? 'bg-gray-100' : 'bg-white'"
+                      >
+                        <div
+                            class="inline-flex flex-col items-center my-2 mt-auto text-center"
+                        >
+                          <component :is="item.icon" class="w-8 h-8" :class="selectedHardSkills.includes(item.title) ? 'text-blue-600' : 'text-gray-300'"></component>
+
+                          <span class="text-sm font-medium text-gray-700 pt-2">{{ item.title }}</span>
+                        </div>
+                        <IconCheck
+                            v-if="selectedHardSkills.includes(item.title)"
+                            class="w-4 h-4 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
+                        ></IconCheck>
+                      </label>
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <h2 class="text-xl font-bold my-4">Soft Skills</h2>
+
+                <div class="grid lg:grid-cols-6 grid-cols-3 gap-4 mb-4">
+
+                  <div v-for="(item, index) in softSkills" :key="index">
+                    <!-- Technology -->
+                    <div class="">
+                      <input
+                          type="checkbox"
+                          v-model="selectedSoftSkills"
+                          :id="`softSkill-${index}`"
+                          :value="item.title"
+                          class="hidden peer"
+                      />
+                      <label
+                          :for="`softSkill-${index}`"
+                          class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
+                          :class="selectedSoftSkills.includes(item.title) ? 'bg-gray-100' : 'bg-white'"
+                      >
+                        <div
+                            class="inline-flex flex-col items-center my-2 mt-auto text-center"
+                        >
+                          <component :is="item.icon" class="w-8 h-8" :class="selectedSoftSkills.includes(item.title) ? 'text-blue-600' : 'text-gray-300'"></component>
+
+                          <span class="text-sm font-medium text-gray-700 pt-2">{{ item.title }}</span>
+                        </div>
+                        <IconCheck
+                            v-if="selectedSoftSkills.includes(item.title)"
+                            class="w-4 h-4 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
+                        ></IconCheck>
+                      </label>
+                    </div>
+                  </div>
 
                 </div>
 
@@ -434,10 +506,10 @@
                       class="flex items-center space-x-2 bg-gray-50 py-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
                   >
                     <div class="w-full relative">
-                      <IconList class="h-5 text-gray-400 absolute left-0 top-3"></IconList>
+                      <IconList class="h-5 absolute left-0 top-3"></IconList>
                       <textarea
                           id="description"
-                          rows="12"
+                          rows="16"
                           class="pl-8 block p-2.5 w-full border-0 focus:ring-0 bg-transparent"
                           placeholder="Das Projekt BeispielXY soll ..."
                       ></textarea>
@@ -458,32 +530,68 @@
                   </select>
                 </div>
 
-                <div class="mb-4 mt-6">
-                  <h2 class="text-xl font-bold my-4">Projektansprechpartner</h2>
+                <div class="mb-4">
+                  <label for="device" class="block text-sm font-medium pb-1">Deadline (falls nötig)</label>
+                  <div class="inline-flex items-center w-full bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0">
+                    <IconCalendar class="w-4 h-4 ml-4"></IconCalendar>
+                    <input id="datepicker-format" datepicker datepicker-min-date="09/16/2024" datepicker-max-date="12/31/2099" type="text"
+                           class="w-full p-4 bg-gray-50 border-0 focus:ring-0" placeholder="Deadline auswählen" />
+                  </div>
+                </div>
+
+                <div class="mb-2">
+                  <h2 class="text-sm font-medium pb-4">Projektstatus festlegen</h2>
+                  <div class="flex space-x-4">
+                    <div :class="{'border-blue-600 border-2 bg-gray-50': selectedStatus === 'ENTWURF'}"
+                        class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer" @click="selectStatus('ENTWURF')">
+                      <IconPencil class="w-4 h-4"></IconPencil>
+                      <span class="ml-2 block text-sm font-medium text-gray-700">ENTWURF</span>
+                    </div>
+
+                    <div :class="{'border-blue-600 border-2 bg-gray-50': selectedStatus === 'OFFEN'}"
+                         class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer" @click="selectStatus('OFFEN')">
+                      <IconFolder class="w-4 h-4"></IconFolder>
+                      <span class="ml-2 block text-sm font-medium text-gray-700">OFFEN</span>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="mb-4">
+                  <div class="flex items-center justify-between">
+                    <h2 class="text-xl font-bold my-4">Projektansprechpartner</h2>
+                    <button type="button" class="bg-gray-400 hover:bg-gray-500 rounded-lg px-3 py-2 text-white">
+                      Daten aus Profil übernehmen
+                    </button>
+                  </div>
+
                     <div class="w-full mb-4">
                       <label for="name" class="block text-sm font-medium pb-1">Name</label>
-                      <input
-                          type="email"
-                          id="name"
-                          class="w-full p-4 bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0"
-                          placeholder="Matteo Kleemann"
-                          required
-                      />
+                      <div class="inline-flex items-center w-full bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0">
+                        <IconUser class="w-4 h-4 ml-4 mr-0"></IconUser>
+                        <input
+                            type="text"
+                            id="name"
+                            class="w-full p-4 bg-gray-50 border-0 focus:ring-0"
+                            placeholder="Matteo Kleemann"
+                            required
+                        />
+                      </div>
                     </div>
                     <div class="w-full">
                       <label for="name" class="block text-sm font-medium pb-1">E-Mail</label>
-                      <input
-                          type="email"
-                          id="name"
-                          class="w-full p-4 bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0"
-                          placeholder="matteoachim.kleemann@dataport.de"
-                          required
-                      />
+                      <div class="inline-flex items-center w-full  bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0">
+                        <IconEmail class="w-5 h-5 ml-4 mr-0"></IconEmail>
+                        <input
+                            type="email"
+                            id="name"
+                            class="w-full p-4 bg-gray-50 border-0 focus:ring-0"
+                            placeholder="matteoachim.kleemann@dataport.de"
+                            required
+                        />
+                      </div>
                     </div>
-
-
                 </div>
-
 
                 <div class="mt-6 flex justify-end">
                   <button type="button" @click="submit" data-drawer-hide="drawer-full-example" class="inline-flex items-center bg-primary-700 rounded-lg px-4 py-2.5 text-white">
@@ -535,10 +643,38 @@ import IconDocker from "@/components/project2/icons/technology/IconDocker.vue";
 import IconSpring from "@/components/project2/icons/technology/IconSpring.vue";
 
 import {markRaw} from "vue";
+import IconEmail from "@/components/project2/icons/IconEmail.vue";
+import IconUser from "@/components/navigation/header/profile/icons/IconUser.vue";
+import IconSecurity from "@/components/project2/icons/technology/IconSecurity.vue";
+import IconAgil from "@/components/project2/icons/technology/IconAgil.vue";
+import IconGit from "@/components/project2/icons/technology/IconGit.vue";
+import IconTesting from "@/components/project2/icons/technology/IconTesting.vue";
+import IconArchitecture from "@/components/project2/icons/technology/IconArchitecture.vue";
+import IconHandshake from "@/components/project2/icons/technology/IconHandshake.vue";
+import IconClock from "@/components/project2/icons/technology/IconClock.vue";
+import IconClipboard from "@/components/project2/icons/technology/IconClipboard.vue";
+import IconUsers from "@/components/project2/icons/IconUsers.vue";
+import IconCalendar from "@/components/project/details/icon/IconCalendar.vue";
+import IconFolder from "@/components/home/icons/IconFolder.vue";
+import IconPencil from "@/components/project2/icons/IconPencil.vue";
 
 export default {
   name: 'ProjectAddDrawer',
   components: {
+    IconPencil,
+    IconFolder,
+    IconCalendar,
+    IconUsers,
+    IconClipboard,
+    IconClock,
+    IconHandshake,
+    IconArchitecture,
+    IconTesting,
+    IconGit,
+    IconAgil,
+    IconSecurity,
+    IconUser,
+    IconEmail,
     IconSpring,
     IconDocker,
     IconServer,
@@ -571,7 +707,10 @@ export default {
       title: '',
       titleValidated: false,
       selectedCategory: 'project',
+      selectedHardSkills: [],
+      selectedSoftSkills: [],
       selectedTechnologies: [],
+      selectedStatus: "ENTWURF",
 
       project: {
         title: '',
@@ -581,6 +720,71 @@ export default {
         startDate: new Date().toISOString().split('T')[0],
         supervisor: ''
       },
+      hardSkills: [
+        {
+          title: "DevOps",
+          icon: markRaw(IconServer)
+        },
+        {
+          title: "Entwicklung",
+          icon: markRaw(IconCode)
+        },
+        {
+          title: "Datenbank",
+          icon: markRaw(IconDatabase)
+        },
+        {
+          title: "Sicherheit",
+          icon: markRaw(IconSecurity)
+        },
+        {
+          title: "Agilität",
+          icon: markRaw(IconAgil)
+        },
+        {
+          title: "Doku",
+          icon: markRaw(IconFile)
+        },
+        {
+          title: "Version",
+          icon: markRaw(IconGit)
+        },
+        {
+          title: "Testen",
+          icon: markRaw(IconTesting)
+        },
+        {
+          title: "Architektur",
+          icon: markRaw(IconArchitecture)
+        },
+
+      ],
+      softSkills: [
+        {
+          title: "Anforderung",
+          icon: markRaw(IconClipboard)
+        },
+        {
+          title: "Planung",
+          icon: markRaw(IconList)
+        },
+        {
+          title: "Kunden",
+          icon: markRaw(IconHandshake)
+        },
+        {
+          title: "Lösung",
+          icon: markRaw(IconLightbulb)
+        },
+        {
+          title: "Team",
+          icon: markRaw(IconUsers)
+        },
+        {
+          title: "Zeit",
+          icon: markRaw(IconClock)
+        },
+      ],
       technologies: [
         {
           title: "Vue.js",
@@ -607,21 +811,10 @@ export default {
           icon: markRaw(IconSpring)
         },
         {
-          title: "Datenbank",
-          icon: markRaw(IconDatabase)
-        },
-        {
           title: "Docker",
           icon: markRaw(IconDocker)
         },
-        {
-          title: "Server",
-          icon: markRaw(IconServer)
-        },
-        {
-          title: "Programmieren",
-          icon: markRaw(IconCode)
-        },
+
       ]
     }
   },
@@ -636,8 +829,8 @@ export default {
     clear() {
       this.title = ''
     },
-    toggleDrawer() {
-      this.isDrawerOpen = !this.isDrawerOpen
+    selectStatus(status) {
+      this.selectedStatus = status;
     },
     submit() {
       this.$emit("submitProject", true);

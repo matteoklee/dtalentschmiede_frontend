@@ -2,9 +2,12 @@
   <div class="grid grid-cols-1 lg:grid-cols-2 max-w-screen-xl mx-auto gap-6">
     <div class="flex flex-col justify-center lg:p-0 p-6">
       <h1 class="text-5xl font-bold text-left py-4">
-        Finde dein nächstes<br /><span class="text-primary-700">IT-Projekt</span>.
+        Finde dein nächstes <span class="text-primary-700">Projekt</span> oder die <span class="text-primary-700">Idee</span> dafür.
       </h1>
-      <p class="font-normal text-lg py-2">Work remotely to companies in worldwide</p>
+      <p class="font-normal text-lg py-2">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua.
+      </p>
 
       <div
         class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-600 hover:scale-105 duration-300"

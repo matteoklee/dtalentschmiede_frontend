@@ -5,7 +5,7 @@
       <div class="flex lg:flex-row flex-col justify-start mt-6 lg:mx-0 mx-6">
 
         <button id="dropdownDefault" data-dropdown-toggle="dropdown"
-                class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-0 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center shadow-lg"
                 type="button">
           Filter nach Fachlichen Fähigkeiten
           <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -22,7 +22,7 @@
           <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault">
             <li v-for="(filter, index) in softSkills" :key="index" class="flex items-center">
               <input :id="filter.id" type="checkbox" value=""
-                     class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-2" />
+                     class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-0" />
               <label :for="filter.id" class="ml-2 text-sm font-medium text-gray-900">
                 {{ filter.name }}
               </label>
@@ -32,7 +32,7 @@
 
 
         <button id="dropdownDefault2" data-dropdown-toggle="dropdown2"
-                class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-0 shadow-lg font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
                 type="button">
           Filter nach Technischen Fähigkeiten
           <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -49,7 +49,7 @@
           <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault2">
             <li v-for="(filter, index) in hardSkills" :key="index" class="flex items-center">
               <input :id="filter.id" type="checkbox" value=""
-                     class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-2" />
+                     class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-0" />
               <label :for="filter.id" class="ml-2 text-sm font-medium text-gray-900">
                 {{ filter.name }}
               </label>
@@ -59,7 +59,7 @@
 
 
         <button id="dropdownDefault3" data-dropdown-toggle="dropdown3"
-                class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-0 shadow-lg font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
                 type="button">
           Filter nach Technologien
           <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -76,7 +76,7 @@
           <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault3">
             <li v-for="(filter, index) in technologies" :key="index" class="flex items-center">
               <input :id="filter.id" type="checkbox" value=""
-                     class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-2" />
+                     class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-0" />
               <label :for="filter.id" class="ml-2 text-sm font-medium text-gray-900">
                 {{ filter.name }}
               </label>

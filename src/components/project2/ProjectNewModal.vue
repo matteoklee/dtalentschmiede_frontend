@@ -5,6 +5,7 @@
     data-modal-toggle="select-modal"
     class="bg-red-700 shadow-md px-6 py-3 rounded-lg hover:bg-red-800 text-white mr-1"
     type="button"
+    id="addProject"
   >
     Erstellen
   </button>
