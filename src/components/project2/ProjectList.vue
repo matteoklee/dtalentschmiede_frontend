@@ -55,54 +55,55 @@
         </div>
         <div
           v-for="project in filterProjects"
-          :key="project.id"
+          :key="project.projectId"
           @click="selectProject(project)"
           :class="[
             'group border hover:border-blue-500 rounded-xl hover:shadow-xl duration-300 transition-all lg:my-6 my-4 lg:mx-0 mx-4 lg:py-6 py-4 px-8',
-            selectedProject && selectedProject.id === project.id
+            selectedProject && selectedProject.projectId === project.projectId
               ? 'group border-2 border-blue-500 rounded-xl hover:shadow-xl duration-300 transition-all lg:my-6 my-4 lg:mx-0 mx-4 lg:py-6 py-4 px-8'
               : ''
           ]"
         >
-          <div
-            class="flex lg:flex-row flex-col lg:items-center items-start justify-between space-y-2"
-          >
-            <IconLightbulb
-              class="text-gray-400 h-12 bg-gray-100 rounded-full shrink-0 grow-0 p-2 avatar aspect-square"
-            ></IconLightbulb>
-            <div class="flex flex-col justify-center text-left lg:w-[200px]">
-              <p
-                class="text-gray-800 text-lg font-medium group-hover:font-bold group-hover:text-blue-600"
-              >
-                {{ project.title }}
-              </p>
-              <p class="text-gray-400">TQ6 – Altenholz</p>
+          <div class="grid grid-cols-1 lg:grid-cols-8 lg:gap-6 gap-2 items-center flex justify-center flex-col auto-cols-auto">
+
+            <div
+                class="flex items-center space-x-4 lg:col-span-2"
+            >
+              <IconLightbulb
+                  class="text-gray-400 h-12 bg-gray-100 rounded-full p-2 avatar aspect-square"
+              ></IconLightbulb>
+              <div class="flex flex-col">
+                <p
+                    class="text-left text-gray-800 text-lg font-medium group-hover:font-bold group-hover:text-blue-600"
+                >
+                  {{ project.projectTitle }}
+                </p>
+                <p class="text-gray-400 text-left">
+                  {{ project.projectDescription.length > 20 ? project.projectDescription.slice(0, 20) + '...' : project.projectDescription }}
+                </p>
+              </div>
             </div>
-            <div class="flex flex-col justify-center text-left lg:w-[200px]">
-              <p class="text-gray-600">Matteo Kleemann</p>
-              <p class="text-gray-400 text-sm">matteo.kleemann@dataport.de</p>
+
+            <div class="flex flex-col lg:justify-center text-left lg:col-span-2">
+              <p class="text-gray-600">{{ project.projectRepresentative }}</p>
+              <p class="text-gray-400 text-sm">{{ project.projectRepresentativeEmail }}</p>
             </div>
-            <div class="flex flex-row justify-center items-center">
+
+            <div class="flex flex-row items-center lg:col-span-2">
               <p
-                class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 group-hover:bg-blue-500"
+                  v-for="(technology, index) in project.projectTechnologies.slice(0, 3)"
+                  :key="index"
+                  class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 group-hover:bg-blue-500"
               >
-                Vue
-              </p>
-              <p
-                class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 group-hover:bg-blue-500"
-              >
-                React
-              </p>
-              <p
-                class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg group-hover:bg-blue-500"
-              >
-                Spring Boot
+                {{ technology }}
               </p>
             </div>
-            <div class="flex flex-col justify-center text-left">
-              <p class="text-gray-400 text-sm">16.10.2024</p>
+
+            <div class="flex flex-row lg:justify-center items-center">
+              <p class="text-gray-400 text-sm">{{ formatDateOnly(project.projectCreatedAt) }}</p>
             </div>
-            <div>
+
+            <div class="flex flex-row lg:justify-center items-center">
               <!--
                 <button
                     type="button"
@@ -111,11 +112,12 @@
                 >Ansehen</button>
                 -->
               <ProjectDrawer
-                :project="selectedProject"
-                @closeProject="closeProject"
+                  :project="selectedProject"
+                  @closeProject="closeProject"
               ></ProjectDrawer>
             </div>
           </div>
+
         </div>
       </div>
       <div class="flex justify-center my-8">
@@ -146,6 +148,9 @@ import ProjectDrawer from '@/components/project2/ProjectDrawer.vue'
 import IconError from '@/components/project2/icons/IconError.vue'
 import ProjectNewModal from '@/components/project2/ProjectNewModal.vue'
 import ProjectInfoSnackbar from "@/components/project2/ProjectInfoSnackbar.vue";
+
+import {getAllProjects} from "@/services/projectService.js";
+import {formatDateOnly, formatDateWithTime} from "@/utils/utils.js";
 export default {
   name: 'ProjectList',
   components: {ProjectInfoSnackbar, ProjectNewModal, IconError, ProjectDrawer, IconLightbulb },
@@ -233,6 +238,7 @@ export default {
           location: 'Pforzheim'
         }
       ],
+      allProjects: [],
       selectedProject: null,
 
       snackbarVisible: false,
@@ -265,6 +271,9 @@ export default {
     },
     submitProject() {
       this.triggerSnackbar();
+    },
+    formatDateOnly(dateString) {
+      return formatDateOnly(dateString);
     }
   },
   computed: {
@@ -272,23 +281,32 @@ export default {
       let filteredProjects
 
       if (this.searchQuery !== '' && this.searchQuery !== undefined) {
-        filteredProjects = this.projects.filter((project) => {
+        filteredProjects = this.allProjects.filter((project) => {
           const query = this.searchQuery.toLowerCase()
           return (
-            project.title.toLowerCase().includes(query) ||
-            project.company.toLowerCase().includes(query) ||
-            project.location.toLowerCase().includes(query)
+            project.projectTitle.toLowerCase().includes(query) ||
+            project.projectDescription.toLowerCase().includes(query) ||
+            project.projectRepresentative.toLowerCase().includes(query)
           )
         })
       } else {
-        filteredProjects = this.projects
+        filteredProjects = this.allProjects
       }
       if (this.projectViewLimit > 0) {
-        return filteredProjects.slice(0, this.projectViewLimit)
+        if(this.projectViewLimit > 5) {
+          return filteredProjects.slice(0, this.projectViewLimit)
+        } else {
+          return filteredProjects;
+        }
       } else {
         return filteredProjects
       }
     }
+  },
+  async mounted() {
+    console.log("DEBUG");
+    this.allProjects = await getAllProjects();
+    console.log(this.allProjects);
   }
 }
 </script>

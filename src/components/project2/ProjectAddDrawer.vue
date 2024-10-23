@@ -511,7 +511,7 @@
                           id="description"
                           rows="16"
                           class="pl-8 block p-2.5 w-full border-0 focus:ring-0 bg-transparent"
-                          placeholder="Das Projekt BeispielXY soll ..."
+                          placeholder="Das Projekt BeispielXY soll ... (Requirements, Environment, Tasks, TechStack)"
                       ></textarea>
                     </div>
                   </div>

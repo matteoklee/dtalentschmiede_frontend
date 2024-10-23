@@ -1,34 +1,40 @@
 <template>
   <div v-if="project">
     <div class="p-4 bg-gray-50 shadow-lg mb-4 rounded-lg">
-      <p class="mt-4">{{ project.description }}</p>
-      <p class="mt-4 text-justify">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      </p>
-      <p class="mt-4 text-justify">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      </p>
-      <p class="mt-4 text-justify">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      </p>
+      <p class="my-8">{{ project.projectDescription }}</p><!-- mt-4 -->
+      <div class="mb-4">
+        <div class="flex flex-row items-center lg:col-span-2">
+          <p
+              v-for="(technology, index) in project.projectTechnologies"
+              :key="index"
+              class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2"
+          >
+            {{ technology }}
+          </p>
+        </div>
+      </div>
+      <div class="mb-4">
+        <div class="flex flex-row items-center lg:col-span-2">
+          <p
+              v-for="(technology, index) in project.projectHardSkills"
+              :key="index"
+              class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2"
+          >
+            {{ technology }}
+          </p>
+        </div>
+      </div>
+      <div class="mb-4">
+        <div class="flex flex-row items-center lg:col-span-2">
+          <p
+              v-for="(technology, index) in project.projectSoftSkills"
+              :key="index"
+              class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2"
+          >
+            {{ technology }}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
