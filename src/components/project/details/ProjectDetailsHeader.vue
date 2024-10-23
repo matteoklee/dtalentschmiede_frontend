@@ -8,7 +8,7 @@
               :key="index"
               class="mb-4 px-4 py-2 bg-green-100 mr-2 rounded-lg"
           >
-            {{ type }}
+            {{ getReadableProjectType(type) }}
           </div>
         </div>
         <ProjectActions class="hidden" :project="project" @closeProject="closeProject"></ProjectActions>
@@ -24,14 +24,16 @@
 import ProjectActions from '@/components/project/details/ProjectActions.vue'
 import ProjectDetails from '@/components/project/details/ProjectDetails.vue'
 
+import {getReadableProjectType} from "@/utils/mappingUtils.js";
 export default {
   name: 'ProjectDetailsHeader',
   components: { ProjectDetails, ProjectActions },
   props: ['project'],
   methods: {
+    getReadableProjectType,
     closeProject() {
       this.$emit('closeProject')
-    }
+    },
   }
 }
 </script>

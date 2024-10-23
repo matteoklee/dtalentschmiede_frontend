@@ -150,7 +150,7 @@ import ProjectNewModal from '@/components/project2/ProjectNewModal.vue'
 import ProjectInfoSnackbar from "@/components/project2/ProjectInfoSnackbar.vue";
 
 import {getAllProjects} from "@/services/projectService.js";
-import {formatDateOnly, formatDateWithTime} from "@/utils/utils.js";
+import {formatDateOnly} from "@/utils/dateUtils.js";
 export default {
   name: 'ProjectList',
   components: {ProjectInfoSnackbar, ProjectNewModal, IconError, ProjectDrawer, IconLightbulb },
@@ -286,7 +286,14 @@ export default {
           return (
             project.projectTitle.toLowerCase().includes(query) ||
             project.projectDescription.toLowerCase().includes(query) ||
-            project.projectRepresentative.toLowerCase().includes(query)
+            project.projectRepresentativeEmail.toLowerCase().includes(query) ||
+            project.projectRepresentative.toLowerCase().includes(query) ||
+
+            (project.projectTypes && project.projectTypes.some(type => type.toLowerCase().includes(query))) ||
+            (project.projectStatus && project.projectStatus.toLowerCase().includes(query)) ||
+            (project.projectTechnologies && project.projectTechnologies.some(tech => tech.toLowerCase().includes(query))) ||
+            (project.projectSoftSkills && project.projectSoftSkills.some(skill => skill.toLowerCase().includes(query))) ||
+            (project.projectHardSkills && project.projectHardSkills.some(skill => skill.toLowerCase().includes(query)))
           )
         })
       } else {
@@ -303,10 +310,8 @@ export default {
       }
     }
   },
-  async mounted() {
-    console.log("DEBUG");
+  async created() {
     this.allProjects = await getAllProjects();
-    console.log(this.allProjects);
   }
 }
 </script>

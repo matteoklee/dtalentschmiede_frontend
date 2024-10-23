@@ -96,6 +96,7 @@ import ProjectAddDrawer from '@/components/project2/ProjectAddDrawer.vue'
 
 export default {
   name: 'ProjectNewModal',
+  emits: ['submitProject'],
   components: { ProjectAddDrawer, IconClose },
   data() {
     return {

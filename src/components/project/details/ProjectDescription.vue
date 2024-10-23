@@ -9,29 +9,29 @@
               :key="index"
               class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2"
           >
-            {{ technology }}
+            {{ getReadableTechnology(technology) }}
           </p>
         </div>
       </div>
       <div class="mb-4">
         <div class="flex flex-row items-center lg:col-span-2">
           <p
-              v-for="(technology, index) in project.projectHardSkills"
+              v-for="(hardSkill, index) in project.projectHardSkills"
               :key="index"
               class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2"
           >
-            {{ technology }}
+            {{ getReadableHardSkill(hardSkill) }}
           </p>
         </div>
       </div>
       <div class="mb-4">
         <div class="flex flex-row items-center lg:col-span-2">
           <p
-              v-for="(technology, index) in project.projectSoftSkills"
+              v-for="(softSkill, index) in project.projectSoftSkills"
               :key="index"
               class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2"
           >
-            {{ technology }}
+            {{ getReadableSoftSkill(softSkill) }}
           </p>
         </div>
       </div>
@@ -40,9 +40,13 @@
 </template>
 
 <script>
+import {getReadableTechnology, getReadableHardSkill, getReadableSoftSkill} from "@/utils/mappingUtils.js";
 export default {
   name: 'ProjectDescription',
-  props: ['project']
+  props: ['project'],
+  methods: {
+    getReadableHardSkill, getReadableTechnology, getReadableSoftSkill
+  }
 }
 </script>
 

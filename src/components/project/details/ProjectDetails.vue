@@ -4,7 +4,7 @@
       <div class="bg-blue-200 px-2 py-2 rounded-lg mr-2">
         <IconStatus class="w-5 h-4 text-gray-800"></IconStatus>
       </div>
-      <span class="">{{ project.projectStatus }}</span>
+      <span class="">{{ getReadableProjectStatus(project.projectStatus) }}</span>
     </div>
     <div class="hidden inline-flex lg:justify-center items-center mr-8 mb-2">
       <div class="bg-blue-200 px-2 py-1.5 rounded-lg mr-2">
@@ -26,13 +26,15 @@ import IconLocation from '@/components/profile/icons/IconLocation.vue'
 import IconCalendar from '@/components/project/details/icon/IconCalendar.vue'
 import IconHourglass from '@/components/project/details/icon/IconHourglass.vue'
 
-import {formatDateWithTime} from "@/utils/utils.js";
+import {formatDateWithTime} from "@/utils/dateUtils.js";
 import IconStatus from "@/components/project2/icons/IconStatus.vue";
+import {getReadableProjectStatus} from "@/utils/mappingUtils.js";
 export default {
   name: 'ProjectDetails',
   props: ['project'],
   components: {IconStatus, IconHourglass, IconCalendar, IconLocation },
   methods: {
+    getReadableProjectStatus,
     formatDateWithTime(dateString) {
       return formatDateWithTime(dateString);
     }
