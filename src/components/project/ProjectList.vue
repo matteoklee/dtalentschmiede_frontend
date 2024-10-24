@@ -43,7 +43,7 @@
       </div>
 
       <div class="my-6">
-        <div v-if="filterProjects.length == 0">
+        <div v-if="projectStore.filteredProjects.length === 0">
           <div class="flex flex-col items-center mx-4">
             <div
               class="text-gray-800 inline-flex bg-red-200 p-4 lg:w-1/2 w-full justify-center rounded-lg"
@@ -54,12 +54,11 @@
           </div>
         </div>
         <div
-          v-for="project in filterProjects"
+          v-for="project in projectStore.filteredProjects"
           :key="project.projectId"
-          @click="selectProject(project)"
           :class="[
             'group border hover:border-blue-500 rounded-xl hover:shadow-xl duration-300 transition-all lg:my-6 my-4 lg:mx-0 mx-4 lg:py-6 py-4 px-8',
-            selectedProject && selectedProject.projectId === project.projectId
+            projectStore.selectedProject && projectStore.selectedProject.projectId === project.projectId
               ? 'group border-2 border-blue-500 rounded-xl hover:shadow-xl duration-300 transition-all lg:my-6 my-4 lg:mx-0 mx-4 lg:py-6 py-4 px-8'
               : ''
           ]"
@@ -111,9 +110,20 @@
                     class="bg-blue-600 shadow-md shadow-blue-600/50 px-6 py-3 rounded-lg text-white hover:bg-blue-700 transition"
                 >Ansehen</button>
                 -->
+              <div class="text-center">
+                <button
+                    type="button"
+                    @click="selectProject(project)"
+                    data-drawer-placement="left"
+                    aria-controls="drawer-right-example"
+                    class="bg-blue-600 shadow-md shadow-blue-600/50 px-6 py-3 rounded-lg text-white hover:bg-blue-700 transition"
+                >
+                  Ansehen
+                </button>
+              </div>
               <ProjectDrawer
-                  :project="selectedProject"
-                  @closeProject="closeProject"
+                  :isDrawerOpen="isDrawerOpen"
+                  @closeDrawer="closeDrawer"
               ></ProjectDrawer>
             </div>
           </div>
@@ -142,104 +152,33 @@
   </div>
 </template>
 
+
 <script>
+import {initFlowbite} from "flowbite";
 import IconLightbulb from '@/components/icons/IconLightbulb.vue'
 import ProjectDrawer from '@/components/project/actions/read/ProjectDrawer.vue'
 import IconError from '@/components/icons/IconError.vue'
 import ProjectNewModal from '@/components/project/actions/create/ProjectNewModal.vue'
 import ProjectInfoSnackbar from "@/components/project/actions/ProjectInfoSnackbar.vue";
 
-import {getAllProjects} from "@/services/projectService.js";
 import {formatDateOnly} from "@/utils/dateUtils.js";
+import {useProjectStore} from "@/stores/projectStore.js";
+
 export default {
   name: 'ProjectList',
+  setup() {
+    const projectStore = useProjectStore();
+    projectStore.fetchProjects();
+    return {
+      projectStore
+    }
+  },
   components: {ProjectInfoSnackbar, ProjectNewModal, IconError, ProjectDrawer, IconLightbulb },
   props: ['searchQuery'],
   data() {
     return {
+      isDrawerOpen: false,
       projectViewLimit: 5,
-      projects: [
-        {
-          id: 1,
-          title: 'Marktpreise 2024',
-          company: 'TQ6',
-          location: 'Altenholz'
-        },
-        {
-          id: 2,
-          title: 'dProjektbörse',
-          company: 'DS44',
-          location: 'Halle (Saale)'
-        },
-        {
-          id: 3,
-          title: 'Konfiguration Manager2 (m/w/d) Beta',
-          company: 'TeamPower GmbH',
-          location: 'Pforzheim'
-        },
-        {
-          id: 4,
-          title: 'Konfiguration Manager3 (m/w/d) Gamma',
-          company: 'TeamPower GmbH',
-          location: 'Pforzheim'
-        },
-        {
-          id: 5,
-          title: 'Konfiguration Manager4 (m/w/d) Epsilon',
-          company: 'TeamPower GmbH',
-          location: 'Pforzheim'
-        },
-        {
-          id: 6,
-          title: 'Konfiguration Manager5 (m/w/d)',
-          company: 'TeamPower GmbH',
-          location: 'Pforzheim'
-        },
-        {
-          id: 7,
-          title: 'Konfiguration Manager6 (m/w/d)',
-          company: 'TeamPower GmbH',
-          location: 'Pforzheim'
-        },
-        {
-          id: 8,
-          title: 'Konfiguration Manager4 (m/w/d)',
-          company: 'TeamPower GmbH',
-          location: 'Pforzheim'
-        },
-        {
-          id: 9,
-          title: 'Konfiguration Manager5 (m/w/d)',
-          company: 'TeamPower GmbH',
-          location: 'Pforzheim'
-        },
-        {
-          id: 10,
-          title: 'Konfiguration Manager6 (m/w/d)',
-          company: 'TeamPower GmbH',
-          location: 'Pforzheim'
-        },
-        {
-          id: 11,
-          title: 'Konfiguration Manager4 (m/w/d)',
-          company: 'TeamPower GmbH',
-          location: 'Pforzheim'
-        },
-        {
-          id: 12,
-          title: 'Konfiguration Manager5 (m/w/d)',
-          company: 'TeamPower GmbH',
-          location: 'Pforzheim'
-        },
-        {
-          id: 13,
-          title: 'Konfiguration Manager6 (m/w/d)',
-          company: 'TeamPower GmbH',
-          location: 'Pforzheim'
-        }
-      ],
-      allProjects: [],
-      selectedProject: null,
 
       snackbarVisible: false,
       snackbarMessage: "Projekt wurde erfolgreich angelegt.",
@@ -248,13 +187,19 @@ export default {
     }
   },
   methods: {
+    openDrawer() {
+      this.isDrawerOpen = true;
+    },
+    closeDrawer() {
+      this.isDrawerOpen = false;
+    },
     selectProject(project) {
-      this.selectedProject = project
-      this.$emit('selectProject', project)
+      this.projectStore.setSelectedProject(project);
       console.log(project)
+      this.openDrawer();
     },
     closeProject() {
-      this.selectedProject = null
+      this.projectStore.setSelectedProject(null);
     },
     showAllProjects() {
       this.projectViewLimit = -1
@@ -275,6 +220,9 @@ export default {
     formatDateOnly(dateString) {
       return formatDateOnly(dateString);
     }
+  },
+  mounted() {
+    initFlowbite();
   },
   computed: {
     filterProjects() {
@@ -310,9 +258,6 @@ export default {
       }
     }
   },
-  async mounted() {
-    this.allProjects = await getAllProjects();
-  }
 }
 </script>
 

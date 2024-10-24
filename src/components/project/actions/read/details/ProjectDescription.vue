@@ -1,7 +1,7 @@
 <template>
   <div v-if="project">
     <div class="p-4 bg-gray-50 shadow-lg mb-4 rounded-lg">
-      <p class="my-8">{{ project.projectDescription }}</p><!-- mt-4 -->
+      <p class="my-8 text-justify">{{ project.projectDescription }}</p><!-- mt-4 -->
       <div class="mb-4">
         <div class="flex flex-row items-center lg:col-span-2">
           <p

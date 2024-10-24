@@ -89,6 +89,7 @@
         >
           <div class="flex items-center space-x-2 w-full relative mr-2">
             <IconSearch class="h-5 text-gray-400"></IconSearch>
+            <!-- v-model="projectStore.searchQuery" -->
             <input
                 v-model="searchQuery"
                 @input="searchProject"
@@ -98,7 +99,7 @@
                 required
                 class="border-0 w-full outline-none focus:ring-0 placeholder-gray-300 pr-6"
             />
-            <button type="button" @click="clear" class="absolute right-0">
+            <button type="button" @click="clearSearch" class="absolute right-0">
               <IconClose class="h-5 w-5 text-gray-400 hover:text-gray-600"></IconClose>
             </button>
           </div>
@@ -113,8 +114,17 @@
 import {initFlowbite} from "flowbite";
 import IconSearch from "@/components/icons/IconSearch.vue";
 import IconClose from "@/components/icons/IconClose.vue";
+
+import {useProjectStore} from "@/stores/projectStore.js";
 export default {
   name: "ProjectFilter",
+  setup() {
+    const projectStore = useProjectStore();
+    projectStore.fetchProjects();
+    return {
+      projectStore
+    };
+  },
   components: {IconClose, IconSearch},
   data() {
     return {
@@ -151,11 +161,11 @@ export default {
   },
   methods: {
     searchProject() {
-      this.$emit("searchProject", this.searchQuery);
+      this.projectStore.setSearchQuery(this.searchQuery)
     },
-    clear() {
-      this.searchQuery = "";
-      this.searchProject()
+    clearSearch() {
+      this.searchQuery = ''
+      this.projectStore.setSearchQuery('');
     }
   },
   mounted() {

@@ -29,9 +29,6 @@ export default {
   props: ['project'],
   methods: {
     getReadableProjectType,
-    closeProject() {
-      this.$emit('closeProject')
-    },
   }
 }
 </script>

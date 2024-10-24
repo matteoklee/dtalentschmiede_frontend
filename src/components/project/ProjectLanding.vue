@@ -52,8 +52,16 @@
 import IconClose from '@/components/icons/IconClose.vue'
 import IconSearch from '@/components/icons/IconSearch.vue'
 
+import {useProjectStore} from "@/stores/projectStore.js";
 export default {
   name: 'ProjectLanding',
+  setup() {
+    const projectStore = useProjectStore();
+    projectStore.fetchProjects();
+    return {
+      projectStore
+    }
+  },
   components: { IconSearch, IconClose },
   data() {
     return {
@@ -62,11 +70,11 @@ export default {
   },
   methods: {
     searchProject() {
-      this.$emit('searchProject', this.searchQuery)
+      this.projectStore.setSearchQuery(this.searchQuery)
     },
     clear() {
       this.searchQuery = ''
-      this.searchProject()
+      this.projectStore.setSearchQuery('')
     }
   }
 }
