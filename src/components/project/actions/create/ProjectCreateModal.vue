@@ -1,21 +1,11 @@
 <template>
-  <!-- Modal toggle -->
-  <button
-    data-modal-target="select-modal"
-    data-modal-toggle="select-modal"
-    class="bg-red-700 shadow-md px-6 py-3 rounded-lg hover:bg-red-800 text-white mr-1"
-    type="button"
-    id="addProject"
-  >
-    Erstellen
-  </button>
-
-  <!-- Main modal -->
+   <!-- Main modal -->
   <div
-    id="select-modal"
+    v-if="isModalOpen"
     tabindex="-1"
+    id="select-modal"
     aria-hidden="true"
-    class="hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50"
   >
     <div class="relative p-4 w-full max-w-screen-md max-h-full">
       <!-- Modal content -->
@@ -26,7 +16,7 @@
           <button
             type="button"
             class="text-gray-400 bg-transparent hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center"
-            data-modal-toggle="select-modal"
+            @click="closeModal"
           >
             <IconClose class="w-5 h-5"></IconClose>
           </button>
@@ -82,7 +72,24 @@
             </li>
           </ul>
 
+
+          <div class="text-center">
+            <button
+                type="button"
+                data-drawer-target="drawer-full-example"
+                data-drawer-show="drawer-full-example"
+                data-drawer-placement="right"
+                aria-controls="drawer-full-example"
+                class="bg-red-700 shadow-md px-6 py-3 rounded-lg hover:bg-red-800 hover:text-white text-white lg:mr-4 w-full font-medium"
+            >
+              Erstellen
+            </button>
+          </div>
+
+
           <ProjectAddDrawer @submitProject="submitProject"></ProjectAddDrawer>
+
+
         </div>
       </div>
     </div>
@@ -94,18 +101,24 @@ import IconClose from '@/components/icons/IconClose.vue';
 import ProjectAddDrawer from '@/components/project/actions/create/ProjectAddDrawer.vue';
 
 export default {
-  name: 'ProjectNewModal',
-  emits: ['submitProject'],
+  name: 'ProjectCreateModal',
+  emits: ['submitProject', 'closeModal'],
   components: { ProjectAddDrawer, IconClose },
+  props: {
+    isModalOpen: Boolean
+  },
   data() {
     return {};
   },
   methods: {
     closeModal() {
+      /*
       const modalToggle = document.querySelector('[data-modal-toggle="select-modal"]');
       if (modalToggle) {
         modalToggle.click();
       }
+       */
+      this.$emit("closeModal", true)
     },
     submitProject() {
       console.log('DEBUG TEST3');

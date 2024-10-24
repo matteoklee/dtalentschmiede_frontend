@@ -14,7 +14,15 @@
           </button>
           -->
           <!--<ProjectAddDrawer></ProjectAddDrawer>-->
-          <ProjectNewModal @submitProject="submitProject"></ProjectNewModal>
+          <button
+              @click="openCreateModal"
+              class="bg-red-700 shadow-md px-6 py-3 rounded-lg hover:bg-red-800 text-white mr-1"
+              type="button"
+              id="addProject"
+          >
+            Erstellen
+          </button>
+          <ProjectCreateModal @submitProject="submitProject" :isModalOpen="isCreateModalOpen" @closeModal="closeCreateModal"></ProjectCreateModal>
           <!--
           <button
             type="button"
@@ -122,14 +130,17 @@
                   Ansehen
                 </button>
               </div>
+
               <ProjectDrawer
-                :isDrawerOpen="isDrawerOpen"
-                @closeDrawer="closeDrawer"
+                :isDrawerOpen="isReadDrawerOpen"
+                @closeDrawer="closeReadDrawer"
               ></ProjectDrawer>
+
             </div>
           </div>
         </div>
       </div>
+
       <div class="flex justify-center my-8">
         <button
           v-if="projectViewLimit !== -1"
@@ -153,11 +164,10 @@
 </template>
 
 <script>
-import { initFlowbite } from 'flowbite';
 import IconLightbulb from '@/components/icons/IconLightbulb.vue';
 import ProjectDrawer from '@/components/project/actions/read/ProjectDrawer.vue';
 import IconError from '@/components/icons/IconError.vue';
-import ProjectNewModal from '@/components/project/actions/create/ProjectNewModal.vue';
+import ProjectCreateModal from '@/components/project/actions/create/ProjectCreateModal.vue';
 import ProjectInfoSnackbar from '@/components/project/actions/ProjectInfoSnackbar.vue';
 
 import { formatDateOnly } from '@/utils/dateUtils.js';
@@ -172,11 +182,13 @@ export default {
       projectStore
     };
   },
-  components: { ProjectInfoSnackbar, ProjectNewModal, IconError, ProjectDrawer, IconLightbulb },
+  components: { ProjectInfoSnackbar, ProjectCreateModal, IconError, ProjectDrawer, IconLightbulb },
   props: ['searchQuery'],
   data() {
     return {
-      isDrawerOpen: false,
+      isReadDrawerOpen: false,
+      isCreateModalOpen: false,
+
       projectViewLimit: 5,
 
       snackbarVisible: false,
@@ -186,20 +198,28 @@ export default {
     };
   },
   methods: {
-    openDrawer() {
-      this.isDrawerOpen = true;
+    openReadDrawer() {
+      this.isReadDrawerOpen = true;
     },
-    closeDrawer() {
-      this.isDrawerOpen = false;
+    closeReadDrawer() {
+      this.isReadDrawerOpen = false;
+    },
+    openCreateModal() {
+      this.isCreateModalOpen = true;
+    },
+    closeCreateModal() {
+      this.isCreateModalOpen = false;
     },
     selectProject(project) {
       this.projectStore.setSelectedProject(project);
       console.log(project);
-      this.openDrawer();
+      this.openReadDrawer();
     },
     closeProject() {
       this.projectStore.setSelectedProject(null);
     },
+
+
     showAllProjects() {
       this.projectViewLimit = -1;
     },
@@ -214,14 +234,13 @@ export default {
       }, 5000);
     },
     submitProject() {
+      this.projectStore.fetchProjects();
+      console.log("submitted project")
       this.triggerSnackbar();
     },
     formatDateOnly(dateString) {
       return formatDateOnly(dateString);
     }
-  },
-  mounted() {
-    initFlowbite();
   },
   computed: {
     filterProjects() {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- drawer init and toggle -->
+    <!--
     <div class="text-center">
       <button
         type="button"
@@ -13,6 +13,7 @@
         Erstellen
       </button>
     </div>
+    -->
 
     <!-- drawer component -->
     <!-- bg-black bg-gradient-to-r from-purple-800/50 from-10% via-indigo-700/50 via-30% to-blue-900/50 to-90%     bg-slate-900 -->
@@ -695,9 +696,15 @@ import IconCalendar from '@/components/icons/IconCalendar.vue';
 import IconFolder from '@/components/home/icons/IconFolder.vue';
 import IconPencil from '@/components/icons/IconPencil.vue';
 
-import { createProject } from '@/services/projectService.js';
+import {useProjectStore} from "@/stores/projectStore.js";
 export default {
   name: 'ProjectAddDrawer',
+  setup() {
+    const projectStore = useProjectStore();
+    return {
+      projectStore
+    }
+  },
   components: {
     IconPencil,
     IconFolder,
@@ -748,7 +755,7 @@ export default {
       selectedHardSkills: [],
       selectedSoftSkills: [],
       selectedTechnologies: [],
-      selectedStatus: 'ENTWURF',
+      selectedStatus: 'DRAFT',
 
       project: {
         projectTitle: '',
@@ -892,20 +899,17 @@ export default {
         this.project.projectSoftSkills = this.selectedSoftSkills;
         this.project.projectStatus = this.selectedStatus;
         this.createProject();
+        console.log("DEBUG1");
       } else {
         console.error('input data for new project is incomplete.');
       }
     },
-    async createProject() {
-      try {
-        const response = await createProject(this.project);
-        if (response.ok) {
-          this.$emit('submitProject', true);
-          this.clearInput();
-        }
-      } catch (error) {
-        console.error('error creating project:', error);
-      }
+    createProject() {
+      console.log("DEBUG2");
+      this.projectStore.addProject(this.project);
+      this.$emit('submitProject', true);
+      this.clearInput();
+      console.log("DEBUG3");
     },
     clearInput() {
       this.project = {
