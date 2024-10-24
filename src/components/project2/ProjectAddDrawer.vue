@@ -87,7 +87,7 @@
             <div class="flex items-center space-x-2 w-full relative mr-2">
               <IconFile class="h-5 text-gray-400"></IconFile>
               <input
-                  v-model="title"
+                  v-model="project.projectTitle"
                   type="text"
                   id="projectSearch"
                   placeholder="Titel des Projekts"
@@ -249,17 +249,17 @@
                   <!-- IT-Projekt -->
                   <div class="">
                     <input
-                      type="radio"
-                      v-model="selectedCategory"
+                      type="checkbox"
+                      v-model="selectedType"
                       id="project"
                       name="project"
-                      value="project"
+                      value="PROJECT"
                       class="hidden peer"
                     />
                     <label
                       for="project"
                       class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                      :class="selectedCategory === 'project' ? 'bg-gray-100' : 'bg-white'"
+                      :class="selectedType === 'project' ? 'bg-gray-100' : 'bg-white'"
                     >
                       <div
                         class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
@@ -267,13 +267,13 @@
                         <IconLightbulb
                           class="w-10 h-10"
                           :class="
-                            selectedCategory === 'project' ? 'text-blue-600' : 'text-gray-300'
+                            selectedType === 'project' ? 'text-blue-600' : 'text-gray-300'
                           "
                         ></IconLightbulb>
                         <span class="text-lg font-medium text-gray-700 pt-2">IT-Projekt</span>
                       </div>
                       <IconCheck
-                        v-if="selectedCategory === 'project'"
+                        v-if="selectedType === 'project'"
                         class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                       ></IconCheck>
                     </label>
@@ -281,17 +281,17 @@
                   <!-- Practice -->
                   <div class="">
                     <input
-                        type="radio"
-                        v-model="selectedCategory"
+                        type="checkbox"
+                        v-model="selectedType"
                         id="practice"
                         name="practice"
-                        value="practice"
+                        value="PRACTICE"
                         class="hidden peer"
                     />
                     <label
                         for="practice"
                         class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                        :class="selectedCategory === 'practice' ? 'bg-gray-100' : 'bg-white'"
+                        :class="selectedType === 'practice' ? 'bg-gray-100' : 'bg-white'"
                     >
                       <div
                           class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
@@ -299,13 +299,12 @@
                         <IconTools
                             class="w-10 h-10"
                             :class="
-                            selectedCategory === 'practice' ? 'text-blue-600' : 'text-gray-300'
-                          "
+                            selectedType === 'practice' ? 'text-blue-600' : 'text-gray-300'"
                         ></IconTools>
                         <span class="text-lg font-medium text-gray-700 pt-2">Praxisstation</span>
                       </div>
                       <IconCheck
-                          v-if="selectedCategory === 'practice'"
+                          v-if="selectedType === 'practice'"
                           class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                       ></IconCheck>
                     </label>
@@ -313,17 +312,17 @@
                   <!-- Thesis -->
                   <div class="">
                     <input
-                        type="radio"
-                        v-model="selectedCategory"
+                        type="checkbox"
+                        v-model="selectedType"
                         id="thesis"
                         name="thesis"
-                        value="thesis"
+                        value="THESIS"
                         class="hidden peer"
                     />
                     <label
                         for="thesis"
                         class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                        :class="selectedCategory === 'thesis' ? 'bg-gray-100' : 'bg-white'"
+                        :class="selectedType === 'thesis' ? 'bg-gray-100' : 'bg-white'"
                     >
                       <div
                           class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
@@ -331,13 +330,13 @@
                         <IconBook
                             class="w-10 h-10"
                             :class="
-                            selectedCategory === 'thesis' ? 'text-blue-600' : 'text-gray-300'
+                            selectedType === 'thesis' ? 'text-blue-600' : 'text-gray-300'
                           "
                         ></IconBook>
                         <span class="text-lg font-medium text-gray-700 pt-2">Thesis</span>
                       </div>
                       <IconCheck
-                          v-if="selectedCategory === 'thesis'"
+                          v-if="selectedType === 'thesis'"
                           class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                       ></IconCheck>
                     </label>
@@ -345,17 +344,17 @@
                   <!-- Other -->
                   <div class="">
                     <input
-                        type="radio"
-                        v-model="selectedCategory"
+                        type="checkbox"
+                        v-model="selectedType"
                         id="other"
                         name="other"
-                        value="other"
+                        value="OTHER"
                         class="hidden peer"
                     />
                     <label
                         for="other"
                         class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                        :class="selectedCategory === 'other' ? 'bg-gray-100' : 'bg-white'"
+                        :class="selectedType === 'other' ? 'bg-gray-100' : 'bg-white'"
                     >
                       <div
                           class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
@@ -363,13 +362,13 @@
                         <IconOther
                             class="w-10 h-10"
                             :class="
-                            selectedCategory === 'other' ? 'text-blue-600' : 'text-gray-300'
+                            selectedType === 'other' ? 'text-blue-600' : 'text-gray-300'
                           "
                         ></IconOther>
                         <span class="text-lg font-medium text-gray-700 pt-2">Andere</span>
                       </div>
                       <IconCheck
-                          v-if="selectedCategory === 'other'"
+                          v-if="selectedType === 'other'"
                           class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                       ></IconCheck>
                     </label>
@@ -508,6 +507,7 @@
                     <div class="w-full relative">
                       <IconList class="h-5 absolute left-0 top-3"></IconList>
                       <textarea
+                          v-model="project.projectDescription"
                           id="description"
                           rows="16"
                           class="pl-8 block p-2.5 w-full border-0 focus:ring-0 bg-transparent"
@@ -542,14 +542,14 @@
                 <div class="mb-2">
                   <h2 class="text-sm font-medium pb-4">Projektstatus festlegen</h2>
                   <div class="flex space-x-4">
-                    <div :class="{'border-blue-600 border-2 bg-gray-50': selectedStatus === 'ENTWURF'}"
-                        class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer" @click="selectStatus('ENTWURF')">
+                    <div :class="{'border-blue-600 border-2 bg-gray-50': selectedStatus === 'DRAFT'}"
+                        class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer" @click="selectStatus('DRAFT')">
                       <IconPencil class="w-4 h-4"></IconPencil>
                       <span class="ml-2 block text-sm font-medium text-gray-700">ENTWURF</span>
                     </div>
 
-                    <div :class="{'border-blue-600 border-2 bg-gray-50': selectedStatus === 'OFFEN'}"
-                         class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer" @click="selectStatus('OFFEN')">
+                    <div :class="{'border-blue-600 border-2 bg-gray-50': selectedStatus === 'OPEN'}"
+                         class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer" @click="selectStatus('OPEN')">
                       <IconFolder class="w-4 h-4"></IconFolder>
                       <span class="ml-2 block text-sm font-medium text-gray-700">OFFEN</span>
                     </div>
@@ -570,6 +570,7 @@
                       <div class="inline-flex items-center w-full bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0">
                         <IconUser class="w-4 h-4 ml-4 mr-0"></IconUser>
                         <input
+                            v-model="project.projectRepresentative"
                             type="text"
                             id="name"
                             class="w-full p-4 bg-gray-50 border-0 focus:ring-0"
@@ -583,6 +584,7 @@
                       <div class="inline-flex items-center w-full  bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0">
                         <IconEmail class="w-5 h-5 ml-4 mr-0"></IconEmail>
                         <input
+                            v-model="project.projectRepresentativeEmail"
                             type="email"
                             id="name"
                             class="w-full p-4 bg-gray-50 border-0 focus:ring-0"
@@ -658,6 +660,7 @@ import IconCalendar from "@/components/project/details/icon/IconCalendar.vue";
 import IconFolder from "@/components/home/icons/IconFolder.vue";
 import IconPencil from "@/components/project2/icons/IconPencil.vue";
 
+import {createProject} from "@/services/projectService.js";
 export default {
   name: 'ProjectAddDrawer',
   components: {
@@ -706,115 +709,125 @@ export default {
       isDrawerOpen: false,
       title: '',
       titleValidated: false,
-      selectedCategory: 'project',
+      selectedType: [],
       selectedHardSkills: [],
       selectedSoftSkills: [],
       selectedTechnologies: [],
       selectedStatus: "ENTWURF",
 
       project: {
-        title: '',
-        description: '',
-        technologies: '',
-        scope: '',
-        startDate: new Date().toISOString().split('T')[0],
-        supervisor: ''
+        projectTitle: '',
+        projectDescription: '',
+        projectRepresentative: '',
+        projectRepresentativeEmail: '',
+        projectTypes: [],
+        projectHardSkills: [],
+        projectSoftSkills: [],
+        projectTechnologies: [],
+        projectStatus: ''
       },
       hardSkills: [
         {
-          title: "DevOps",
+          title: "DEVOPS",
           icon: markRaw(IconServer)
         },
         {
-          title: "Entwicklung",
+          title: "PROGRAMMING",
           icon: markRaw(IconCode)
         },
         {
-          title: "Datenbank",
+          title: "DATABASE_MANAGEMENT",
           icon: markRaw(IconDatabase)
         },
         {
-          title: "Sicherheit",
+          title: "SECURITY",
           icon: markRaw(IconSecurity)
         },
         {
-          title: "Agilität",
+          title: "AGILE",
           icon: markRaw(IconAgil)
         },
         {
-          title: "Doku",
+          title: "DOCUMENTATION",
           icon: markRaw(IconFile)
         },
         {
-          title: "Version",
+          title: "VERSION_CONTROL",
           icon: markRaw(IconGit)
         },
         {
-          title: "Testen",
+          title: "TESTING",
           icon: markRaw(IconTesting)
         },
         {
-          title: "Architektur",
+          title: "SOFTWARE_ARCHITECTURE",
           icon: markRaw(IconArchitecture)
         },
 
       ],
       softSkills: [
         {
-          title: "Anforderung",
+          title: "REQUIREMENTS_ENGINEERING",
           icon: markRaw(IconClipboard)
         },
         {
-          title: "Planung",
+          title: "PROJECT_MANAGEMENT",
           icon: markRaw(IconList)
         },
         {
-          title: "Kunden",
+          title: "CLIENT_INTERACTION",
           icon: markRaw(IconHandshake)
         },
         {
-          title: "Lösung",
+          title: "PROBLEM_SOLVING",
           icon: markRaw(IconLightbulb)
         },
         {
-          title: "Team",
+          title: "TEAMWORK",
           icon: markRaw(IconUsers)
         },
         {
-          title: "Zeit",
+          title: "TIME_MANAGEMENT",
           icon: markRaw(IconClock)
+        },
+        {
+          title: "OTHER",
+          icon: markRaw(IconOther)
         },
       ],
       technologies: [
         {
-          title: "Vue.js",
+          title: "VUE_JS",
           icon: markRaw(IconVue)
         },
         {
-          title: "Vuetify",
+          title: "VUETIFY",
           icon: markRaw(IconVuetify)
         },
         {
-          title: "Java",
+          title: "JAVA",
           icon: markRaw(IconJava)
         },
         {
-          title: "JavaScript",
+          title: "JAVASCRIPT",
           icon: markRaw(IconJavascript)
         },
         {
-          title: "Node.js",
+          title: "NODE_JS",
           icon: markRaw(IconNode)
         },
         {
-          title: "Spring",
+          title: "SPRING_BOOT",
           icon: markRaw(IconSpring)
         },
         {
-          title: "Docker",
+          title: "DOCKER",
           icon: markRaw(IconDocker)
         },
-
+        {
+          title: "OTHER",
+          icon: markRaw(IconOther)
+        },
       ]
     }
   },
@@ -833,7 +846,43 @@ export default {
       this.selectedStatus = status;
     },
     submit() {
-      this.$emit("submitProject", true);
+      if (this.project.projectTitle && this.project.projectDescription && this.project.projectRepresentative && this.project.projectRepresentativeEmail) {
+        this.project.projectTypes = this.selectedType;
+        this.project.projectTechnologies = this.selectedTechnologies;
+        this.project.projectHardSkills = this.selectedHardSkills;
+        this.project.projectSoftSkills = this.selectedSoftSkills;
+        this.project.projectStatus = this.selectedStatus;
+        this.createProject();
+      } else {
+        console.error('input data for new project is incomplete.');
+      }
+    },
+    async createProject() {
+      try {
+        const response = await createProject(this.project);
+        if (response.ok) {
+          this.$emit("submitProject", true);
+          this.clearInput();
+        }
+      } catch (error) {
+        console.error('error creating project:', error);
+      }
+    },
+    clearInput() {
+      this.project = {
+        projectTitle: '',
+        projectDescription: '',
+        projectRepresentative: '',
+        projectRepresentativeEmail: '',
+        projectTypes: [],
+        projectHardSkills: [],
+        projectSoftSkills: [],
+        projectTechnologies: [],
+        projectStatus: ''
+      };
+      this.selectedTechnologies = [];
+      this.selectedHardSkills = [];
+      this.selectedSoftSkills = [];
     },
     submitForm() {
       console.log('Projekt wurde angelegt:', this.project)

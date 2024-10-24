@@ -287,13 +287,13 @@ export default {
             project.projectTitle.toLowerCase().includes(query) ||
             project.projectDescription.toLowerCase().includes(query) ||
             project.projectRepresentativeEmail.toLowerCase().includes(query) ||
-            project.projectRepresentative.toLowerCase().includes(query) ||
+            project.projectRepresentative.toLowerCase().includes(query)
 
-            (project.projectTypes && project.projectTypes.some(type => type.toLowerCase().includes(query))) ||
-            (project.projectStatus && project.projectStatus.toLowerCase().includes(query)) ||
-            (project.projectTechnologies && project.projectTechnologies.some(tech => tech.toLowerCase().includes(query))) ||
-            (project.projectSoftSkills && project.projectSoftSkills.some(skill => skill.toLowerCase().includes(query))) ||
-            (project.projectHardSkills && project.projectHardSkills.some(skill => skill.toLowerCase().includes(query)))
+            //(project.projectTypes && project.projectTypes.some(type => type.toLowerCase().includes(query))) ||
+            //(project.projectStatus && project.projectStatus.toLowerCase().includes(query)) ||
+            //(project.projectTechnologies && project.projectTechnologies.some(tech => tech.toLowerCase().includes(query))) ||
+            //(project.projectSoftSkills && project.projectSoftSkills.some(skill => skill.toLowerCase().includes(query))) ||
+            //(project.projectHardSkills && project.projectHardSkills.some(skill => skill.toLowerCase().includes(query)))
           )
         })
       } else {
@@ -310,7 +310,7 @@ export default {
       }
     }
   },
-  async created() {
+  async mounted() {
     this.allProjects = await getAllProjects();
   }
 }
