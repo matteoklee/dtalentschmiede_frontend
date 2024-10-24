@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconDescription'
-}
+};
 </script>
 
 <style scoped></style>

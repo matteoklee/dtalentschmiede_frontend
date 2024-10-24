@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconError'
-}
+};
 </script>
 
 <style scoped></style>

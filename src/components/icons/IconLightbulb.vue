@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconLightbulb'
-}
+};
 </script>
 
 <style scoped></style>

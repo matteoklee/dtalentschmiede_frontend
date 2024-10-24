@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconRegister'
-}
+};
 </script>
 
 <style scoped></style>

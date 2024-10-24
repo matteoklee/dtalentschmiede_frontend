@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconSignOut'
-}
+};
 </script>
 
 <style scoped></style>

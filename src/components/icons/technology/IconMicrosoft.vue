@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconMicrosoft'
-}
+};
 </script>
 
 <style scoped></style>

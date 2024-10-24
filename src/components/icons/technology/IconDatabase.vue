@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconDatabase'
-}
+};
 </script>
 
 <style scoped></style>

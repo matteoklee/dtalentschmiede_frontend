@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconSubmit'
-}
+};
 </script>
 
 <style scoped></style>

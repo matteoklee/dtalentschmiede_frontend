@@ -50,35 +50,35 @@
 </template>
 
 <script>
-import IconClose from '@/components/icons/IconClose.vue'
-import IconSearch from '@/components/icons/IconSearch.vue'
+import IconClose from '@/components/icons/IconClose.vue';
+import IconSearch from '@/components/icons/IconSearch.vue';
 
-import { useProjectStore } from '@/stores/projectStore.js'
+import { useProjectStore } from '@/stores/projectStore.js';
 export default {
   name: 'ProjectLanding',
   setup() {
-    const projectStore = useProjectStore()
-    projectStore.fetchProjects()
+    const projectStore = useProjectStore();
+    projectStore.fetchProjects();
     return {
       projectStore
-    }
+    };
   },
   components: { IconSearch, IconClose },
   data() {
     return {
       searchQuery: ''
-    }
+    };
   },
   methods: {
     searchProject() {
-      this.projectStore.setSearchQuery(this.searchQuery)
+      this.projectStore.setSearchQuery(this.searchQuery);
     },
     clear() {
-      this.searchQuery = ''
-      this.projectStore.setSearchQuery('')
+      this.searchQuery = '';
+      this.projectStore.setSearchQuery('');
     }
   }
-}
+};
 </script>
 
 <style scoped></style>

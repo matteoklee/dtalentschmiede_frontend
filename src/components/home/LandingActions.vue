@@ -64,10 +64,10 @@
 </template>
 
 <script>
-import IconFolder from '@/components/home/icons/IconFolder.vue'
-import IconList from '@/components/home/icons/IconList.vue'
-import IconSignIn from '@/components/navigation/header/profile/icons/IconSignIn.vue'
-import IconRegister from '@/components/home/icons/IconRegister.vue'
+import IconFolder from '@/components/home/icons/IconFolder.vue';
+import IconList from '@/components/home/icons/IconList.vue';
+import IconSignIn from '@/components/navigation/header/profile/icons/IconSignIn.vue';
+import IconRegister from '@/components/home/icons/IconRegister.vue';
 
 export default {
   name: 'LandingActions',
@@ -76,15 +76,15 @@ export default {
     addProject() {
       this.$router.push('/projects').then(() => {
         this.$nextTick(() => {
-          const button = document.querySelector('#addProject')
+          const button = document.querySelector('#addProject');
           if (button) {
-            button.click()
+            button.click();
           }
-        })
-      })
+        });
+      });
     }
   }
-}
+};
 </script>
 
 <style scoped></style>

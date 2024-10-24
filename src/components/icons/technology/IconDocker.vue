@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconDocker'
-}
+};
 </script>
 
 <style scoped></style>

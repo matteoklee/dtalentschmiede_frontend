@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconReact'
-}
+};
 </script>
 
 <style scoped></style>

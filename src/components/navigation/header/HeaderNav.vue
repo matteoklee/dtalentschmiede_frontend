@@ -32,10 +32,10 @@ export default {
   name: 'HeaderNav',
   methods: {
     isActiveRoute(name) {
-      return this.$route.name === name
+      return this.$route.name === name;
     }
   }
-}
+};
 </script>
 
 <style scoped></style>

@@ -14,7 +14,7 @@
 <script>
 export default {
   name: 'WelcomeStepDataport'
-}
+};
 </script>
 
 <style scoped></style>

@@ -53,12 +53,12 @@
 </template>
 
 <script>
-import IconUserCircle from '@/components/navigation/header/profile/icons/IconUserCircle.vue'
-import ProfileGeneral2 from '@/components/profile/ProfileGeneral.vue'
+import IconUserCircle from '@/components/navigation/header/profile/icons/IconUserCircle.vue';
+import ProfileGeneral2 from '@/components/profile/ProfileGeneral.vue';
 export default {
   name: 'ProfileDetails',
   components: { IconUserCircle, ProfileGeneral2 }
-}
+};
 </script>
 
 <style scoped></style>

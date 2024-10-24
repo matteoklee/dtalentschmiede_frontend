@@ -10,7 +10,7 @@
 <script>
 export default {
   name: 'IconSpring'
-}
+};
 </script>
 
 <style scoped></style>

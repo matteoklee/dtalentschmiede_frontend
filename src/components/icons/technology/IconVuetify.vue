@@ -10,7 +10,7 @@
 <script>
 export default {
   name: 'IconVuetify'
-}
+};
 </script>
 
 <style scoped></style>

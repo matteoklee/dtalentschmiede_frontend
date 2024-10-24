@@ -7,7 +7,7 @@
 <script>
 export default {
   name: 'HeaderTitle'
-}
+};
 </script>
 
 <style scoped></style>

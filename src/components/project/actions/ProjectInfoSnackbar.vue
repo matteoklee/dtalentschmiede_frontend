@@ -28,10 +28,10 @@
 </template>
 
 <script>
-import IconClose from '@/components/icons/IconClose.vue'
-import IconInfo from '@/components/icons/IconInfo.vue'
-import IconError from '@/components/icons/IconError.vue'
-import IconCheck from '@/components/icons/IconCheck.vue'
+import IconClose from '@/components/icons/IconClose.vue';
+import IconInfo from '@/components/icons/IconInfo.vue';
+import IconError from '@/components/icons/IconError.vue';
+import IconCheck from '@/components/icons/IconCheck.vue';
 
 export default {
   name: 'ProjectInfoSnackbar',
@@ -53,27 +53,27 @@ export default {
   data() {
     return {
       visible: false
-    }
+    };
   },
   methods: {
     showSnackbar() {
       setTimeout(() => {
-        this.visible = true
-      }, 10) // Kleine Verzögerung für die Einblend-Animation
+        this.visible = true;
+      }, 10); // Kleine Verzögerung für die Einblend-Animation
       setTimeout(() => {
-        this.closeSnackbar()
-      }, this.duration)
+        this.closeSnackbar();
+      }, this.duration);
     },
     closeSnackbar() {
-      this.visible = false
+      this.visible = false;
     }
   },
   mounted() {
     this.$nextTick(() => {
-      this.showSnackbar()
-    })
+      this.showSnackbar();
+    });
   }
-}
+};
 </script>
 
 <style scoped>

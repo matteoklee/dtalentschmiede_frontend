@@ -29,15 +29,15 @@
 </template>
 
 <script>
-import LandingActions from '@/components/home/LandingActions.vue'
-import { Typer } from 'vue3-typer'
+import LandingActions from '@/components/home/LandingActions.vue';
+import { Typer } from 'vue3-typer';
 export default {
   name: 'LandingTitle',
   components: { LandingActions, Typer },
   data() {
-    return {}
+    return {};
   }
-}
+};
 </script>
 
 <style scoped></style>

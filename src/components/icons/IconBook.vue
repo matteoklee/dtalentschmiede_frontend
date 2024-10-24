@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconBook'
-}
+};
 </script>
 
 <style scoped></style>

@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconListChecked'
-}
+};
 </script>
 
 <style scoped></style>

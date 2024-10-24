@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import IconLink from '@/components/icons/IconLink.vue'
+import IconLink from '@/components/icons/IconLink.vue';
 
 export default {
   name: 'ProjectApply',
   components: { IconLink },
   props: ['project']
-}
+};
 </script>
 
 <style scoped></style>

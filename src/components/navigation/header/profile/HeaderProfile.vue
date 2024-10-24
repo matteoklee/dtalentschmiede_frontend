@@ -13,17 +13,17 @@
 </template>
 
 <script>
-import HeaderProfileMenu from '@/components/navigation/header/profile/HeaderProfileMenu.vue'
-import IconUserCircle from '@/components/navigation/header/profile/icons/IconUserCircle.vue'
-import { initFlowbite } from 'flowbite'
+import HeaderProfileMenu from '@/components/navigation/header/profile/HeaderProfileMenu.vue';
+import IconUserCircle from '@/components/navigation/header/profile/icons/IconUserCircle.vue';
+import { initFlowbite } from 'flowbite';
 export default {
   name: 'HeaderProfile',
   components: { IconUserCircle, HeaderProfileMenu },
   props: ['profile'],
   mounted() {
-    initFlowbite()
+    initFlowbite();
   }
-}
+};
 </script>
 
 <style scoped></style>

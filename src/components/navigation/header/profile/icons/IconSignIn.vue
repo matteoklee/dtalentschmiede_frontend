@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconSignIn'
-}
+};
 </script>
 
 <style scoped></style>

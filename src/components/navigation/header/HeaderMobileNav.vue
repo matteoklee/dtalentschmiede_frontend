@@ -33,7 +33,7 @@
 <script>
 export default {
   name: 'HeaderMobileNav'
-}
+};
 </script>
 
 <style scoped></style>

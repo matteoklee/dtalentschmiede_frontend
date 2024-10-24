@@ -652,50 +652,50 @@
 </template>
 
 <script>
-import { initFlowbite } from 'flowbite'
-import IconClose from '@/components/icons/IconClose.vue'
-import HeaderLogo from '@/components/navigation/header/HeaderLogo.vue'
-import FooterCopyright from '@/components/navigation/footer/FooterCopyright.vue'
-import FooterNav from '@/components/navigation/footer/FooterNav.vue'
-import FooterInfo from '@/components/navigation/footer/FooterInfo.vue'
-import IconFile from '@/components/icons/IconFile.vue'
-import IconCode from '@/components/icons/IconCode.vue'
-import IconError from '@/components/icons/IconError.vue'
-import IconList from '@/components/home/icons/IconList.vue'
-import IconInfo from '@/components/icons/IconInfo.vue'
-import IconCheck from '@/components/icons/IconCheck.vue'
-import IconBook from '@/components/icons/IconBook.vue'
-import IconLightbulb from '@/components/icons/IconLightbulb.vue'
-import IconTools from '@/components/icons/IconTools.vue'
-import IconOther from '@/components/icons/IconOther.vue'
-import IconSubmit from '@/components/icons/IconSubmit.vue'
-import IconVue from '@/components/icons/technology/IconVue.vue'
-import IconVuetify from '@/components/icons/technology/IconVuetify.vue'
-import IconJava from '@/components/icons/technology/IconJava.vue'
-import IconJavascript from '@/components/icons/technology/IconJavascript.vue'
-import IconNode from '@/components/icons/technology/IconNode.vue'
-import IconDatabase from '@/components/icons/technology/IconDatabase.vue'
-import IconServer from '@/components/icons/technology/IconServer.vue'
-import IconDocker from '@/components/icons/technology/IconDocker.vue'
-import IconSpring from '@/components/icons/technology/IconSpring.vue'
+import { initFlowbite } from 'flowbite';
+import IconClose from '@/components/icons/IconClose.vue';
+import HeaderLogo from '@/components/navigation/header/HeaderLogo.vue';
+import FooterCopyright from '@/components/navigation/footer/FooterCopyright.vue';
+import FooterNav from '@/components/navigation/footer/FooterNav.vue';
+import FooterInfo from '@/components/navigation/footer/FooterInfo.vue';
+import IconFile from '@/components/icons/IconFile.vue';
+import IconCode from '@/components/icons/IconCode.vue';
+import IconError from '@/components/icons/IconError.vue';
+import IconList from '@/components/home/icons/IconList.vue';
+import IconInfo from '@/components/icons/IconInfo.vue';
+import IconCheck from '@/components/icons/IconCheck.vue';
+import IconBook from '@/components/icons/IconBook.vue';
+import IconLightbulb from '@/components/icons/IconLightbulb.vue';
+import IconTools from '@/components/icons/IconTools.vue';
+import IconOther from '@/components/icons/IconOther.vue';
+import IconSubmit from '@/components/icons/IconSubmit.vue';
+import IconVue from '@/components/icons/technology/IconVue.vue';
+import IconVuetify from '@/components/icons/technology/IconVuetify.vue';
+import IconJava from '@/components/icons/technology/IconJava.vue';
+import IconJavascript from '@/components/icons/technology/IconJavascript.vue';
+import IconNode from '@/components/icons/technology/IconNode.vue';
+import IconDatabase from '@/components/icons/technology/IconDatabase.vue';
+import IconServer from '@/components/icons/technology/IconServer.vue';
+import IconDocker from '@/components/icons/technology/IconDocker.vue';
+import IconSpring from '@/components/icons/technology/IconSpring.vue';
 
-import { markRaw } from 'vue'
-import IconEmail from '@/components/icons/IconEmail.vue'
-import IconUser from '@/components/navigation/header/profile/icons/IconUser.vue'
-import IconSecurity from '@/components/icons/technology/IconSecurity.vue'
-import IconAgil from '@/components/icons/technology/IconAgil.vue'
-import IconGit from '@/components/icons/technology/IconGit.vue'
-import IconTesting from '@/components/icons/technology/IconTesting.vue'
-import IconArchitecture from '@/components/icons/technology/IconArchitecture.vue'
-import IconHandshake from '@/components/icons/technology/IconHandshake.vue'
-import IconClock from '@/components/icons/technology/IconClock.vue'
-import IconClipboard from '@/components/icons/technology/IconClipboard.vue'
-import IconUsers from '@/components/icons/IconUsers.vue'
-import IconCalendar from '@/components/icons/IconCalendar.vue'
-import IconFolder from '@/components/home/icons/IconFolder.vue'
-import IconPencil from '@/components/icons/IconPencil.vue'
+import { markRaw } from 'vue';
+import IconEmail from '@/components/icons/IconEmail.vue';
+import IconUser from '@/components/navigation/header/profile/icons/IconUser.vue';
+import IconSecurity from '@/components/icons/technology/IconSecurity.vue';
+import IconAgil from '@/components/icons/technology/IconAgil.vue';
+import IconGit from '@/components/icons/technology/IconGit.vue';
+import IconTesting from '@/components/icons/technology/IconTesting.vue';
+import IconArchitecture from '@/components/icons/technology/IconArchitecture.vue';
+import IconHandshake from '@/components/icons/technology/IconHandshake.vue';
+import IconClock from '@/components/icons/technology/IconClock.vue';
+import IconClipboard from '@/components/icons/technology/IconClipboard.vue';
+import IconUsers from '@/components/icons/IconUsers.vue';
+import IconCalendar from '@/components/icons/IconCalendar.vue';
+import IconFolder from '@/components/home/icons/IconFolder.vue';
+import IconPencil from '@/components/icons/IconPencil.vue';
 
-import { createProject } from '@/services/projectService.js'
+import { createProject } from '@/services/projectService.js';
 export default {
   name: 'ProjectAddDrawer',
   components: {
@@ -863,21 +863,21 @@ export default {
           icon: markRaw(IconOther)
         }
       ]
-    }
+    };
   },
   methods: {
     validateTitle() {
-      this.titleValidated = this.title !== ''
+      this.titleValidated = this.title !== '';
     },
     resetTitle() {
-      this.titleValidated = false
-      this.title = ''
+      this.titleValidated = false;
+      this.title = '';
     },
     clear() {
-      this.title = ''
+      this.title = '';
     },
     selectStatus(status) {
-      this.selectedStatus = status
+      this.selectedStatus = status;
     },
     submit() {
       if (
@@ -886,25 +886,25 @@ export default {
         this.project.projectRepresentative &&
         this.project.projectRepresentativeEmail
       ) {
-        this.project.projectTypes = this.selectedType
-        this.project.projectTechnologies = this.selectedTechnologies
-        this.project.projectHardSkills = this.selectedHardSkills
-        this.project.projectSoftSkills = this.selectedSoftSkills
-        this.project.projectStatus = this.selectedStatus
-        this.createProject()
+        this.project.projectTypes = this.selectedType;
+        this.project.projectTechnologies = this.selectedTechnologies;
+        this.project.projectHardSkills = this.selectedHardSkills;
+        this.project.projectSoftSkills = this.selectedSoftSkills;
+        this.project.projectStatus = this.selectedStatus;
+        this.createProject();
       } else {
-        console.error('input data for new project is incomplete.')
+        console.error('input data for new project is incomplete.');
       }
     },
     async createProject() {
       try {
-        const response = await createProject(this.project)
+        const response = await createProject(this.project);
         if (response.ok) {
-          this.$emit('submitProject', true)
-          this.clearInput()
+          this.$emit('submitProject', true);
+          this.clearInput();
         }
       } catch (error) {
-        console.error('error creating project:', error)
+        console.error('error creating project:', error);
       }
     },
     clearInput() {
@@ -918,14 +918,14 @@ export default {
         projectSoftSkills: [],
         projectTechnologies: [],
         projectStatus: ''
-      }
-      this.selectedTechnologies = []
-      this.selectedHardSkills = []
-      this.selectedSoftSkills = []
+      };
+      this.selectedTechnologies = [];
+      this.selectedHardSkills = [];
+      this.selectedSoftSkills = [];
     },
     submitForm() {
-      console.log('Projekt wurde angelegt:', this.project)
-      alert('Projekt erfolgreich angelegt!')
+      console.log('Projekt wurde angelegt:', this.project);
+      alert('Projekt erfolgreich angelegt!');
       this.project = {
         title: '',
         description: '',
@@ -933,13 +933,13 @@ export default {
         scope: '',
         startDate: new Date().toISOString().split('T')[0],
         supervisor: ''
-      }
+      };
     }
   },
   mounted() {
-    initFlowbite()
+    initFlowbite();
   }
-}
+};
 </script>
 
 <style scoped></style>

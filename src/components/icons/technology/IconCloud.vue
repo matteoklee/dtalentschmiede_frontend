@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconCloud'
-}
+};
 </script>
 
 <style scoped></style>

@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import HeaderTitle from '@/components/navigation/header/HeaderTitle.vue'
+import HeaderTitle from '@/components/navigation/header/HeaderTitle.vue';
 
 export default {
   name: 'HeaderLogo',
   components: { HeaderTitle }
-}
+};
 </script>
 
 <style scoped></style>

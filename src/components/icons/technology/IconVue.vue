@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconVue'
-}
+};
 </script>
 
 <style scoped></style>

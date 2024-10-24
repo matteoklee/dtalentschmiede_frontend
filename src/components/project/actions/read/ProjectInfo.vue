@@ -12,19 +12,19 @@
 </template>
 
 <script>
-import ProjectHeader from '@/components/project/actions/read/details/ProjectHeader.vue'
-import ProjectDescription from '@/components/project/actions/read/details/ProjectDescription.vue'
-import ProjectApply from '@/components/project/actions/read/details/ProjectApply.vue'
-import ProjectCreator from '@/components/project/actions/read/details/ProjectCreator.vue'
+import ProjectHeader from '@/components/project/actions/read/details/ProjectHeader.vue';
+import ProjectDescription from '@/components/project/actions/read/details/ProjectDescription.vue';
+import ProjectApply from '@/components/project/actions/read/details/ProjectApply.vue';
+import ProjectCreator from '@/components/project/actions/read/details/ProjectCreator.vue';
 
-import { useProjectStore } from '@/stores/projectStore.js'
+import { useProjectStore } from '@/stores/projectStore.js';
 export default {
   name: 'ProjectInfo',
   setup() {
-    const projectStore = useProjectStore()
+    const projectStore = useProjectStore();
     return {
       projectStore
-    }
+    };
   },
   components: {
     ProjectCreator,
@@ -33,9 +33,9 @@ export default {
     ProjectHeader
   },
   data() {
-    return {}
+    return {};
   }
-}
+};
 </script>
 
 <style scoped></style>

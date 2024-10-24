@@ -155,19 +155,19 @@
 </template>
 
 <script>
-import { initFlowbite } from 'flowbite'
-import IconSearch from '@/components/icons/IconSearch.vue'
-import IconClose from '@/components/icons/IconClose.vue'
+import { initFlowbite } from 'flowbite';
+import IconSearch from '@/components/icons/IconSearch.vue';
+import IconClose from '@/components/icons/IconClose.vue';
 
-import { useProjectStore } from '@/stores/projectStore.js'
+import { useProjectStore } from '@/stores/projectStore.js';
 export default {
   name: 'ProjectFilter',
   setup() {
-    const projectStore = useProjectStore()
-    projectStore.fetchProjects()
+    const projectStore = useProjectStore();
+    projectStore.fetchProjects();
     return {
       projectStore
-    }
+    };
   },
   components: { IconClose, IconSearch },
   data() {
@@ -201,21 +201,21 @@ export default {
         { id: 'cybersecurity', name: 'Cybersecurity' },
         { id: 'devops', name: 'DevOps und CI/CD' }
       ]
-    }
+    };
   },
   methods: {
     searchProject() {
-      this.projectStore.setSearchQuery(this.searchQuery)
+      this.projectStore.setSearchQuery(this.searchQuery);
     },
     clearSearch() {
-      this.searchQuery = ''
-      this.projectStore.setSearchQuery('')
+      this.searchQuery = '';
+      this.projectStore.setSearchQuery('');
     }
   },
   mounted() {
-    initFlowbite()
+    initFlowbite();
   }
-}
+};
 </script>
 
 <style scoped></style>

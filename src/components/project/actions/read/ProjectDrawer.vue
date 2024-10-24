@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import ProjectInfo from '@/components/project/actions/read/ProjectInfo.vue'
-import IconClose from '@/components/icons/IconClose.vue'
+import ProjectInfo from '@/components/project/actions/read/ProjectInfo.vue';
+import IconClose from '@/components/icons/IconClose.vue';
 export default {
   name: 'ProjectDrawer',
   components: { IconClose, ProjectInfo },
@@ -34,14 +34,14 @@ export default {
     isDrawerOpen: Boolean
   },
   data() {
-    return {}
+    return {};
   },
   methods: {
     closeProject() {
-      this.$emit('closeDrawer')
+      this.$emit('closeDrawer');
     }
   }
-}
+};
 </script>
 
 <style scoped>

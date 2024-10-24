@@ -52,14 +52,14 @@
 </template>
 
 <script>
-import IconSignOut from '@/components/navigation/header/profile/icons/IconSignOut.vue'
-import IconSignIn from '@/components/navigation/header/profile/icons/IconSignIn.vue'
+import IconSignOut from '@/components/navigation/header/profile/icons/IconSignOut.vue';
+import IconSignIn from '@/components/navigation/header/profile/icons/IconSignIn.vue';
 
 export default {
   name: 'HeaderProfileMenu',
   components: { IconSignIn, IconSignOut },
   props: ['profile']
-}
+};
 </script>
 
 <style scoped></style>

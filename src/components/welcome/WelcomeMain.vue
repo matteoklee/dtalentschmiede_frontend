@@ -44,14 +44,14 @@
 </template>
 
 <script>
-import HeaderTitle from '@/components/navigation/header/HeaderTitle.vue'
-import FooterCopyright from '@/components/navigation/footer/FooterCopyright.vue'
-import WelcomeStepper from '@/components/welcome/WelcomeStepper.vue'
+import HeaderTitle from '@/components/navigation/header/HeaderTitle.vue';
+import FooterCopyright from '@/components/navigation/footer/FooterCopyright.vue';
+import WelcomeStepper from '@/components/welcome/WelcomeStepper.vue';
 
 export default {
   name: 'WelcomeMain',
   components: { WelcomeStepper, FooterCopyright, HeaderTitle }
-}
+};
 </script>
 
 <style scoped></style>

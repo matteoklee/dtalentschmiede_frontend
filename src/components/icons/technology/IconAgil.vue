@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconAgil'
-}
+};
 </script>
 
 <style scoped></style>

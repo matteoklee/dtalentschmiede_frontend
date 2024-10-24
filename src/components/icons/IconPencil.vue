@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconPencil'
-}
+};
 </script>
 
 <style scoped></style>

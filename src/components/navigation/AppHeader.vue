@@ -29,11 +29,11 @@
 </template>
 
 <script>
-import HeaderLogo from '@/components/navigation/header/HeaderLogo.vue'
-import HeaderNav from '@/components/navigation/header/HeaderNav.vue'
-import HeaderProfile from '@/components/navigation/header/profile/HeaderProfile.vue'
-import HeaderMobileNav from '@/components/navigation/header/HeaderMobileNav.vue'
-import BreadcrumbNav from '@/components/navigation/breadcrumb/BreadcrumbNav.vue'
+import HeaderLogo from '@/components/navigation/header/HeaderLogo.vue';
+import HeaderNav from '@/components/navigation/header/HeaderNav.vue';
+import HeaderProfile from '@/components/navigation/header/profile/HeaderProfile.vue';
+import HeaderMobileNav from '@/components/navigation/header/HeaderMobileNav.vue';
+import BreadcrumbNav from '@/components/navigation/breadcrumb/BreadcrumbNav.vue';
 export default {
   name: 'AppHeader',
   components: { BreadcrumbNav, HeaderMobileNav, HeaderProfile, HeaderNav, HeaderLogo },
@@ -41,9 +41,9 @@ export default {
     return {
       profile: { id: 0, name: 'Matteo Kleemann', email: 'matteokleemann@dataport.de' },
       profile2: null
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped></style>

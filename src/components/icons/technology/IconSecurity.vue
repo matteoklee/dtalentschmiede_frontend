@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconSecurity'
-}
+};
 </script>
 
 <style scoped></style>

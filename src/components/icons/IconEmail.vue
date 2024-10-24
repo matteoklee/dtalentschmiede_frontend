@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconEmail'
-}
+};
 </script>
 
 <style scoped></style>

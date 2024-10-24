@@ -24,33 +24,33 @@
 </template>
 
 <script>
-import IconHome from '@/components/navigation/breadcrumb/IconHome.vue'
-import IconRight from '@/components/navigation/breadcrumb/IconRight.vue'
+import IconHome from '@/components/navigation/breadcrumb/IconHome.vue';
+import IconRight from '@/components/navigation/breadcrumb/IconRight.vue';
 
 export default {
   name: 'BreadcrumbNav',
   components: { IconRight, IconHome },
   data() {
-    return {}
+    return {};
   },
   computed: {
     breadcrumbs() {
-      const route = this.$route
-      const matchedRoutes = route.matched
+      const route = this.$route;
+      const matchedRoutes = route.matched;
 
       return matchedRoutes.map((routeItem) => ({
         label: routeItem.meta.breadcrumb || routeItem.name,
         to: this.getRoutePath(route, routeItem)
-      }))
+      }));
     }
   },
   methods: {
     getRoutePath(route, routeItem) {
-      const matchedSegments = route.matched.slice(0, route.matched.indexOf(routeItem) + 1)
-      return matchedSegments.map((segment) => segment.path).join('/')
+      const matchedSegments = route.matched.slice(0, route.matched.indexOf(routeItem) + 1);
+      return matchedSegments.map((segment) => segment.path).join('/');
     }
   }
-}
+};
 </script>
 
 <style scoped></style>

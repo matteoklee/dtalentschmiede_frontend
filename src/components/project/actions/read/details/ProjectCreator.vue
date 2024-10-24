@@ -15,7 +15,7 @@
 export default {
   name: 'ProjectCreator',
   props: ['project']
-}
+};
 </script>
 
 <style scoped></style>

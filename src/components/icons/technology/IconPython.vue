@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconPython'
-}
+};
 </script>
 
 <style scoped></style>

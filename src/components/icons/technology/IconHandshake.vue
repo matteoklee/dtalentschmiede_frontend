@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconHandshake'
-}
+};
 </script>
 
 <style scoped></style>

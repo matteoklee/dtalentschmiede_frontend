@@ -90,31 +90,31 @@
 </template>
 
 <script>
-import IconClose from '@/components/icons/IconClose.vue'
-import ProjectAddDrawer from '@/components/project/actions/create/ProjectAddDrawer.vue'
+import IconClose from '@/components/icons/IconClose.vue';
+import ProjectAddDrawer from '@/components/project/actions/create/ProjectAddDrawer.vue';
 
 export default {
   name: 'ProjectNewModal',
   emits: ['submitProject'],
   components: { ProjectAddDrawer, IconClose },
   data() {
-    return {}
+    return {};
   },
   methods: {
     closeModal() {
-      const modalToggle = document.querySelector('[data-modal-toggle="select-modal"]')
+      const modalToggle = document.querySelector('[data-modal-toggle="select-modal"]');
       if (modalToggle) {
-        modalToggle.click()
+        modalToggle.click();
       }
     },
     submitProject() {
-      console.log('DEBUG TEST3')
-      this.closeModal()
-      this.$emit('submitProject', true)
+      console.log('DEBUG TEST3');
+      this.closeModal();
+      this.$emit('submitProject', true);
     }
   },
   mounted() {}
-}
+};
 </script>
 
 <style scoped></style>

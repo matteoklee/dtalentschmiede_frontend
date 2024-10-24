@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconFile'
-}
+};
 </script>
 
 <style scoped></style>

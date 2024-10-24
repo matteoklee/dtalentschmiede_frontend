@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import FooterLogoTitle from '@/components/navigation/footer/FooterLogoTitle.vue'
+import FooterLogoTitle from '@/components/navigation/footer/FooterLogoTitle.vue';
 
 export default {
   name: 'FooterLogo',
   components: { FooterLogoTitle }
-}
+};
 </script>
 
 <style scoped></style>

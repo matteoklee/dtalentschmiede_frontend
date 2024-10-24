@@ -1,4 +1,4 @@
-import colors from 'tailwindcss/colors.js'
+import colors from 'tailwindcss/colors.js';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -11,4 +11,4 @@ export default {
     }
   },
   plugins: [require('flowbite/plugin')]
-}
+};

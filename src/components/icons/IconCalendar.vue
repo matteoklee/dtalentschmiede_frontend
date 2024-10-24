@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconCalendar'
-}
+};
 </script>
 
 <style scoped></style>

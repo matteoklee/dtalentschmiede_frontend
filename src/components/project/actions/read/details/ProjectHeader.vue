@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import ProjectDetails from '@/components/project/actions/read/details/ProjectDetails.vue'
+import ProjectDetails from '@/components/project/actions/read/details/ProjectDetails.vue';
 
-import { getReadableProjectType } from '@/utils/mappingUtils.js'
+import { getReadableProjectType } from '@/utils/mappingUtils.js';
 export default {
   name: 'ProjectHeader',
   components: { ProjectDetails },
@@ -30,7 +30,7 @@ export default {
   methods: {
     getReadableProjectType
   }
-}
+};
 </script>
 
 <style scoped></style>

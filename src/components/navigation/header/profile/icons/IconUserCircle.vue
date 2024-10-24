@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconUserCircle'
-}
+};
 </script>
 
 <style scoped></style>

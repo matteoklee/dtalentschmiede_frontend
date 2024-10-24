@@ -45,8 +45,8 @@
 </template>
 
 <script>
-import WelcomeStepPersonal from '@/components/welcome/steps/WelcomeStepPersonal.vue'
-import WelcomeStepDataport from '@/components/welcome/steps/WelcomeStepDataport.vue'
+import WelcomeStepPersonal from '@/components/welcome/steps/WelcomeStepPersonal.vue';
+import WelcomeStepDataport from '@/components/welcome/steps/WelcomeStepDataport.vue';
 
 export default {
   name: 'WelcomeStepper',
@@ -57,30 +57,30 @@ export default {
       currentStep: 0,
       progress: 50,
       steps: [WelcomeStepPersonal, WelcomeStepDataport]
-    }
+    };
   },
   methods: {
     prevStep() {
       if (this.currentStep > 0) {
-        this.currentStep--
-        this.updateProgress()
+        this.currentStep--;
+        this.updateProgress();
       }
     },
     nextStep() {
       if (this.currentStep < this.steps.length - 1) {
-        this.currentStep++
-        this.updateProgress()
+        this.currentStep++;
+        this.updateProgress();
       }
     },
     updateProgress() {
-      this.progress = ((this.currentStep + 1) / this.steps.length) * 100
+      this.progress = ((this.currentStep + 1) / this.steps.length) * 100;
     },
     submit() {
       //Todo: Call Update/Post API
-      this.$router.push('/projects')
+      this.$router.push('/projects');
     }
   }
-}
+};
 </script>
 
 <style scoped></style>

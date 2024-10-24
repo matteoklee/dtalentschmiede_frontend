@@ -1,7 +1,7 @@
 <script setup>
-import { RouterView } from 'vue-router'
-import AppHeader from '@/components/navigation/AppHeader.vue'
-import AppFooter from '@/components/navigation/AppFooter.vue'
+import { RouterView } from 'vue-router';
+import AppHeader from '@/components/navigation/AppHeader.vue';
+import AppFooter from '@/components/navigation/AppFooter.vue';
 </script>
 
 <template>

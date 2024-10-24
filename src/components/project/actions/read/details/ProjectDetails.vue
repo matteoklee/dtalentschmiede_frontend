@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import IconCalendar from '@/components/icons/IconCalendar.vue'
-import IconHourglass from '@/components/icons/IconHourglass.vue'
+import IconCalendar from '@/components/icons/IconCalendar.vue';
+import IconHourglass from '@/components/icons/IconHourglass.vue';
 
-import { formatDateWithTime } from '@/utils/dateUtils.js'
-import IconStatus from '@/components/icons/IconStatus.vue'
-import { getReadableProjectStatus } from '@/utils/mappingUtils.js'
+import { formatDateWithTime } from '@/utils/dateUtils.js';
+import IconStatus from '@/components/icons/IconStatus.vue';
+import { getReadableProjectStatus } from '@/utils/mappingUtils.js';
 export default {
   name: 'ProjectDetails',
   props: ['project'],
@@ -35,10 +35,10 @@ export default {
   methods: {
     getReadableProjectStatus,
     formatDateWithTime(dateString) {
-      return formatDateWithTime(dateString)
+      return formatDateWithTime(dateString);
     }
   }
-}
+};
 </script>
 
 <style scoped></style>

@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconServer'
-}
+};
 </script>
 
 <style scoped></style>

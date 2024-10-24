@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconCheck'
-}
+};
 </script>
 
 <style scoped></style>

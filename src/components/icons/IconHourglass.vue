@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconHourglass'
-}
+};
 </script>
 
 <style scoped></style>

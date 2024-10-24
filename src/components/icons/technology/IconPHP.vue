@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'IconPHP'
-}
+};
 </script>
 
 <style scoped></style>

@@ -45,7 +45,7 @@ import {
   getReadableTechnology,
   getReadableHardSkill,
   getReadableSoftSkill
-} from '@/utils/mappingUtils.js'
+} from '@/utils/mappingUtils.js';
 export default {
   name: 'ProjectDescription',
   props: ['project'],
@@ -54,7 +54,7 @@ export default {
     getReadableTechnology,
     getReadableSoftSkill
   }
-}
+};
 </script>
 
 <style scoped></style>

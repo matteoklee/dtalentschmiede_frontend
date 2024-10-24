@@ -153,24 +153,24 @@
 </template>
 
 <script>
-import { initFlowbite } from 'flowbite'
-import IconLightbulb from '@/components/icons/IconLightbulb.vue'
-import ProjectDrawer from '@/components/project/actions/read/ProjectDrawer.vue'
-import IconError from '@/components/icons/IconError.vue'
-import ProjectNewModal from '@/components/project/actions/create/ProjectNewModal.vue'
-import ProjectInfoSnackbar from '@/components/project/actions/ProjectInfoSnackbar.vue'
+import { initFlowbite } from 'flowbite';
+import IconLightbulb from '@/components/icons/IconLightbulb.vue';
+import ProjectDrawer from '@/components/project/actions/read/ProjectDrawer.vue';
+import IconError from '@/components/icons/IconError.vue';
+import ProjectNewModal from '@/components/project/actions/create/ProjectNewModal.vue';
+import ProjectInfoSnackbar from '@/components/project/actions/ProjectInfoSnackbar.vue';
 
-import { formatDateOnly } from '@/utils/dateUtils.js'
-import { useProjectStore } from '@/stores/projectStore.js'
+import { formatDateOnly } from '@/utils/dateUtils.js';
+import { useProjectStore } from '@/stores/projectStore.js';
 
 export default {
   name: 'ProjectList',
   setup() {
-    const projectStore = useProjectStore()
-    projectStore.fetchProjects()
+    const projectStore = useProjectStore();
+    projectStore.fetchProjects();
     return {
       projectStore
-    }
+    };
   },
   components: { ProjectInfoSnackbar, ProjectNewModal, IconError, ProjectDrawer, IconLightbulb },
   props: ['searchQuery'],
@@ -183,53 +183,53 @@ export default {
       snackbarMessage: 'Projekt wurde erfolgreich angelegt.',
       snackbarType: 'success',
       snackbarDuration: 5000
-    }
+    };
   },
   methods: {
     openDrawer() {
-      this.isDrawerOpen = true
+      this.isDrawerOpen = true;
     },
     closeDrawer() {
-      this.isDrawerOpen = false
+      this.isDrawerOpen = false;
     },
     selectProject(project) {
-      this.projectStore.setSelectedProject(project)
-      console.log(project)
-      this.openDrawer()
+      this.projectStore.setSelectedProject(project);
+      console.log(project);
+      this.openDrawer();
     },
     closeProject() {
-      this.projectStore.setSelectedProject(null)
+      this.projectStore.setSelectedProject(null);
     },
     showAllProjects() {
-      this.projectViewLimit = -1
+      this.projectViewLimit = -1;
     },
     showLessProjects() {
-      this.projectViewLimit = 5
+      this.projectViewLimit = 5;
     },
     triggerSnackbar() {
-      this.snackbarVisible = true
-      this.snackbarDuration = 5000
+      this.snackbarVisible = true;
+      this.snackbarDuration = 5000;
       setTimeout(() => {
-        this.snackbarVisible = false
-      }, 5000)
+        this.snackbarVisible = false;
+      }, 5000);
     },
     submitProject() {
-      this.triggerSnackbar()
+      this.triggerSnackbar();
     },
     formatDateOnly(dateString) {
-      return formatDateOnly(dateString)
+      return formatDateOnly(dateString);
     }
   },
   mounted() {
-    initFlowbite()
+    initFlowbite();
   },
   computed: {
     filterProjects() {
-      let filteredProjects
+      let filteredProjects;
 
       if (this.searchQuery !== '' && this.searchQuery !== undefined) {
         filteredProjects = this.allProjects.filter((project) => {
-          const query = this.searchQuery.toLowerCase()
+          const query = this.searchQuery.toLowerCase();
           return (
             project.projectTitle.toLowerCase().includes(query) ||
             project.projectDescription.toLowerCase().includes(query) ||
@@ -241,23 +241,23 @@ export default {
             //(project.projectTechnologies && project.projectTechnologies.some(tech => tech.toLowerCase().includes(query))) ||
             //(project.projectSoftSkills && project.projectSoftSkills.some(skill => skill.toLowerCase().includes(query))) ||
             //(project.projectHardSkills && project.projectHardSkills.some(skill => skill.toLowerCase().includes(query)))
-          )
-        })
+          );
+        });
       } else {
-        filteredProjects = this.allProjects
+        filteredProjects = this.allProjects;
       }
       if (this.projectViewLimit > 0) {
         if (this.projectViewLimit > 5) {
-          return filteredProjects.slice(0, this.projectViewLimit)
+          return filteredProjects.slice(0, this.projectViewLimit);
         } else {
-          return filteredProjects
+          return filteredProjects;
         }
       } else {
-        return filteredProjects
+        return filteredProjects;
       }
     }
   }
-}
+};
 </script>
 
 <style scoped></style>
