@@ -13,8 +13,9 @@
           />
         </div>
         <p class="text-lg font-normal lg:text-xl pt-8 text-justify">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+          invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+          accusam et
         </p>
       </div>
       <div class="lg:block hidden flex flex-row justify-center items-center p-4">

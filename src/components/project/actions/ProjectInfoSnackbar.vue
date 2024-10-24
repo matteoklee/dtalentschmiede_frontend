@@ -1,16 +1,12 @@
 <template>
   <transition name="snackbar-fade">
     <div
-        v-show="visible"
-        :class="[
+      v-show="visible"
+      :class="[
         'fixed bottom-5 left-1/2 transform -translate-x-1/2 z-50 max-w-sm w-full p-4 rounded-lg shadow-2xl bg-gray-50 font-medium border',
-        snackbarType === 'success'
-          ? ''
-          : snackbarType === 'error'
-          ? ''
-          : '',
+        snackbarType === 'success' ? '' : snackbarType === 'error' ? '' : ''
       ]"
-        role="alert"
+      role="alert"
     >
       <div class="flex items-center justify-between">
         <div v-if="snackbarType === 'success'">
@@ -32,52 +28,51 @@
 </template>
 
 <script>
-import IconClose from "@/components/icons/IconClose.vue";
-import IconInfo from "@/components/icons/IconInfo.vue";
-import IconError from "@/components/icons/IconError.vue";
-import IconCheck from "@/components/icons/IconCheck.vue";
+import IconClose from '@/components/icons/IconClose.vue'
+import IconInfo from '@/components/icons/IconInfo.vue'
+import IconError from '@/components/icons/IconError.vue'
+import IconCheck from '@/components/icons/IconCheck.vue'
 
 export default {
-  name: "ProjectInfoSnackbar",
-  components: {IconCheck, IconError, IconInfo, IconClose},
+  name: 'ProjectInfoSnackbar',
+  components: { IconCheck, IconError, IconInfo, IconClose },
   props: {
     message: {
       type: String,
-      required: true,
+      required: true
     },
     snackbarType: {
       type: String,
-      default: "default", // 'success', 'error', or 'default'
+      default: 'default' // 'success', 'error', or 'default'
     },
     duration: {
       type: Number,
-      default: 3000, // Snackbar visible duration (in ms)
-    },
+      default: 3000 // Snackbar visible duration (in ms)
+    }
   },
   data() {
     return {
-      visible: false,
-    };
+      visible: false
+    }
   },
   methods: {
     showSnackbar() {
       setTimeout(() => {
-        this.visible = true;
-      }, 10); // Kleine Verzögerung für die Einblend-Animation
+        this.visible = true
+      }, 10) // Kleine Verzögerung für die Einblend-Animation
       setTimeout(() => {
-        this.closeSnackbar();
-      }, this.duration);
+        this.closeSnackbar()
+      }, this.duration)
     },
     closeSnackbar() {
-      this.visible = false;
-    },
+      this.visible = false
+    }
   },
   mounted() {
     this.$nextTick(() => {
-      this.showSnackbar();
-    });
-  },
-
+      this.showSnackbar()
+    })
+  }
 }
 </script>
 

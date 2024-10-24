@@ -28,17 +28,14 @@
       </div>
 
       <div>
-        <button
-            @click="triggerSnackbar"
-            class="hidden bg-blue-500 text-white px-4 py-2 rounded-lg"
-        >
+        <button @click="triggerSnackbar" class="hidden bg-blue-500 text-white px-4 py-2 rounded-lg">
           Zeige Snackbar
         </button>
         <ProjectInfoSnackbar
-            v-if="snackbarVisible"
-            :message="snackbarMessage"
-            :snackbarType="snackbarType"
-            :duration="snackbarDuration"
+          v-if="snackbarVisible"
+          :message="snackbarMessage"
+          :snackbarType="snackbarType"
+          :duration="snackbarDuration"
         />
       </div>
 
@@ -58,27 +55,31 @@
           :key="project.projectId"
           :class="[
             'group border hover:border-blue-500 rounded-xl hover:shadow-xl duration-300 transition-all lg:my-6 my-4 lg:mx-0 mx-4 lg:py-6 py-4 px-8',
-            projectStore.selectedProject && projectStore.selectedProject.projectId === project.projectId
+            projectStore.selectedProject &&
+            projectStore.selectedProject.projectId === project.projectId
               ? 'group border-2 border-blue-500 rounded-xl hover:shadow-xl duration-300 transition-all lg:my-6 my-4 lg:mx-0 mx-4 lg:py-6 py-4 px-8'
               : ''
           ]"
         >
-          <div class="grid grid-cols-1 lg:grid-cols-8 lg:gap-6 gap-2 items-center flex justify-center flex-col auto-cols-auto">
-
-            <div
-                class="flex items-center space-x-4 lg:col-span-2"
-            >
+          <div
+            class="grid grid-cols-1 lg:grid-cols-8 lg:gap-6 gap-2 items-center flex justify-center flex-col auto-cols-auto"
+          >
+            <div class="flex items-center space-x-4 lg:col-span-2">
               <IconLightbulb
-                  class="text-gray-400 h-12 bg-gray-100 rounded-full p-2 avatar aspect-square"
+                class="text-gray-400 h-12 bg-gray-100 rounded-full p-2 avatar aspect-square"
               ></IconLightbulb>
               <div class="flex flex-col">
                 <p
-                    class="text-left text-gray-800 text-lg font-medium group-hover:font-bold group-hover:text-blue-600"
+                  class="text-left text-gray-800 text-lg font-medium group-hover:font-bold group-hover:text-blue-600"
                 >
                   {{ project.projectTitle }}
                 </p>
                 <p class="text-gray-400 text-left">
-                  {{ project.projectDescription.length > 20 ? project.projectDescription.slice(0, 20) + '...' : project.projectDescription }}
+                  {{
+                    project.projectDescription.length > 20
+                      ? project.projectDescription.slice(0, 20) + '...'
+                      : project.projectDescription
+                  }}
                 </p>
               </div>
             </div>
@@ -90,9 +91,9 @@
 
             <div class="flex flex-row items-center lg:col-span-2">
               <p
-                  v-for="(technology, index) in project.projectTechnologies.slice(0, 3)"
-                  :key="index"
-                  class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 group-hover:bg-blue-500"
+                v-for="(technology, index) in project.projectTechnologies.slice(0, 3)"
+                :key="index"
+                class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 group-hover:bg-blue-500"
               >
                 {{ technology }}
               </p>
@@ -112,22 +113,21 @@
                 -->
               <div class="text-center">
                 <button
-                    type="button"
-                    @click="selectProject(project)"
-                    data-drawer-placement="left"
-                    aria-controls="drawer-right-example"
-                    class="bg-blue-600 shadow-md shadow-blue-600/50 px-6 py-3 rounded-lg text-white hover:bg-blue-700 transition"
+                  type="button"
+                  @click="selectProject(project)"
+                  data-drawer-placement="left"
+                  aria-controls="drawer-right-example"
+                  class="bg-blue-600 shadow-md shadow-blue-600/50 px-6 py-3 rounded-lg text-white hover:bg-blue-700 transition"
                 >
                   Ansehen
                 </button>
               </div>
               <ProjectDrawer
-                  :isDrawerOpen="isDrawerOpen"
-                  @closeDrawer="closeDrawer"
+                :isDrawerOpen="isDrawerOpen"
+                @closeDrawer="closeDrawer"
               ></ProjectDrawer>
             </div>
           </div>
-
         </div>
       </div>
       <div class="flex justify-center my-8">
@@ -152,28 +152,27 @@
   </div>
 </template>
 
-
 <script>
-import {initFlowbite} from "flowbite";
+import { initFlowbite } from 'flowbite'
 import IconLightbulb from '@/components/icons/IconLightbulb.vue'
 import ProjectDrawer from '@/components/project/actions/read/ProjectDrawer.vue'
 import IconError from '@/components/icons/IconError.vue'
 import ProjectNewModal from '@/components/project/actions/create/ProjectNewModal.vue'
-import ProjectInfoSnackbar from "@/components/project/actions/ProjectInfoSnackbar.vue";
+import ProjectInfoSnackbar from '@/components/project/actions/ProjectInfoSnackbar.vue'
 
-import {formatDateOnly} from "@/utils/dateUtils.js";
-import {useProjectStore} from "@/stores/projectStore.js";
+import { formatDateOnly } from '@/utils/dateUtils.js'
+import { useProjectStore } from '@/stores/projectStore.js'
 
 export default {
   name: 'ProjectList',
   setup() {
-    const projectStore = useProjectStore();
-    projectStore.fetchProjects();
+    const projectStore = useProjectStore()
+    projectStore.fetchProjects()
     return {
       projectStore
     }
   },
-  components: {ProjectInfoSnackbar, ProjectNewModal, IconError, ProjectDrawer, IconLightbulb },
+  components: { ProjectInfoSnackbar, ProjectNewModal, IconError, ProjectDrawer, IconLightbulb },
   props: ['searchQuery'],
   data() {
     return {
@@ -181,25 +180,25 @@ export default {
       projectViewLimit: 5,
 
       snackbarVisible: false,
-      snackbarMessage: "Projekt wurde erfolgreich angelegt.",
-      snackbarType: "success",
-      snackbarDuration: 5000,
+      snackbarMessage: 'Projekt wurde erfolgreich angelegt.',
+      snackbarType: 'success',
+      snackbarDuration: 5000
     }
   },
   methods: {
     openDrawer() {
-      this.isDrawerOpen = true;
+      this.isDrawerOpen = true
     },
     closeDrawer() {
-      this.isDrawerOpen = false;
+      this.isDrawerOpen = false
     },
     selectProject(project) {
-      this.projectStore.setSelectedProject(project);
+      this.projectStore.setSelectedProject(project)
       console.log(project)
-      this.openDrawer();
+      this.openDrawer()
     },
     closeProject() {
-      this.projectStore.setSelectedProject(null);
+      this.projectStore.setSelectedProject(null)
     },
     showAllProjects() {
       this.projectViewLimit = -1
@@ -208,21 +207,21 @@ export default {
       this.projectViewLimit = 5
     },
     triggerSnackbar() {
-      this.snackbarVisible = true;
-      this.snackbarDuration = 5000;
+      this.snackbarVisible = true
+      this.snackbarDuration = 5000
       setTimeout(() => {
-        this.snackbarVisible = false;
-      }, 5000);
+        this.snackbarVisible = false
+      }, 5000)
     },
     submitProject() {
-      this.triggerSnackbar();
+      this.triggerSnackbar()
     },
     formatDateOnly(dateString) {
-      return formatDateOnly(dateString);
+      return formatDateOnly(dateString)
     }
   },
   mounted() {
-    initFlowbite();
+    initFlowbite()
   },
   computed: {
     filterProjects() {
@@ -248,16 +247,16 @@ export default {
         filteredProjects = this.allProjects
       }
       if (this.projectViewLimit > 0) {
-        if(this.projectViewLimit > 5) {
+        if (this.projectViewLimit > 5) {
           return filteredProjects.slice(0, this.projectViewLimit)
         } else {
-          return filteredProjects;
+          return filteredProjects
         }
       } else {
         return filteredProjects
       }
     }
-  },
+  }
 }
 </script>
 

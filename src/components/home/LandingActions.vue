@@ -74,14 +74,14 @@ export default {
   components: { IconRegister, IconSignIn, IconList, IconFolder },
   methods: {
     addProject() {
-      this.$router.push("/projects").then(() => {
+      this.$router.push('/projects').then(() => {
         this.$nextTick(() => {
-          const button = document.querySelector('#addProject');
+          const button = document.querySelector('#addProject')
           if (button) {
-            button.click();
+            button.click()
           }
-        });
-      });
+        })
+      })
     }
   }
 }

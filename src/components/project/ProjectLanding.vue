@@ -2,11 +2,12 @@
   <div class="grid grid-cols-1 lg:grid-cols-2 max-w-screen-xl mx-auto gap-6">
     <div class="flex flex-col justify-center lg:p-0 p-6">
       <h1 class="text-5xl font-bold text-left py-4">
-        Finde dein nächstes <span class="text-primary-700">Projekt</span> oder die <span class="text-primary-700">Idee</span> dafür.
+        Finde dein nächstes <span class="text-primary-700">Projekt</span> oder die
+        <span class="text-primary-700">Idee</span> dafür.
       </h1>
       <p class="font-normal text-lg py-2">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-        dolore magna aliquyam erat, sed diam voluptua.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
       </p>
 
       <div
@@ -52,12 +53,12 @@
 import IconClose from '@/components/icons/IconClose.vue'
 import IconSearch from '@/components/icons/IconSearch.vue'
 
-import {useProjectStore} from "@/stores/projectStore.js";
+import { useProjectStore } from '@/stores/projectStore.js'
 export default {
   name: 'ProjectLanding',
   setup() {
-    const projectStore = useProjectStore();
-    projectStore.fetchProjects();
+    const projectStore = useProjectStore()
+    projectStore.fetchProjects()
     return {
       projectStore
     }

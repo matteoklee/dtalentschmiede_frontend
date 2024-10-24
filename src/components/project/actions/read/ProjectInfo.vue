@@ -17,11 +17,11 @@ import ProjectDescription from '@/components/project/actions/read/details/Projec
 import ProjectApply from '@/components/project/actions/read/details/ProjectApply.vue'
 import ProjectCreator from '@/components/project/actions/read/details/ProjectCreator.vue'
 
-import {useProjectStore} from "@/stores/projectStore.js";
+import { useProjectStore } from '@/stores/projectStore.js'
 export default {
   name: 'ProjectInfo',
   setup() {
-    const projectStore = useProjectStore();
+    const projectStore = useProjectStore()
     return {
       projectStore
     }
@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {}
-  },
+  }
 }
 </script>
 

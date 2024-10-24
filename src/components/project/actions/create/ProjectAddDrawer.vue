@@ -51,7 +51,8 @@
           <div class="flex flex-col justify-center items-start">
             <div>
               <p class="text-5xl font-bold text-left py-4">
-                Erstelle ein neues <span class="text-primary-700">IT-Projekt</span> oder kreiere eine neue <span class="text-primary-700">Idee</span>.
+                Erstelle ein neues <span class="text-primary-700">IT-Projekt</span> oder kreiere
+                eine neue <span class="text-primary-700">Idee</span>.
               </p>
             </div>
             <p class="py-2 text-lg">Fülle dein Projekt mit Leben.</p>
@@ -62,11 +63,8 @@
         </div>
       </div>
 
-
-
-
       <div class="max-w-screen-xl mx-auto w-full">
-        <hr class="h-px my-8 bg-gray-300 border-0 rounded-lg">
+        <hr class="h-px my-8 bg-gray-300 border-0 rounded-lg" />
       </div>
 
       <div v-if="true" class="max-w-screen-xl mx-auto w-full my-4">
@@ -82,51 +80,46 @@
         <div class="w-full">
           <h2 class="text-xl font-bold my-4">Projektname</h2>
           <div
-              class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
+            class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
           >
             <div class="flex items-center space-x-2 w-full relative mr-2">
               <IconFile class="h-5 text-gray-400"></IconFile>
               <input
-                  v-model="project.projectTitle"
-                  type="text"
-                  id="projectSearch"
-                  placeholder="Titel des Projekts"
-                  required
-                  class="border-0 text-xl w-full outline-none focus:ring-0 placeholder-gray-300 pr-6 font-medium text-center"
-                  :disabled="titleValidated"
+                v-model="project.projectTitle"
+                type="text"
+                id="projectSearch"
+                placeholder="Titel des Projekts"
+                required
+                class="border-0 text-xl w-full outline-none focus:ring-0 placeholder-gray-300 pr-6 font-medium text-center"
+                :disabled="titleValidated"
               />
-              <button
-                  v-if="!titleValidated"
-                  @click="clear"
-                  type="button"
-                  class="absolute right-0"
-              >
+              <button v-if="!titleValidated" @click="clear" type="button" class="absolute right-0">
                 <IconClose class="h-5 w-5 text-gray-400 hover:text-gray-600"></IconClose>
               </button>
               <button
-                  v-else
-                  type="button"
-                  @click="resetTitle"
-                  class="absolute right-0"
-                  data-tooltip-target="tooltip-animation"
+                v-else
+                type="button"
+                @click="resetTitle"
+                class="absolute right-0"
+                data-tooltip-target="tooltip-animation"
               >
                 <IconClose class="h-5 w-5 text-gray-400 hover:text-red-700"></IconClose>
               </button>
             </div>
             <button
-                v-if="!titleValidated"
-                type="button"
-                @click="validateTitle"
-                class="hidden bg-primary-600 shadow-lg shadow-primary-600/50 px-6 py-3 rounded-lg text-white hover:bg-primary-700 transition"
+              v-if="!titleValidated"
+              type="button"
+              @click="validateTitle"
+              class="hidden bg-primary-600 shadow-lg shadow-primary-600/50 px-6 py-3 rounded-lg text-white hover:bg-primary-700 transition"
             >
               Bestätigen
             </button>
           </div>
 
           <div
-              id="tooltip-animation"
-              role="tooltip"
-              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+            id="tooltip-animation"
+            role="tooltip"
+            class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
           >
             Titel zurücksetzen
             <div class="tooltip-arrow" data-popper-arrow></div>
@@ -156,18 +149,18 @@
             <div class="">
               <p class="text-2xl font-bold">Kategorie</p>
               <div
-                  class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
+                class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
               >
                 <div class="flex items-center space-x-2 w-full relative mr-2">
                   <IconCode class="h-5 text-gray-400"></IconCode>
                   <input
-                      v-model="searchQuery"
-                      @input="searchProject"
-                      type="text"
-                      id="projectSearch"
-                      placeholder="Dein Titel des Projekts"
-                      required
-                      class="border-0 text-lg w-full outline-none focus:ring-0 placeholder-gray-300 pr-6"
+                    v-model="searchQuery"
+                    @input="searchProject"
+                    type="text"
+                    id="projectSearch"
+                    placeholder="Dein Titel des Projekts"
+                    required
+                    class="border-0 text-lg w-full outline-none focus:ring-0 placeholder-gray-300 pr-6"
                   />
                   <button type="button" @click="clear" class="absolute right-0">
                     <IconClose class="h-5 w-5 text-gray-400 hover:text-gray-600"></IconClose>
@@ -176,14 +169,14 @@
               </div>
 
               <div
-                  class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
+                class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
               >
                 <div class="w-full relative">
                   <IconList class="h-5 text-gray-400 absolute left-0 top-3"></IconList>
                   <textarea
-                      rows="8"
-                      class="pl-8 block p-2.5 w-full text-gray-900 border-0 focus:ring-0"
-                      placeholder="Write your thoughts here..."
+                    rows="8"
+                    class="pl-8 block p-2.5 w-full text-gray-900 border-0 focus:ring-0"
+                    placeholder="Write your thoughts here..."
                   ></textarea>
                 </div>
               </div>
@@ -199,28 +192,28 @@
             <div class="">
               <p class="text-2xl font-bold">Kategorie</p>
               <div
-                  class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
+                class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
               >
                 <div class="flex items-center space-x-2 w-full relative mr-2">
                   <IconFile class="h-5 text-gray-400"></IconFile>
                   <input
-                      v-model="searchQuery"
-                      @input="searchProject"
-                      type="text"
-                      id="projectSearch"
-                      placeholder="Dein Titel des Projekts"
-                      required
-                      class="border-0 text-lg w-full outline-none focus:ring-0 placeholder-gray-300 pr-6"
+                    v-model="searchQuery"
+                    @input="searchProject"
+                    type="text"
+                    id="projectSearch"
+                    placeholder="Dein Titel des Projekts"
+                    required
+                    class="border-0 text-lg w-full outline-none focus:ring-0 placeholder-gray-300 pr-6"
                   />
                   <button type="button" @click="clear" class="absolute right-0">
                     <IconClose class="h-5 w-5 text-gray-400 hover:text-gray-600"></IconClose>
                   </button>
                 </div>
                 <a
-                    type="button"
-                    href="#projects"
-                    class="bg-primary-600 shadow-lg shadow-primary-600/50 px-6 py-3 rounded-lg text-white hover:bg-primary-700 transition"
-                >Bestätigen</a
+                  type="button"
+                  href="#projects"
+                  class="bg-primary-600 shadow-lg shadow-primary-600/50 px-6 py-3 rounded-lg text-white hover:bg-primary-700 transition"
+                  >Bestätigen</a
                 >
               </div>
 
@@ -235,17 +228,14 @@
         </div>
       </div>
 
-
       <div class="bg-gray-50">
         <div class="max-w-screen-xl mx-auto w-full my-8">
           <div class="p-4 w-full bg-white rounded-lg shadow-lg">
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-8">
-
               <div class="lg:border-r-2 lg:border-0 lg:px-4">
                 <h2 class="text-xl font-bold my-4">Kategorie</h2>
 
                 <div class="grid lg:grid-cols-4 grid-cols-2 gap-4 mb-4">
-
                   <!-- IT-Projekt -->
                   <div class="">
                     <input
@@ -266,9 +256,7 @@
                       >
                         <IconLightbulb
                           class="w-10 h-10"
-                          :class="
-                            selectedType === 'project' ? 'text-blue-600' : 'text-gray-300'
-                          "
+                          :class="selectedType === 'project' ? 'text-blue-600' : 'text-gray-300'"
                         ></IconLightbulb>
                         <span class="text-lg font-medium text-gray-700 pt-2">IT-Projekt</span>
                       </div>
@@ -281,210 +269,228 @@
                   <!-- Practice -->
                   <div class="">
                     <input
-                        type="checkbox"
-                        v-model="selectedType"
-                        id="practice"
-                        name="practice"
-                        value="PRACTICE"
-                        class="hidden peer"
+                      type="checkbox"
+                      v-model="selectedType"
+                      id="practice"
+                      name="practice"
+                      value="PRACTICE"
+                      class="hidden peer"
                     />
                     <label
-                        for="practice"
-                        class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                        :class="selectedType === 'practice' ? 'bg-gray-100' : 'bg-white'"
+                      for="practice"
+                      class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
+                      :class="selectedType === 'practice' ? 'bg-gray-100' : 'bg-white'"
                     >
                       <div
-                          class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
+                        class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
                       >
                         <IconTools
-                            class="w-10 h-10"
-                            :class="
-                            selectedType === 'practice' ? 'text-blue-600' : 'text-gray-300'"
+                          class="w-10 h-10"
+                          :class="selectedType === 'practice' ? 'text-blue-600' : 'text-gray-300'"
                         ></IconTools>
                         <span class="text-lg font-medium text-gray-700 pt-2">Praxisstation</span>
                       </div>
                       <IconCheck
-                          v-if="selectedType === 'practice'"
-                          class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
+                        v-if="selectedType === 'practice'"
+                        class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                       ></IconCheck>
                     </label>
                   </div>
                   <!-- Thesis -->
                   <div class="">
                     <input
-                        type="checkbox"
-                        v-model="selectedType"
-                        id="thesis"
-                        name="thesis"
-                        value="THESIS"
-                        class="hidden peer"
+                      type="checkbox"
+                      v-model="selectedType"
+                      id="thesis"
+                      name="thesis"
+                      value="THESIS"
+                      class="hidden peer"
                     />
                     <label
-                        for="thesis"
-                        class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                        :class="selectedType === 'thesis' ? 'bg-gray-100' : 'bg-white'"
+                      for="thesis"
+                      class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
+                      :class="selectedType === 'thesis' ? 'bg-gray-100' : 'bg-white'"
                     >
                       <div
-                          class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
+                        class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
                       >
                         <IconBook
-                            class="w-10 h-10"
-                            :class="
-                            selectedType === 'thesis' ? 'text-blue-600' : 'text-gray-300'
-                          "
+                          class="w-10 h-10"
+                          :class="selectedType === 'thesis' ? 'text-blue-600' : 'text-gray-300'"
                         ></IconBook>
                         <span class="text-lg font-medium text-gray-700 pt-2">Thesis</span>
                       </div>
                       <IconCheck
-                          v-if="selectedType === 'thesis'"
-                          class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
+                        v-if="selectedType === 'thesis'"
+                        class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                       ></IconCheck>
                     </label>
                   </div>
                   <!-- Other -->
                   <div class="">
                     <input
-                        type="checkbox"
-                        v-model="selectedType"
-                        id="other"
-                        name="other"
-                        value="OTHER"
-                        class="hidden peer"
+                      type="checkbox"
+                      v-model="selectedType"
+                      id="other"
+                      name="other"
+                      value="OTHER"
+                      class="hidden peer"
                     />
                     <label
-                        for="other"
-                        class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                        :class="selectedType === 'other' ? 'bg-gray-100' : 'bg-white'"
+                      for="other"
+                      class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
+                      :class="selectedType === 'other' ? 'bg-gray-100' : 'bg-white'"
                     >
                       <div
-                          class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
+                        class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
                       >
                         <IconOther
-                            class="w-10 h-10"
-                            :class="
-                            selectedType === 'other' ? 'text-blue-600' : 'text-gray-300'
-                          "
+                          class="w-10 h-10"
+                          :class="selectedType === 'other' ? 'text-blue-600' : 'text-gray-300'"
                         ></IconOther>
                         <span class="text-lg font-medium text-gray-700 pt-2">Andere</span>
                       </div>
                       <IconCheck
-                          v-if="selectedType === 'other'"
-                          class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
+                        v-if="selectedType === 'other'"
+                        class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                       ></IconCheck>
                     </label>
                   </div>
-
                 </div>
 
                 <h2 class="text-xl font-bold my-4">Technologien</h2>
 
                 <div class="grid lg:grid-cols-6 grid-cols-3 gap-4 mb-4">
-
                   <div v-for="(item, index) in technologies" :key="index">
                     <!-- Technology -->
                     <div class="">
                       <input
-                          type="checkbox"
-                          v-model="selectedTechnologies"
-                          :id="`technology-${index}`"
-                          :value="item.title"
-                          class="hidden peer"
+                        type="checkbox"
+                        v-model="selectedTechnologies"
+                        :id="`technology-${index}`"
+                        :value="item.title"
+                        class="hidden peer"
                       />
                       <label
-                          :for="`technology-${index}`"
-                          class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                          :class="selectedTechnologies.includes(item.title) ? 'bg-gray-100' : 'bg-white'"
+                        :for="`technology-${index}`"
+                        class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
+                        :class="
+                          selectedTechnologies.includes(item.title) ? 'bg-gray-100' : 'bg-white'
+                        "
                       >
                         <div
-                            class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
+                          class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
                         >
-                          <component :is="item.icon" class="w-8 h-8" :class="selectedTechnologies.includes(item.title) ? 'text-blue-600' : 'text-gray-300'"></component>
+                          <component
+                            :is="item.icon"
+                            class="w-8 h-8"
+                            :class="
+                              selectedTechnologies.includes(item.title)
+                                ? 'text-blue-600'
+                                : 'text-gray-300'
+                            "
+                          ></component>
 
-                          <span class="text-sm font-medium text-gray-700 pt-2">{{ item.title }}</span>
+                          <span class="text-sm font-medium text-gray-700 pt-2">{{
+                            item.title
+                          }}</span>
                         </div>
                         <IconCheck
-                            v-if="selectedTechnologies.includes(item.title)"
-                            class="w-4 h-4 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
+                          v-if="selectedTechnologies.includes(item.title)"
+                          class="w-4 h-4 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                         ></IconCheck>
                       </label>
                     </div>
                   </div>
-
                 </div>
 
                 <h2 class="text-xl font-bold my-4">Hard Skills</h2>
 
                 <div class="grid lg:grid-cols-6 grid-cols-3 gap-4 mb-4">
-
                   <div v-for="(item, index) in hardSkills" :key="index">
                     <!-- Technology -->
                     <div class="">
                       <input
-                          type="checkbox"
-                          v-model="selectedHardSkills"
-                          :id="`hardSkill-${index}`"
-                          :value="item.title"
-                          class="hidden peer"
+                        type="checkbox"
+                        v-model="selectedHardSkills"
+                        :id="`hardSkill-${index}`"
+                        :value="item.title"
+                        class="hidden peer"
                       />
                       <label
-                          :for="`hardSkill-${index}`"
-                          class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                          :class="selectedHardSkills.includes(item.title) ? 'bg-gray-100' : 'bg-white'"
+                        :for="`hardSkill-${index}`"
+                        class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
+                        :class="
+                          selectedHardSkills.includes(item.title) ? 'bg-gray-100' : 'bg-white'
+                        "
                       >
-                        <div
-                            class="inline-flex flex-col items-center my-2 mt-auto text-center"
-                        >
-                          <component :is="item.icon" class="w-8 h-8" :class="selectedHardSkills.includes(item.title) ? 'text-blue-600' : 'text-gray-300'"></component>
+                        <div class="inline-flex flex-col items-center my-2 mt-auto text-center">
+                          <component
+                            :is="item.icon"
+                            class="w-8 h-8"
+                            :class="
+                              selectedHardSkills.includes(item.title)
+                                ? 'text-blue-600'
+                                : 'text-gray-300'
+                            "
+                          ></component>
 
-                          <span class="text-sm font-medium text-gray-700 pt-2">{{ item.title }}</span>
+                          <span class="text-sm font-medium text-gray-700 pt-2">{{
+                            item.title
+                          }}</span>
                         </div>
                         <IconCheck
-                            v-if="selectedHardSkills.includes(item.title)"
-                            class="w-4 h-4 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
+                          v-if="selectedHardSkills.includes(item.title)"
+                          class="w-4 h-4 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                         ></IconCheck>
                       </label>
                     </div>
                   </div>
-
                 </div>
-
 
                 <h2 class="text-xl font-bold my-4">Soft Skills</h2>
 
                 <div class="grid lg:grid-cols-6 grid-cols-3 gap-4 mb-4">
-
                   <div v-for="(item, index) in softSkills" :key="index">
                     <!-- Technology -->
                     <div class="">
                       <input
-                          type="checkbox"
-                          v-model="selectedSoftSkills"
-                          :id="`softSkill-${index}`"
-                          :value="item.title"
-                          class="hidden peer"
+                        type="checkbox"
+                        v-model="selectedSoftSkills"
+                        :id="`softSkill-${index}`"
+                        :value="item.title"
+                        class="hidden peer"
                       />
                       <label
-                          :for="`softSkill-${index}`"
-                          class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                          :class="selectedSoftSkills.includes(item.title) ? 'bg-gray-100' : 'bg-white'"
+                        :for="`softSkill-${index}`"
+                        class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
+                        :class="
+                          selectedSoftSkills.includes(item.title) ? 'bg-gray-100' : 'bg-white'
+                        "
                       >
-                        <div
-                            class="inline-flex flex-col items-center my-2 mt-auto text-center"
-                        >
-                          <component :is="item.icon" class="w-8 h-8" :class="selectedSoftSkills.includes(item.title) ? 'text-blue-600' : 'text-gray-300'"></component>
+                        <div class="inline-flex flex-col items-center my-2 mt-auto text-center">
+                          <component
+                            :is="item.icon"
+                            class="w-8 h-8"
+                            :class="
+                              selectedSoftSkills.includes(item.title)
+                                ? 'text-blue-600'
+                                : 'text-gray-300'
+                            "
+                          ></component>
 
-                          <span class="text-sm font-medium text-gray-700 pt-2">{{ item.title }}</span>
+                          <span class="text-sm font-medium text-gray-700 pt-2">{{
+                            item.title
+                          }}</span>
                         </div>
                         <IconCheck
-                            v-if="selectedSoftSkills.includes(item.title)"
-                            class="w-4 h-4 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
+                          v-if="selectedSoftSkills.includes(item.title)"
+                          class="w-4 h-4 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                         ></IconCheck>
                       </label>
                     </div>
                   </div>
-
                 </div>
-
               </div>
 
               <div class="px-2">
@@ -500,22 +506,23 @@
                 </div>
 
                 <div class="mb-4">
-                  <label for="name" class="block text-sm font-medium pb-1">Projektbeschreibung *</label>
+                  <label for="name" class="block text-sm font-medium pb-1"
+                    >Projektbeschreibung *</label
+                  >
                   <div
-                      class="flex items-center space-x-2 bg-gray-50 py-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
+                    class="flex items-center space-x-2 bg-gray-50 py-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
                   >
                     <div class="w-full relative">
                       <IconList class="h-5 absolute left-0 top-3"></IconList>
                       <textarea
-                          v-model="project.projectDescription"
-                          id="description"
-                          rows="16"
-                          class="pl-8 block p-2.5 w-full border-0 focus:ring-0 bg-transparent"
-                          placeholder="Das Projekt BeispielXY soll ... (Requirements, Environment, Tasks, TechStack)"
+                        v-model="project.projectDescription"
+                        id="description"
+                        rows="16"
+                        class="pl-8 block p-2.5 w-full border-0 focus:ring-0 bg-transparent"
+                        placeholder="Das Projekt BeispielXY soll ... (Requirements, Environment, Tasks, TechStack)"
                       ></textarea>
                     </div>
                   </div>
-
                 </div>
 
                 <div class="hidden mb-4">
@@ -531,72 +538,100 @@
                 </div>
 
                 <div class="mb-4">
-                  <label for="device" class="block text-sm font-medium pb-1">Deadline (falls nötig)</label>
-                  <div class="inline-flex items-center w-full bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0">
+                  <label for="device" class="block text-sm font-medium pb-1"
+                    >Deadline (falls nötig)</label
+                  >
+                  <div
+                    class="inline-flex items-center w-full bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0"
+                  >
                     <IconCalendar class="w-4 h-4 ml-4"></IconCalendar>
-                    <input id="datepicker-format" datepicker datepicker-min-date="09/16/2024" datepicker-max-date="12/31/2099" type="text"
-                           class="w-full p-4 bg-gray-50 border-0 focus:ring-0" placeholder="Deadline auswählen" />
+                    <input
+                      id="datepicker-format"
+                      datepicker
+                      datepicker-min-date="09/16/2024"
+                      datepicker-max-date="12/31/2099"
+                      type="text"
+                      class="w-full p-4 bg-gray-50 border-0 focus:ring-0"
+                      placeholder="Deadline auswählen"
+                    />
                   </div>
                 </div>
 
                 <div class="mb-2">
                   <h2 class="text-sm font-medium pb-4">Projektstatus festlegen</h2>
                   <div class="flex space-x-4">
-                    <div :class="{'border-blue-600 border-2 bg-gray-50': selectedStatus === 'DRAFT'}"
-                        class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer" @click="selectStatus('DRAFT')">
+                    <div
+                      :class="{ 'border-blue-600 border-2 bg-gray-50': selectedStatus === 'DRAFT' }"
+                      class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer"
+                      @click="selectStatus('DRAFT')"
+                    >
                       <IconPencil class="w-4 h-4"></IconPencil>
                       <span class="ml-2 block text-sm font-medium text-gray-700">ENTWURF</span>
                     </div>
 
-                    <div :class="{'border-blue-600 border-2 bg-gray-50': selectedStatus === 'OPEN'}"
-                         class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer" @click="selectStatus('OPEN')">
+                    <div
+                      :class="{ 'border-blue-600 border-2 bg-gray-50': selectedStatus === 'OPEN' }"
+                      class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer"
+                      @click="selectStatus('OPEN')"
+                    >
                       <IconFolder class="w-4 h-4"></IconFolder>
                       <span class="ml-2 block text-sm font-medium text-gray-700">OFFEN</span>
                     </div>
                   </div>
                 </div>
 
-
                 <div class="mb-4">
                   <div class="flex items-center justify-between">
                     <h2 class="text-xl font-bold my-4">Projektansprechpartner</h2>
-                    <button type="button" class="bg-gray-400 hover:bg-gray-500 rounded-lg px-3 py-2 text-white">
+                    <button
+                      type="button"
+                      class="bg-gray-400 hover:bg-gray-500 rounded-lg px-3 py-2 text-white"
+                    >
                       Daten aus Profil übernehmen
                     </button>
                   </div>
 
-                    <div class="w-full mb-4">
-                      <label for="name" class="block text-sm font-medium pb-1">Name</label>
-                      <div class="inline-flex items-center w-full bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0">
-                        <IconUser class="w-4 h-4 ml-4 mr-0"></IconUser>
-                        <input
-                            v-model="project.projectRepresentative"
-                            type="text"
-                            id="name"
-                            class="w-full p-4 bg-gray-50 border-0 focus:ring-0"
-                            placeholder="Matteo Kleemann"
-                            required
-                        />
-                      </div>
+                  <div class="w-full mb-4">
+                    <label for="name" class="block text-sm font-medium pb-1">Name</label>
+                    <div
+                      class="inline-flex items-center w-full bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0"
+                    >
+                      <IconUser class="w-4 h-4 ml-4 mr-0"></IconUser>
+                      <input
+                        v-model="project.projectRepresentative"
+                        type="text"
+                        id="name"
+                        class="w-full p-4 bg-gray-50 border-0 focus:ring-0"
+                        placeholder="Matteo Kleemann"
+                        required
+                      />
                     </div>
-                    <div class="w-full">
-                      <label for="name" class="block text-sm font-medium pb-1">E-Mail</label>
-                      <div class="inline-flex items-center w-full  bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0">
-                        <IconEmail class="w-5 h-5 ml-4 mr-0"></IconEmail>
-                        <input
-                            v-model="project.projectRepresentativeEmail"
-                            type="email"
-                            id="name"
-                            class="w-full p-4 bg-gray-50 border-0 focus:ring-0"
-                            placeholder="matteoachim.kleemann@dataport.de"
-                            required
-                        />
-                      </div>
+                  </div>
+                  <div class="w-full">
+                    <label for="name" class="block text-sm font-medium pb-1">E-Mail</label>
+                    <div
+                      class="inline-flex items-center w-full bg-gray-50 border-0 rounded-lg shadow-md focus:ring-0"
+                    >
+                      <IconEmail class="w-5 h-5 ml-4 mr-0"></IconEmail>
+                      <input
+                        v-model="project.projectRepresentativeEmail"
+                        type="email"
+                        id="name"
+                        class="w-full p-4 bg-gray-50 border-0 focus:ring-0"
+                        placeholder="matteoachim.kleemann@dataport.de"
+                        required
+                      />
                     </div>
+                  </div>
                 </div>
 
                 <div class="mt-6 flex justify-end">
-                  <button type="button" @click="submit" data-drawer-hide="drawer-full-example" class="inline-flex items-center bg-primary-700 rounded-lg px-4 py-2.5 text-white">
+                  <button
+                    type="button"
+                    @click="submit"
+                    data-drawer-hide="drawer-full-example"
+                    class="inline-flex items-center bg-primary-700 rounded-lg px-4 py-2.5 text-white"
+                  >
                     <IconSubmit class="w-5 h-5 mr-4 font-normal"></IconSubmit>
                     Erstellen
                   </button>
@@ -633,34 +668,34 @@ import IconBook from '@/components/icons/IconBook.vue'
 import IconLightbulb from '@/components/icons/IconLightbulb.vue'
 import IconTools from '@/components/icons/IconTools.vue'
 import IconOther from '@/components/icons/IconOther.vue'
-import IconSubmit from "@/components/icons/IconSubmit.vue";
-import IconVue from "@/components/icons/technology/IconVue.vue";
-import IconVuetify from "@/components/icons/technology/IconVuetify.vue";
-import IconJava from "@/components/icons/technology/IconJava.vue";
-import IconJavascript from "@/components/icons/technology/IconJavascript.vue";
-import IconNode from "@/components/icons/technology/IconNode.vue";
-import IconDatabase from "@/components/icons/technology/IconDatabase.vue";
-import IconServer from "@/components/icons/technology/IconServer.vue";
-import IconDocker from "@/components/icons/technology/IconDocker.vue";
-import IconSpring from "@/components/icons/technology/IconSpring.vue";
+import IconSubmit from '@/components/icons/IconSubmit.vue'
+import IconVue from '@/components/icons/technology/IconVue.vue'
+import IconVuetify from '@/components/icons/technology/IconVuetify.vue'
+import IconJava from '@/components/icons/technology/IconJava.vue'
+import IconJavascript from '@/components/icons/technology/IconJavascript.vue'
+import IconNode from '@/components/icons/technology/IconNode.vue'
+import IconDatabase from '@/components/icons/technology/IconDatabase.vue'
+import IconServer from '@/components/icons/technology/IconServer.vue'
+import IconDocker from '@/components/icons/technology/IconDocker.vue'
+import IconSpring from '@/components/icons/technology/IconSpring.vue'
 
-import {markRaw} from "vue";
-import IconEmail from "@/components/icons/IconEmail.vue";
-import IconUser from "@/components/navigation/header/profile/icons/IconUser.vue";
-import IconSecurity from "@/components/icons/technology/IconSecurity.vue";
-import IconAgil from "@/components/icons/technology/IconAgil.vue";
-import IconGit from "@/components/icons/technology/IconGit.vue";
-import IconTesting from "@/components/icons/technology/IconTesting.vue";
-import IconArchitecture from "@/components/icons/technology/IconArchitecture.vue";
-import IconHandshake from "@/components/icons/technology/IconHandshake.vue";
-import IconClock from "@/components/icons/technology/IconClock.vue";
-import IconClipboard from "@/components/icons/technology/IconClipboard.vue";
-import IconUsers from "@/components/icons/IconUsers.vue";
-import IconCalendar from "@/components/icons/IconCalendar.vue";
-import IconFolder from "@/components/home/icons/IconFolder.vue";
-import IconPencil from "@/components/icons/IconPencil.vue";
+import { markRaw } from 'vue'
+import IconEmail from '@/components/icons/IconEmail.vue'
+import IconUser from '@/components/navigation/header/profile/icons/IconUser.vue'
+import IconSecurity from '@/components/icons/technology/IconSecurity.vue'
+import IconAgil from '@/components/icons/technology/IconAgil.vue'
+import IconGit from '@/components/icons/technology/IconGit.vue'
+import IconTesting from '@/components/icons/technology/IconTesting.vue'
+import IconArchitecture from '@/components/icons/technology/IconArchitecture.vue'
+import IconHandshake from '@/components/icons/technology/IconHandshake.vue'
+import IconClock from '@/components/icons/technology/IconClock.vue'
+import IconClipboard from '@/components/icons/technology/IconClipboard.vue'
+import IconUsers from '@/components/icons/IconUsers.vue'
+import IconCalendar from '@/components/icons/IconCalendar.vue'
+import IconFolder from '@/components/home/icons/IconFolder.vue'
+import IconPencil from '@/components/icons/IconPencil.vue'
 
-import {createProject} from "@/services/projectService.js";
+import { createProject } from '@/services/projectService.js'
 export default {
   name: 'ProjectAddDrawer',
   components: {
@@ -713,7 +748,7 @@ export default {
       selectedHardSkills: [],
       selectedSoftSkills: [],
       selectedTechnologies: [],
-      selectedStatus: "ENTWURF",
+      selectedStatus: 'ENTWURF',
 
       project: {
         projectTitle: '',
@@ -728,106 +763,105 @@ export default {
       },
       hardSkills: [
         {
-          title: "DEVOPS",
+          title: 'DEVOPS',
           icon: markRaw(IconServer)
         },
         {
-          title: "PROGRAMMING",
+          title: 'PROGRAMMING',
           icon: markRaw(IconCode)
         },
         {
-          title: "DATABASE_MANAGEMENT",
+          title: 'DATABASE_MANAGEMENT',
           icon: markRaw(IconDatabase)
         },
         {
-          title: "SECURITY",
+          title: 'SECURITY',
           icon: markRaw(IconSecurity)
         },
         {
-          title: "AGILE",
+          title: 'AGILE',
           icon: markRaw(IconAgil)
         },
         {
-          title: "DOCUMENTATION",
+          title: 'DOCUMENTATION',
           icon: markRaw(IconFile)
         },
         {
-          title: "VERSION_CONTROL",
+          title: 'VERSION_CONTROL',
           icon: markRaw(IconGit)
         },
         {
-          title: "TESTING",
+          title: 'TESTING',
           icon: markRaw(IconTesting)
         },
         {
-          title: "SOFTWARE_ARCHITECTURE",
+          title: 'SOFTWARE_ARCHITECTURE',
           icon: markRaw(IconArchitecture)
-        },
-
+        }
       ],
       softSkills: [
         {
-          title: "REQUIREMENTS_ENGINEERING",
+          title: 'REQUIREMENTS_ENGINEERING',
           icon: markRaw(IconClipboard)
         },
         {
-          title: "PROJECT_MANAGEMENT",
+          title: 'PROJECT_MANAGEMENT',
           icon: markRaw(IconList)
         },
         {
-          title: "CLIENT_INTERACTION",
+          title: 'CLIENT_INTERACTION',
           icon: markRaw(IconHandshake)
         },
         {
-          title: "PROBLEM_SOLVING",
+          title: 'PROBLEM_SOLVING',
           icon: markRaw(IconLightbulb)
         },
         {
-          title: "TEAMWORK",
+          title: 'TEAMWORK',
           icon: markRaw(IconUsers)
         },
         {
-          title: "TIME_MANAGEMENT",
+          title: 'TIME_MANAGEMENT',
           icon: markRaw(IconClock)
         },
         {
-          title: "OTHER",
+          title: 'OTHER',
           icon: markRaw(IconOther)
-        },
+        }
       ],
       technologies: [
         {
-          title: "VUE_JS",
+          title: 'VUE_JS',
           icon: markRaw(IconVue)
         },
         {
-          title: "VUETIFY",
+          title: 'VUETIFY',
           icon: markRaw(IconVuetify)
         },
         {
-          title: "JAVA",
+          title: 'JAVA',
           icon: markRaw(IconJava)
         },
         {
-          title: "JAVASCRIPT",
+          title: 'JAVASCRIPT',
           icon: markRaw(IconJavascript)
         },
         {
-          title: "NODE_JS",
+          title: 'NODE_JS',
           icon: markRaw(IconNode)
         },
         {
-          title: "SPRING_BOOT",
+          title: 'SPRING_BOOT',
           icon: markRaw(IconSpring)
         },
         {
-          title: "DOCKER",
+          title: 'DOCKER',
           icon: markRaw(IconDocker)
         },
         {
-          title: "OTHER",
+          title: 'OTHER',
           icon: markRaw(IconOther)
-        },
+        }
       ]
     }
   },
@@ -843,29 +877,34 @@ export default {
       this.title = ''
     },
     selectStatus(status) {
-      this.selectedStatus = status;
+      this.selectedStatus = status
     },
     submit() {
-      if (this.project.projectTitle && this.project.projectDescription && this.project.projectRepresentative && this.project.projectRepresentativeEmail) {
-        this.project.projectTypes = this.selectedType;
-        this.project.projectTechnologies = this.selectedTechnologies;
-        this.project.projectHardSkills = this.selectedHardSkills;
-        this.project.projectSoftSkills = this.selectedSoftSkills;
-        this.project.projectStatus = this.selectedStatus;
-        this.createProject();
+      if (
+        this.project.projectTitle &&
+        this.project.projectDescription &&
+        this.project.projectRepresentative &&
+        this.project.projectRepresentativeEmail
+      ) {
+        this.project.projectTypes = this.selectedType
+        this.project.projectTechnologies = this.selectedTechnologies
+        this.project.projectHardSkills = this.selectedHardSkills
+        this.project.projectSoftSkills = this.selectedSoftSkills
+        this.project.projectStatus = this.selectedStatus
+        this.createProject()
       } else {
-        console.error('input data for new project is incomplete.');
+        console.error('input data for new project is incomplete.')
       }
     },
     async createProject() {
       try {
-        const response = await createProject(this.project);
+        const response = await createProject(this.project)
         if (response.ok) {
-          this.$emit("submitProject", true);
-          this.clearInput();
+          this.$emit('submitProject', true)
+          this.clearInput()
         }
       } catch (error) {
-        console.error('error creating project:', error);
+        console.error('error creating project:', error)
       }
     },
     clearInput() {
@@ -879,10 +918,10 @@ export default {
         projectSoftSkills: [],
         projectTechnologies: [],
         projectStatus: ''
-      };
-      this.selectedTechnologies = [];
-      this.selectedHardSkills = [];
-      this.selectedSoftSkills = [];
+      }
+      this.selectedTechnologies = []
+      this.selectedHardSkills = []
+      this.selectedSoftSkills = []
     },
     submitForm() {
       console.log('Projekt wurde angelegt:', this.project)
@@ -898,8 +937,8 @@ export default {
     }
   },
   mounted() {
-    initFlowbite();
-  },
+    initFlowbite()
+  }
 }
 </script>
 
