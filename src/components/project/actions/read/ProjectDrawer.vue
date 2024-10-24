@@ -41,8 +41,8 @@
 
 <script>
 import { initFlowbite } from 'flowbite'
-import ProjectInfo from '@/components/project/ProjectInfo.vue'
-import IconClose from "@/components/project/details/icon/IconClose.vue";
+import ProjectInfo from '@/components/project/actions/read/ProjectInfo.vue'
+import IconClose from "@/components/icons/IconClose.vue";
 export default {
   name: 'ProjectDrawer',
   components: {IconClose, ProjectInfo },

@@ -11,7 +11,6 @@
             {{ getReadableProjectType(type) }}
           </div>
         </div>
-        <ProjectActions class="hidden" :project="project" @closeProject="closeProject"></ProjectActions>
       </div>
       <h2 class="text-2xl font-bold mb-1 ml-1">{{ project.projectTitle }}</h2>
       <p class="text-lg mb-4 ml-1">Untertitel</p>
@@ -21,13 +20,12 @@
 </template>
 
 <script>
-import ProjectActions from '@/components/project/details/ProjectActions.vue'
-import ProjectDetails from '@/components/project/details/ProjectDetails.vue'
+import ProjectDetails from '@/components/project/actions/read/details/ProjectDetails.vue'
 
 import {getReadableProjectType} from "@/utils/mappingUtils.js";
 export default {
-  name: 'ProjectDetailsHeader',
-  components: { ProjectDetails, ProjectActions },
+  name: 'ProjectHeader',
+  components: { ProjectDetails },
   props: ['project'],
   methods: {
     getReadableProjectType,

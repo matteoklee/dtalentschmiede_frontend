@@ -1,7 +1,7 @@
 <template>
   <!--<ProjectViewTitle></ProjectViewTitle>-->
   <div v-if="project">
-    <ProjectDetailsHeader :project="project" @closeProject="closeProject"></ProjectDetailsHeader>
+    <ProjectHeader :project="project" @closeProject="closeProject"></ProjectHeader>
     <ProjectDescription :project="project"></ProjectDescription>
     <ProjectApply :project="project"></ProjectApply>
     <ProjectCreator :project="project"></ProjectCreator>
@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import ProjectDetailsHeader from '@/components/project/details/ProjectDetailsHeader.vue'
-import ProjectDescription from '@/components/project/details/ProjectDescription.vue'
-import ProjectApply from '@/components/project/details/ProjectApply.vue'
-import ProjectCreator from '@/components/project/details/ProjectCreator.vue'
+import ProjectHeader from '@/components/project/actions/read/details/ProjectHeader.vue'
+import ProjectDescription from '@/components/project/actions/read/details/ProjectDescription.vue'
+import ProjectApply from '@/components/project/actions/read/details/ProjectApply.vue'
+import ProjectCreator from '@/components/project/actions/read/details/ProjectCreator.vue'
 
 export default {
   name: 'ProjectInfo',
@@ -23,7 +23,7 @@ export default {
     ProjectCreator,
     ProjectApply,
     ProjectDescription,
-    ProjectDetailsHeader
+    ProjectHeader
   },
   props: ['project'],
   data() {

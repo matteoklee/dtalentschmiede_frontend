@@ -111,8 +111,8 @@
 
 <script>
 import {initFlowbite} from "flowbite";
-import IconSearch from "@/components/project2/icons/IconSearch.vue";
-import IconClose from "@/components/project/details/icon/IconClose.vue";
+import IconSearch from "@/components/icons/IconSearch.vue";
+import IconClose from "@/components/icons/IconClose.vue";
 export default {
   name: "ProjectFilter",
   components: {IconClose, IconSearch},

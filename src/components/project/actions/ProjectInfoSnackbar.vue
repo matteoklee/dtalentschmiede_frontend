@@ -32,10 +32,10 @@
 </template>
 
 <script>
-import IconClose from "@/components/project/details/icon/IconClose.vue";
-import IconInfo from "@/components/project2/icons/IconInfo.vue";
-import IconError from "@/components/project2/icons/IconError.vue";
-import IconCheck from "@/components/project2/icons/IconCheck.vue";
+import IconClose from "@/components/icons/IconClose.vue";
+import IconInfo from "@/components/icons/IconInfo.vue";
+import IconError from "@/components/icons/IconError.vue";
+import IconCheck from "@/components/icons/IconCheck.vue";
 
 export default {
   name: "ProjectInfoSnackbar",

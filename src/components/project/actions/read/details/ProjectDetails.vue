@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import IconLocation from '@/components/profile/icons/IconLocation.vue'
-import IconCalendar from '@/components/project/details/icon/IconCalendar.vue'
-import IconHourglass from '@/components/project/details/icon/IconHourglass.vue'
+import IconLocation from '@/components/icons/IconLocation.vue'
+import IconCalendar from '@/components/icons/IconCalendar.vue'
+import IconHourglass from '@/components/icons/IconHourglass.vue'
 
 import {formatDateWithTime} from "@/utils/dateUtils.js";
-import IconStatus from "@/components/project2/icons/IconStatus.vue";
+import IconStatus from "@/components/icons/IconStatus.vue";
 import {getReadableProjectStatus} from "@/utils/mappingUtils.js";
 export default {
   name: 'ProjectDetails',

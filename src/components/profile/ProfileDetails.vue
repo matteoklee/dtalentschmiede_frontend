@@ -56,7 +56,7 @@
 import IconUserCircle from '@/components/navigation/header/profile/icons/IconUserCircle.vue'
 import ProfileGeneral2 from '@/components/profile/ProfileGeneral.vue'
 export default {
-  name: 'ProfileGeneral',
+  name: 'ProfileDetails',
   components: { IconUserCircle, ProfileGeneral2 }
 }
 </script>

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import IconLink from '@/components/project/details/icon/IconLink.vue'
+import IconLink from '@/components/icons/IconLink.vue'
 
 export default {
   name: 'ProjectApply',

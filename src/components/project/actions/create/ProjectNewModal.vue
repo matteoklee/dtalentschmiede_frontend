@@ -91,8 +91,8 @@
 </template>
 
 <script>
-import IconClose from '@/components/project/details/icon/IconClose.vue'
-import ProjectAddDrawer from '@/components/project2/ProjectAddDrawer.vue'
+import IconClose from '@/components/icons/IconClose.vue'
+import ProjectAddDrawer from '@/components/project/actions/create/ProjectAddDrawer.vue'
 
 export default {
   name: 'ProjectNewModal',
