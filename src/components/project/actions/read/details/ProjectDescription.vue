@@ -11,7 +11,7 @@
             :key="index"
             class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 mt-2"
           >
-            {{ getReadableTechnology(technology.technologyName) }}
+            {{ technology.technologyName }}
           </p>
         </div>
       </div>
@@ -23,7 +23,7 @@
             :key="index"
             class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 mt-2"
           >
-            {{ getReadableHardSkill(hardSkill.hardSkillName) }}
+            {{ hardSkill.hardSkillName }}
           </p>
         </div>
       </div>
@@ -35,7 +35,7 @@
             :key="index"
             class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 mt-2"
           >
-            {{ getReadableSoftSkill(softSkill) }}
+            {{ softSkill.softSkillName }}
           </p>
         </div>
       </div>
@@ -44,19 +44,10 @@
 </template>
 
 <script>
-import {
-  getReadableTechnology,
-  getReadableHardSkill,
-  getReadableSoftSkill
-} from '@/utils/mappingUtils.js';
+
 export default {
   name: 'ProjectDescription',
   props: ['project'],
-  methods: {
-    getReadableHardSkill,
-    getReadableTechnology,
-    getReadableSoftSkill
-  }
 };
 </script>
 
