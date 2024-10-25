@@ -8,7 +8,7 @@
             :key="index"
             class="mb-4 px-4 py-2 bg-green-100 mr-2 rounded-lg"
           >
-            {{ getReadableProjectType(type) }}
+            {{ getReadableProjectType(type.projectTypeName) }}
           </div>
         </div>
       </div>

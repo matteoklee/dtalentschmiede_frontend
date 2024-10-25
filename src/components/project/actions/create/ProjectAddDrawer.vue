@@ -237,123 +237,30 @@
                 <h2 class="text-xl font-bold my-4">Kategorie</h2>
 
                 <div class="grid lg:grid-cols-4 grid-cols-2 gap-4 mb-4">
-                  <!-- IT-Projekt -->
-                  <div class="">
+                  <div v-for="(type, index) in projectTypeStore.projectTypes" :key="type.projectTypeId">
                     <input
-                      type="checkbox"
-                      v-model="selectedType"
-                      id="project"
-                      name="project"
-                      value="PROJECT"
-                      class="hidden peer"
+                        type="checkbox"
+                        v-model="selectedProjectType"
+                        :id="`projectType-${index}`"
+                        :value="type"
+                        class="hidden peer"
                     />
                     <label
-                      for="project"
-                      class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                      :class="selectedType === 'project' ? 'bg-gray-100' : 'bg-white'"
+                        :for="`projectType-${index}`"
+                        class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
+                        :class="selectedProjectType.includes(type) ? 'bg-gray-100' : 'bg-white'"
                     >
-                      <div
-                        class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
-                      >
-                        <IconLightbulb
-                          class="w-10 h-10"
-                          :class="selectedType === 'project' ? 'text-blue-600' : 'text-gray-300'"
-                        ></IconLightbulb>
-                        <span class="text-lg font-medium text-gray-700 pt-2">IT-Projekt</span>
+                      <div class="inline-flex flex-col items-center my-2 mt-auto break-all text-center">
+                        <component
+                            :is="getProjectTypeIcon(type.projectTypeValue)"
+                            class="w-10 h-10"
+                            :class="selectedProjectType.includes(type) ? 'text-blue-600' : 'text-gray-300'"
+                        ></component>
+                        <span class="text-lg font-medium text-gray-700 pt-2">{{ type.projectTypeName }}</span>
                       </div>
                       <IconCheck
-                        v-if="selectedType === 'project'"
-                        class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
-                      ></IconCheck>
-                    </label>
-                  </div>
-                  <!-- Practice -->
-                  <div class="">
-                    <input
-                      type="checkbox"
-                      v-model="selectedType"
-                      id="practice"
-                      name="practice"
-                      value="PRACTICE"
-                      class="hidden peer"
-                    />
-                    <label
-                      for="practice"
-                      class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                      :class="selectedType === 'practice' ? 'bg-gray-100' : 'bg-white'"
-                    >
-                      <div
-                        class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
-                      >
-                        <IconTools
-                          class="w-10 h-10"
-                          :class="selectedType === 'practice' ? 'text-blue-600' : 'text-gray-300'"
-                        ></IconTools>
-                        <span class="text-lg font-medium text-gray-700 pt-2">Praxisstation</span>
-                      </div>
-                      <IconCheck
-                        v-if="selectedType === 'practice'"
-                        class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
-                      ></IconCheck>
-                    </label>
-                  </div>
-                  <!-- Thesis -->
-                  <div class="">
-                    <input
-                      type="checkbox"
-                      v-model="selectedType"
-                      id="thesis"
-                      name="thesis"
-                      value="THESIS"
-                      class="hidden peer"
-                    />
-                    <label
-                      for="thesis"
-                      class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                      :class="selectedType === 'thesis' ? 'bg-gray-100' : 'bg-white'"
-                    >
-                      <div
-                        class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
-                      >
-                        <IconBook
-                          class="w-10 h-10"
-                          :class="selectedType === 'thesis' ? 'text-blue-600' : 'text-gray-300'"
-                        ></IconBook>
-                        <span class="text-lg font-medium text-gray-700 pt-2">Thesis</span>
-                      </div>
-                      <IconCheck
-                        v-if="selectedType === 'thesis'"
-                        class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
-                      ></IconCheck>
-                    </label>
-                  </div>
-                  <!-- Other -->
-                  <div class="">
-                    <input
-                      type="checkbox"
-                      v-model="selectedType"
-                      id="other"
-                      name="other"
-                      value="OTHER"
-                      class="hidden peer"
-                    />
-                    <label
-                      for="other"
-                      class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                      :class="selectedType === 'other' ? 'bg-gray-100' : 'bg-white'"
-                    >
-                      <div
-                        class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
-                      >
-                        <IconOther
-                          class="w-10 h-10"
-                          :class="selectedType === 'other' ? 'text-blue-600' : 'text-gray-300'"
-                        ></IconOther>
-                        <span class="text-lg font-medium text-gray-700 pt-2">Andere</span>
-                      </div>
-                      <IconCheck
-                        v-if="selectedType === 'other'"
-                        class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
+                          v-if="selectedProjectType.includes(type)"
+                          class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                       ></IconCheck>
                     </label>
                   </div>
@@ -695,20 +602,24 @@ import IconUsers from '@/components/icons/IconUsers.vue';
 import IconCalendar from '@/components/icons/IconCalendar.vue';
 import IconFolder from '@/components/home/icons/IconFolder.vue';
 import IconPencil from '@/components/icons/IconPencil.vue';
-import {getTechnologyIcon} from "@/utils/iconUtil.js";
+import {getTechnologyIcon, getProjectTypeIcon} from "@/utils/iconUtil.js";
 
 import {useProjectStore} from "@/stores/projectStore.js";
 import {useTechnologyStore} from "@/stores/technologyStore.js";
+import {useProjectTypeStore} from "@/stores/projectTypeStore.js";
 export default {
   name: 'ProjectAddDrawer',
   setup() {
     const projectStore = useProjectStore();
     const technologyStore = useTechnologyStore();
     technologyStore.fetchTechnologies();
+    const projectTypeStore = useProjectTypeStore();
+    projectTypeStore.fetchProjectTypes();
 
     return {
       projectStore,
-      technologyStore
+      technologyStore,
+      projectTypeStore
     }
   },
   components: {
@@ -757,7 +668,7 @@ export default {
       isDrawerOpen: false,
       title: '',
       titleValidated: false,
-      selectedType: [],
+      selectedProjectType: [],
       selectedHardSkills: [],
       selectedSoftSkills: [],
       selectedTechnologies: [],
@@ -880,6 +791,7 @@ export default {
   },
   methods: {
     getTechnologyIcon,
+    getProjectTypeIcon,
     validateTitle() {
       this.titleValidated = this.title !== '';
     },
@@ -900,7 +812,7 @@ export default {
         this.project.projectRepresentative &&
         this.project.projectRepresentativeEmail
       ) {
-        this.project.projectTypes = this.selectedType;
+        this.project.projectTypes = this.selectedProjectType;
         this.project.projectTechnologies = this.selectedTechnologies;
         this.project.projectHardSkills = this.selectedHardSkills;
         this.project.projectSoftSkills = this.selectedSoftSkills;

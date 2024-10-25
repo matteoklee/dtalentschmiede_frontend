@@ -45,8 +45,8 @@ export function getTechnologyIcon(technologyValue) {
     }
 }
 
-export function getProjectTypeIcon(typeName) {
-    switch (typeName) {
+export function getProjectTypeIcon(projectTypeValue) {
+    switch (projectTypeValue) {
         case 'PROJECT': return IconLightbulb;
         case 'PRACTICE': return IconTools;
         case 'THESIS': return IconBook;
