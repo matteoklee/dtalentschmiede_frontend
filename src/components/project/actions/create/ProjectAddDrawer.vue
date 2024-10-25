@@ -315,40 +315,40 @@
                 <h2 class="text-xl font-bold my-4">Hard Skills</h2>
 
                 <div class="grid lg:grid-cols-6 grid-cols-3 gap-4 mb-4">
-                  <div v-for="(item, index) in hardSkills" :key="index">
+                  <div v-for="(item, index) in hardSkillStore.hardSkills" :key="item.hardSkillId">
                     <!-- Technology -->
                     <div class="">
                       <input
                         type="checkbox"
                         v-model="selectedHardSkills"
                         :id="`hardSkill-${index}`"
-                        :value="item.title"
+                        :value="item"
                         class="hidden peer"
                       />
                       <label
                         :for="`hardSkill-${index}`"
                         class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
                         :class="
-                          selectedHardSkills.includes(item.title) ? 'bg-gray-100' : 'bg-white'
+                          selectedHardSkills.includes(item) ? 'bg-gray-100' : 'bg-white'
                         "
                       >
                         <div class="inline-flex flex-col items-center my-2 mt-auto text-center">
                           <component
-                            :is="item.icon"
+                            :is="getHardSkillIcon(item.hardSkillValue)"
                             class="w-8 h-8"
                             :class="
-                              selectedHardSkills.includes(item.title)
+                              selectedHardSkills.includes(item)
                                 ? 'text-blue-600'
                                 : 'text-gray-300'
                             "
                           ></component>
 
                           <span class="text-sm font-medium text-gray-700 pt-2">{{
-                            item.title
+                            item.hardSkillName
                           }}</span>
                         </div>
                         <IconCheck
-                          v-if="selectedHardSkills.includes(item.title)"
+                          v-if="selectedHardSkills.includes(item)"
                           class="w-4 h-4 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                         ></IconCheck>
                       </label>
@@ -602,11 +602,12 @@ import IconUsers from '@/components/icons/IconUsers.vue';
 import IconCalendar from '@/components/icons/IconCalendar.vue';
 import IconFolder from '@/components/home/icons/IconFolder.vue';
 import IconPencil from '@/components/icons/IconPencil.vue';
-import {getTechnologyIcon, getProjectTypeIcon} from "@/utils/iconUtil.js";
+import {getTechnologyIcon, getProjectTypeIcon, getHardSkillIcon} from "@/utils/iconUtil.js";
 
 import {useProjectStore} from "@/stores/projectStore.js";
 import {useTechnologyStore} from "@/stores/technologyStore.js";
 import {useProjectTypeStore} from "@/stores/projectTypeStore.js";
+import {useHardSkillStore} from "@/stores/hardSkillStore.js";
 export default {
   name: 'ProjectAddDrawer',
   setup() {
@@ -615,11 +616,14 @@ export default {
     technologyStore.fetchTechnologies();
     const projectTypeStore = useProjectTypeStore();
     projectTypeStore.fetchProjectTypes();
+    const hardSkillStore = useHardSkillStore();
+    hardSkillStore.fetchHardSkills();
 
     return {
       projectStore,
       technologyStore,
-      projectTypeStore
+      projectTypeStore,
+      hardSkillStore
     }
   },
   components: {
@@ -685,7 +689,7 @@ export default {
         projectTechnologies: [],
         projectStatus: ''
       },
-      hardSkills: [
+      /*hardSkills: [
         {
           title: 'DEVOPS',
           icon: markRaw(IconServer)
@@ -722,7 +726,7 @@ export default {
           title: 'SOFTWARE_ARCHITECTURE',
           icon: markRaw(IconArchitecture)
         }
-      ],
+      ],*/
       softSkills: [
         {
           title: 'REQUIREMENTS_ENGINEERING',
@@ -792,6 +796,7 @@ export default {
   methods: {
     getTechnologyIcon,
     getProjectTypeIcon,
+    getHardSkillIcon,
     validateTitle() {
       this.titleValidated = this.title !== '';
     },
