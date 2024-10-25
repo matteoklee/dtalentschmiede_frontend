@@ -4,7 +4,11 @@
       v-show="snackbarStore.visible"
       :class="[
         'fixed bottom-5 left-1/2 transform -translate-x-1/2 z-50 max-w-sm w-full p-4 rounded-lg shadow-md bg-gray-100 border font-medium border',
-        snackbarStore.snackbarType === 'success' ? 'shadow-green-700/40' : snackbarStore.snackbarType === 'error' ? ' shadow-green-700/40' : ''
+        snackbarStore.snackbarType === 'success'
+          ? 'shadow-green-700/40'
+          : snackbarStore.snackbarType === 'error'
+            ? ' shadow-green-700/40'
+            : ''
       ]"
       role="alert"
     >
@@ -32,21 +36,21 @@ import IconClose from '@/components/icons/IconClose.vue';
 import IconInfo from '@/components/icons/IconInfo.vue';
 import IconError from '@/components/icons/IconError.vue';
 import IconCheck from '@/components/icons/IconCheck.vue';
-import {useSnackbarStore} from "@/stores/snackbarStore.js";
+import { useSnackbarStore } from '@/stores/snackbarStore.js';
 export default {
   name: 'ProjectSnackbar',
   setup() {
     const snackbarStore = useSnackbarStore();
     return {
       snackbarStore
-    }
+    };
   },
   components: { IconCheck, IconError, IconInfo, IconClose },
   methods: {
     closeSnackbar() {
       this.snackbarStore.closeSnackbar();
     }
-  },
+  }
 };
 </script>
 

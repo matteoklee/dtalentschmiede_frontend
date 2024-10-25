@@ -237,30 +237,39 @@
                 <h2 class="text-xl font-bold my-4">Kategorie</h2>
 
                 <div class="grid lg:grid-cols-4 grid-cols-2 gap-4 mb-4">
-                  <div v-for="(type, index) in projectTypeStore.projectTypes" :key="type.projectTypeId">
+                  <div
+                    v-for="(type, index) in projectTypeStore.projectTypes"
+                    :key="type.projectTypeId"
+                  >
                     <input
-                        type="checkbox"
-                        v-model="selectedProjectType"
-                        :id="`projectType-${index}`"
-                        :value="type"
-                        class="hidden peer"
+                      type="checkbox"
+                      v-model="selectedProjectType"
+                      :id="`projectType-${index}`"
+                      :value="type"
+                      class="hidden peer"
                     />
                     <label
-                        :for="`projectType-${index}`"
-                        class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                        :class="selectedProjectType.includes(type) ? 'bg-gray-100' : 'bg-white'"
+                      :for="`projectType-${index}`"
+                      class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
+                      :class="selectedProjectType.includes(type) ? 'bg-gray-100' : 'bg-white'"
                     >
-                      <div class="inline-flex flex-col items-center my-2 mt-auto break-all text-center">
+                      <div
+                        class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
+                      >
                         <component
-                            :is="getProjectTypeIcon(type.projectTypeValue)"
-                            class="w-10 h-10"
-                            :class="selectedProjectType.includes(type) ? 'text-blue-600' : 'text-gray-300'"
+                          :is="getProjectTypeIcon(type.projectTypeValue)"
+                          class="w-10 h-10"
+                          :class="
+                            selectedProjectType.includes(type) ? 'text-blue-600' : 'text-gray-300'
+                          "
                         ></component>
-                        <span class="text-lg font-medium text-gray-700 pt-2">{{ type.projectTypeName }}</span>
+                        <span class="text-lg font-medium text-gray-700 pt-2">{{
+                          type.projectTypeName
+                        }}</span>
                       </div>
                       <IconCheck
-                          v-if="selectedProjectType.includes(type)"
-                          class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
+                        v-if="selectedProjectType.includes(type)"
+                        class="w-6 h-6 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                       ></IconCheck>
                     </label>
                   </div>
@@ -269,7 +278,10 @@
                 <h2 class="text-xl font-bold my-4">Technologien</h2>
 
                 <div class="grid lg:grid-cols-6 grid-cols-3 gap-4 mb-4">
-                  <div v-for="(item, index) in technologyStore.technologies" :key="item.technologyId">
+                  <div
+                    v-for="(item, index) in technologyStore.technologies"
+                    :key="item.technologyId"
+                  >
                     <!-- Technology -->
                     <div class="">
                       <input
@@ -282,9 +294,7 @@
                       <label
                         :for="`technology-${index}`"
                         class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                        :class="
-                          selectedTechnologies.includes(item) ? 'bg-gray-100' : 'bg-white'
-                        "
+                        :class="selectedTechnologies.includes(item) ? 'bg-gray-100' : 'bg-white'"
                       >
                         <div
                           class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
@@ -328,18 +338,14 @@
                       <label
                         :for="`hardSkill-${index}`"
                         class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                        :class="
-                          selectedHardSkills.includes(item) ? 'bg-gray-100' : 'bg-white'
-                        "
+                        :class="selectedHardSkills.includes(item) ? 'bg-gray-100' : 'bg-white'"
                       >
                         <div class="inline-flex flex-col items-center my-2 mt-auto text-center">
                           <component
                             :is="getHardSkillIcon(item.hardSkillValue)"
                             class="w-8 h-8"
                             :class="
-                              selectedHardSkills.includes(item)
-                                ? 'text-blue-600'
-                                : 'text-gray-300'
+                              selectedHardSkills.includes(item) ? 'text-blue-600' : 'text-gray-300'
                             "
                           ></component>
 
@@ -372,18 +378,14 @@
                       <label
                         :for="`softSkill-${index}`"
                         class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
-                        :class="
-                          selectedSoftSkills.includes(item) ? 'bg-gray-100' : 'bg-white'
-                        "
+                        :class="selectedSoftSkills.includes(item) ? 'bg-gray-100' : 'bg-white'"
                       >
                         <div class="inline-flex flex-col items-center my-2 mt-auto text-center">
                           <component
                             :is="getSoftSkillIcon(item.softSkillValue)"
                             class="w-8 h-8"
                             :class="
-                              selectedSoftSkills.includes(item)
-                                ? 'text-blue-600'
-                                : 'text-gray-300'
+                              selectedSoftSkills.includes(item) ? 'text-blue-600' : 'text-gray-300'
                             "
                           ></component>
 
@@ -567,49 +569,31 @@ import FooterCopyright from '@/components/navigation/footer/FooterCopyright.vue'
 import FooterNav from '@/components/navigation/footer/FooterNav.vue';
 import FooterInfo from '@/components/navigation/footer/FooterInfo.vue';
 import IconFile from '@/components/icons/IconFile.vue';
-import IconCode from '@/components/icons/IconCode.vue';
-import IconError from '@/components/icons/IconError.vue';
 import IconList from '@/components/home/icons/IconList.vue';
 import IconInfo from '@/components/icons/IconInfo.vue';
 import IconCheck from '@/components/icons/IconCheck.vue';
 import IconBook from '@/components/icons/IconBook.vue';
-import IconLightbulb from '@/components/icons/IconLightbulb.vue';
-import IconTools from '@/components/icons/IconTools.vue';
-import IconOther from '@/components/icons/IconOther.vue';
 import IconSubmit from '@/components/icons/IconSubmit.vue';
-import IconVue from '@/components/icons/technology/IconVue.vue';
-import IconVuetify from '@/components/icons/technology/IconVuetify.vue';
-import IconJava from '@/components/icons/technology/IconJava.vue';
-import IconJavascript from '@/components/icons/technology/IconJavascript.vue';
-import IconNode from '@/components/icons/technology/IconNode.vue';
-import IconDatabase from '@/components/icons/technology/IconDatabase.vue';
-import IconServer from '@/components/icons/technology/IconServer.vue';
-import IconDocker from '@/components/icons/technology/IconDocker.vue';
-import IconSpring from '@/components/icons/technology/IconSpring.vue';
 
 import IconEmail from '@/components/icons/IconEmail.vue';
 import IconUser from '@/components/navigation/header/profile/icons/IconUser.vue';
-import IconSecurity from '@/components/icons/technology/IconSecurity.vue';
-import IconAgil from '@/components/icons/technology/IconAgil.vue';
-import IconGit from '@/components/icons/technology/IconGit.vue';
-import IconTesting from '@/components/icons/technology/IconTesting.vue';
-import IconArchitecture from '@/components/icons/technology/IconArchitecture.vue';
-import IconHandshake from '@/components/icons/technology/IconHandshake.vue';
-import IconClock from '@/components/icons/technology/IconClock.vue';
-import IconClipboard from '@/components/icons/technology/IconClipboard.vue';
-import IconUsers from '@/components/icons/IconUsers.vue';
 import IconCalendar from '@/components/icons/IconCalendar.vue';
 import IconFolder from '@/components/home/icons/IconFolder.vue';
 import IconPencil from '@/components/icons/IconPencil.vue';
-import {getTechnologyIcon, getProjectTypeIcon, getHardSkillIcon, getSoftSkillIcon} from "@/utils/iconUtil.js";
+import {
+  getTechnologyIcon,
+  getProjectTypeIcon,
+  getHardSkillIcon,
+  getSoftSkillIcon
+} from '@/utils/iconUtil.js';
 
-import {useProjectStore} from "@/stores/projectStore.js";
-import {useTechnologyStore} from "@/stores/technologyStore.js";
-import {useProjectTypeStore} from "@/stores/projectTypeStore.js";
-import {useHardSkillStore} from "@/stores/hardSkillStore.js";
-import {useSoftSkillStore} from "@/stores/softSkillStore.js";
+import { useProjectStore } from '@/stores/projectStore.js';
+import { useTechnologyStore } from '@/stores/technologyStore.js';
+import { useProjectTypeStore } from '@/stores/projectTypeStore.js';
+import { useHardSkillStore } from '@/stores/hardSkillStore.js';
+import { useSoftSkillStore } from '@/stores/softSkillStore.js';
 export default {
-  name: 'ProjectAddDrawer',
+  name: 'ProjectCreateDrawer',
   setup() {
     const projectStore = useProjectStore();
     const technologyStore = useTechnologyStore();
@@ -627,48 +611,25 @@ export default {
       projectTypeStore,
       hardSkillStore,
       softSkillStore
-    }
+    };
   },
   components: {
     IconPencil,
     IconFolder,
     IconCalendar,
-    IconUsers,
-    IconClipboard,
-    IconClock,
-    IconHandshake,
-    IconArchitecture,
-    IconTesting,
-    IconGit,
-    IconAgil,
-    IconSecurity,
     IconUser,
     IconEmail,
-    IconSpring,
-    IconDocker,
-    IconServer,
-    IconDatabase,
-    IconNode,
-    IconJavascript,
-    IconJava,
-    IconVuetify,
     IconSubmit,
-    IconOther,
-    IconTools,
-    IconLightbulb,
     IconBook,
     IconCheck,
     IconInfo,
     IconList,
-    IconError,
-    IconCode,
     IconFile,
     FooterInfo,
     FooterNav,
     FooterCopyright,
     HeaderLogo,
-    IconClose,
-    IconVue
+    IconClose
   },
   data() {
     return {
@@ -691,7 +652,7 @@ export default {
         projectSoftSkills: [],
         projectTechnologies: [],
         projectStatus: ''
-      },
+      }
     };
   },
   methods: {
@@ -750,7 +711,7 @@ export default {
       this.selectedTechnologies = [];
       this.selectedHardSkills = [];
       this.selectedSoftSkills = [];
-    },
+    }
   },
   mounted() {
     initFlowbite();

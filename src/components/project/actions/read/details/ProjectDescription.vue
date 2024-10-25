@@ -44,10 +44,9 @@
 </template>
 
 <script>
-
 export default {
   name: 'ProjectDescription',
-  props: ['project'],
+  props: ['project']
 };
 </script>
 

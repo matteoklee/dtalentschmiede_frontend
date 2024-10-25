@@ -1,5 +1,5 @@
 <template>
-   <!-- Main modal -->
+  <!-- Main modal -->
   <div
     v-if="isModalOpen"
     tabindex="-1"
@@ -72,24 +72,20 @@
             </li>
           </ul>
 
-
           <div class="text-center">
             <button
-                type="button"
-                data-drawer-target="drawer-full-example"
-                data-drawer-show="drawer-full-example"
-                data-drawer-placement="right"
-                aria-controls="drawer-full-example"
-                class="bg-red-700 shadow-md px-6 py-3 rounded-lg hover:bg-red-800 hover:text-white text-white lg:mr-4 w-full font-medium"
+              type="button"
+              data-drawer-target="drawer-full-example"
+              data-drawer-show="drawer-full-example"
+              data-drawer-placement="right"
+              aria-controls="drawer-full-example"
+              class="bg-red-700 shadow-md px-6 py-3 rounded-lg hover:bg-red-800 hover:text-white text-white lg:mr-4 w-full font-medium"
             >
               Erstellen
             </button>
           </div>
 
-
-          <ProjectAddDrawer @submitProject="submitProject"></ProjectAddDrawer>
-
-
+          <ProjectCreateDrawer @submitProject="submitProject"></ProjectCreateDrawer>
         </div>
       </div>
     </div>
@@ -98,12 +94,12 @@
 
 <script>
 import IconClose from '@/components/icons/IconClose.vue';
-import ProjectAddDrawer from '@/components/project/actions/create/ProjectAddDrawer.vue';
+import ProjectCreateDrawer from '@/components/project/actions/create/ProjectCreateDrawer.vue';
 
 export default {
   name: 'ProjectCreateModal',
   emits: ['submitProject', 'closeModal'],
-  components: { ProjectAddDrawer, IconClose },
+  components: { ProjectCreateDrawer, IconClose },
   props: {
     isModalOpen: Boolean
   },
@@ -118,7 +114,7 @@ export default {
         modalToggle.click();
       }
        */
-      this.$emit("closeModal", true)
+      this.$emit('closeModal', true);
     },
     submitProject() {
       console.log('DEBUG TEST3');

@@ -15,14 +15,18 @@
           -->
           <!--<ProjectAddDrawer></ProjectAddDrawer>-->
           <button
-              @click="openCreateModal"
-              class="bg-red-700 shadow-md px-6 py-3 rounded-lg hover:bg-red-800 text-white mr-1"
-              type="button"
-              id="addProject"
+            @click="openCreateModal"
+            class="bg-red-700 shadow-md px-6 py-3 rounded-lg hover:bg-red-800 text-white mr-1"
+            type="button"
+            id="addProject"
           >
             Erstellen
           </button>
-          <ProjectCreateModal @submitProject="submitProject" :isModalOpen="isCreateModalOpen" @closeModal="closeCreateModal"></ProjectCreateModal>
+          <ProjectCreateModal
+            @submitProject="submitProject"
+            :isModalOpen="isCreateModalOpen"
+            @closeModal="closeCreateModal"
+          ></ProjectCreateModal>
           <!--
           <button
             type="button"
@@ -87,7 +91,7 @@
 
             <div class="flex flex-row items-center lg:col-span-2">
               <p
-                v-for="(technology) in project.projectTechnologies.slice(0, 3)"
+                v-for="technology in project.projectTechnologies.slice(0, 3)"
                 :key="technology.technologyId"
                 class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 group-hover:bg-blue-500"
               >
@@ -123,7 +127,6 @@
                 :isDrawerOpen="isReadDrawerOpen"
                 @closeDrawer="closeReadDrawer"
               ></ProjectDrawer>
-
             </div>
           </div>
         </div>
@@ -161,7 +164,7 @@ import ProjectSnackbar from '@/components/project/actions/ProjectSnackbar.vue';
 
 import { formatDateOnly } from '@/utils/dateUtil.js';
 import { useProjectStore } from '@/stores/projectStore.js';
-import {useSnackbarStore} from "@/stores/snackbarStore.js";
+import { useSnackbarStore } from '@/stores/snackbarStore.js';
 
 export default {
   name: 'ProjectList',
@@ -181,7 +184,7 @@ export default {
       isReadDrawerOpen: false,
       isCreateModalOpen: false,
 
-      projectViewLimit: 5,
+      projectViewLimit: 5
     };
   },
   methods: {
@@ -206,7 +209,6 @@ export default {
       this.projectStore.setSelectedProject(null);
     },
 
-
     showAllProjects() {
       this.projectViewLimit = -1;
     },
@@ -215,8 +217,8 @@ export default {
     },
     submitProject() {
       this.projectStore.fetchProjects();
-      console.log("submitted project")
-      this.snackbarStore.showSnackbar("Neues Projekt wurde angelegt!","success" , 5000)
+      console.log('submitted project');
+      this.snackbarStore.showSnackbar('Neues Projekt wurde angelegt!', 'success', 5000);
     },
     formatDateOnly(dateString) {
       return formatDateOnly(dateString);
