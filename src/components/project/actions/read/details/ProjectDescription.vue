@@ -10,7 +10,7 @@
             :key="index"
             class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2"
           >
-            {{ getReadableTechnology(technology) }}
+            {{ getReadableTechnology(technology.technologyName) }}
           </p>
         </div>
       </div>

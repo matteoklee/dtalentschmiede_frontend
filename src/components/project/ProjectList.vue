@@ -99,11 +99,11 @@
 
             <div class="flex flex-row items-center lg:col-span-2">
               <p
-                v-for="(technology, index) in project.projectTechnologies.slice(0, 3)"
-                :key="index"
+                v-for="(technology) in project.projectTechnologies.slice(0, 3)"
+                :key="technology.technologyId"
                 class="bg-gray-300 text-white text-xs uppercase py-2 px-4 rounded-lg mr-2 group-hover:bg-blue-500"
               >
-                {{ technology }}
+                {{ technology.technologyName }}
               </p>
             </div>
 

@@ -362,21 +362,21 @@
                 <h2 class="text-xl font-bold my-4">Technologien</h2>
 
                 <div class="grid lg:grid-cols-6 grid-cols-3 gap-4 mb-4">
-                  <div v-for="(item, index) in technologies" :key="index">
+                  <div v-for="(item, index) in technologyStore.technologies" :key="item.technologyId">
                     <!-- Technology -->
                     <div class="">
                       <input
                         type="checkbox"
                         v-model="selectedTechnologies"
                         :id="`technology-${index}`"
-                        :value="item.title"
+                        :value="item"
                         class="hidden peer"
                       />
                       <label
                         :for="`technology-${index}`"
                         class="relative cursor-pointer flex flex-col items-center justify-between py-2 rounded-lg hover:bg-gray-100 peer-checked:border-blue-600 peer-checked:border aspect-square"
                         :class="
-                          selectedTechnologies.includes(item.title) ? 'bg-gray-100' : 'bg-white'
+                          selectedTechnologies.includes(item) ? 'bg-gray-100' : 'bg-white'
                         "
                       >
                         <div
@@ -386,14 +386,14 @@
                             :is="item.icon"
                             class="w-8 h-8"
                             :class="
-                              selectedTechnologies.includes(item.title)
+                              selectedTechnologies.includes(item)
                                 ? 'text-blue-600'
                                 : 'text-gray-300'
                             "
                           ></component>
 
                           <span class="text-sm font-medium text-gray-700 pt-2">{{
-                            item.title
+                            item.technologyName
                           }}</span>
                         </div>
                         <IconCheck
@@ -697,12 +697,17 @@ import IconFolder from '@/components/home/icons/IconFolder.vue';
 import IconPencil from '@/components/icons/IconPencil.vue';
 
 import {useProjectStore} from "@/stores/projectStore.js";
+import {useTechnologyStore} from "@/stores/technologyStore.js";
 export default {
   name: 'ProjectAddDrawer',
   setup() {
     const projectStore = useProjectStore();
+    const technologyStore = useTechnologyStore();
+    technologyStore.fetchTechnologies();
+
     return {
-      projectStore
+      projectStore,
+      technologyStore
     }
   },
   components: {
@@ -836,7 +841,7 @@ export default {
           icon: markRaw(IconOther)
         }
       ],
-      technologies: [
+      /*technologies: [
         {
           title: 'VUE_JS',
           icon: markRaw(IconVue)
@@ -869,7 +874,7 @@ export default {
           title: 'OTHER',
           icon: markRaw(IconOther)
         }
-      ]
+      ]*/
     };
   },
   methods: {
