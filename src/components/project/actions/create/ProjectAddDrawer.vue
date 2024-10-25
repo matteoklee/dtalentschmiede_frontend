@@ -692,108 +692,6 @@ export default {
         projectTechnologies: [],
         projectStatus: ''
       },
-      /*hardSkills: [
-        {
-          title: 'DEVOPS',
-          icon: markRaw(IconServer)
-        },
-        {
-          title: 'PROGRAMMING',
-          icon: markRaw(IconCode)
-        },
-        {
-          title: 'DATABASE_MANAGEMENT',
-          icon: markRaw(IconDatabase)
-        },
-        {
-          title: 'SECURITY',
-          icon: markRaw(IconSecurity)
-        },
-        {
-          title: 'AGILE',
-          icon: markRaw(IconAgil)
-        },
-        {
-          title: 'DOCUMENTATION',
-          icon: markRaw(IconFile)
-        },
-        {
-          title: 'VERSION_CONTROL',
-          icon: markRaw(IconGit)
-        },
-        {
-          title: 'TESTING',
-          icon: markRaw(IconTesting)
-        },
-        {
-          title: 'SOFTWARE_ARCHITECTURE',
-          icon: markRaw(IconArchitecture)
-        }
-      ],*/
-      /*softSkills: [
-        {
-          title: 'REQUIREMENTS_ENGINEERING',
-          icon: markRaw(IconClipboard)
-        },
-        {
-          title: 'PROJECT_MANAGEMENT',
-          icon: markRaw(IconList)
-        },
-        {
-          title: 'CLIENT_INTERACTION',
-          icon: markRaw(IconHandshake)
-        },
-        {
-          title: 'PROBLEM_SOLVING',
-          icon: markRaw(IconLightbulb)
-        },
-        {
-          title: 'TEAMWORK',
-          icon: markRaw(IconUsers)
-        },
-        {
-          title: 'TIME_MANAGEMENT',
-          icon: markRaw(IconClock)
-        },
-        {
-          title: 'OTHER',
-          icon: markRaw(IconOther)
-        }
-      ],*/
-      /*technologies: [
-        {
-          title: 'VUE_JS',
-          icon: markRaw(IconVue)
-        },
-        {
-          title: 'VUETIFY',
-          icon: markRaw(IconVuetify)
-        },
-        {
-          title: 'JAVA',
-          icon: markRaw(IconJava)
-        },
-        {
-          title: 'JAVASCRIPT',
-          icon: markRaw(IconJavascript)
-        },
-        {
-          title: 'NODE_JS',
-          icon: markRaw(IconNode)
-        },
-        {
-          title: 'SPRING_BOOT',
-          icon: markRaw(IconSpring)
-        },
-        {
-          title: 'DOCKER',
-          icon: markRaw(IconDocker)
-        },
-        {
-          title: 'OTHER',
-          icon: markRaw(IconOther)
-        }
-      ]*/
     };
   },
   methods: {
@@ -827,17 +725,15 @@ export default {
         this.project.projectSoftSkills = this.selectedSoftSkills;
         this.project.projectStatus = this.selectedStatus;
         this.createProject();
-        console.log("DEBUG1");
       } else {
         console.error('input data for new project is incomplete.');
+        //show snackbar
       }
     },
     createProject() {
-      console.log("DEBUG2");
       this.projectStore.addProject(this.project);
       this.$emit('submitProject', true);
       this.clearInput();
-      console.log("DEBUG3");
     },
     clearInput() {
       this.project = {
@@ -855,18 +751,6 @@ export default {
       this.selectedHardSkills = [];
       this.selectedSoftSkills = [];
     },
-    submitForm() {
-      console.log('Projekt wurde angelegt:', this.project);
-      alert('Projekt erfolgreich angelegt!');
-      this.project = {
-        title: '',
-        description: '',
-        technologies: '',
-        scope: '',
-        startDate: new Date().toISOString().split('T')[0],
-        supervisor: ''
-      };
-    }
   },
   mounted() {
     initFlowbite();

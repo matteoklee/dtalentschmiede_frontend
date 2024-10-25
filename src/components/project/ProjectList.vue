@@ -35,18 +35,6 @@
         </div>
       </div>
 
-      <div>
-        <button @click="triggerSnackbar" class="hidden bg-blue-500 text-white px-4 py-2 rounded-lg">
-          Zeige Snackbar
-        </button>
-        <ProjectInfoSnackbar
-          v-if="snackbarVisible"
-          :message="snackbarMessage"
-          :snackbarType="snackbarType"
-          :duration="snackbarDuration"
-        />
-      </div>
-
       <div class="my-6">
         <div v-if="projectStore.filteredProjects.length === 0">
           <div class="flex flex-col items-center mx-4">
@@ -160,6 +148,7 @@
         </button>
       </div>
     </div>
+    <ProjectSnackbar></ProjectSnackbar>
   </div>
 </template>
 
@@ -168,21 +157,24 @@ import IconLightbulb from '@/components/icons/IconLightbulb.vue';
 import ProjectDrawer from '@/components/project/actions/read/ProjectDrawer.vue';
 import IconError from '@/components/icons/IconError.vue';
 import ProjectCreateModal from '@/components/project/actions/create/ProjectCreateModal.vue';
-import ProjectInfoSnackbar from '@/components/project/actions/ProjectInfoSnackbar.vue';
+import ProjectSnackbar from '@/components/project/actions/ProjectSnackbar.vue';
 
 import { formatDateOnly } from '@/utils/dateUtil.js';
 import { useProjectStore } from '@/stores/projectStore.js';
+import {useSnackbarStore} from "@/stores/snackbarStore.js";
 
 export default {
   name: 'ProjectList',
   setup() {
     const projectStore = useProjectStore();
     projectStore.fetchProjects();
+    const snackbarStore = useSnackbarStore();
     return {
-      projectStore
+      projectStore,
+      snackbarStore
     };
   },
-  components: { ProjectInfoSnackbar, ProjectCreateModal, IconError, ProjectDrawer, IconLightbulb },
+  components: { ProjectSnackbar, ProjectCreateModal, IconError, ProjectDrawer, IconLightbulb },
   props: ['searchQuery'],
   data() {
     return {
@@ -190,11 +182,6 @@ export default {
       isCreateModalOpen: false,
 
       projectViewLimit: 5,
-
-      snackbarVisible: false,
-      snackbarMessage: 'Projekt wurde erfolgreich angelegt.',
-      snackbarType: 'success',
-      snackbarDuration: 5000
     };
   },
   methods: {
@@ -226,17 +213,10 @@ export default {
     showLessProjects() {
       this.projectViewLimit = 5;
     },
-    triggerSnackbar() {
-      this.snackbarVisible = true;
-      this.snackbarDuration = 5000;
-      setTimeout(() => {
-        this.snackbarVisible = false;
-      }, 5000);
-    },
     submitProject() {
       this.projectStore.fetchProjects();
       console.log("submitted project")
-      this.triggerSnackbar();
+      this.snackbarStore.showSnackbar("Neues Projekt wurde angelegt!","success" , 5000)
     },
     formatDateOnly(dateString) {
       return formatDateOnly(dateString);
