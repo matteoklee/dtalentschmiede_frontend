@@ -5,11 +5,6 @@ import {
     deleteTechnology,
     updateTechnology,
 } from '@/services/technologyService.js';
-import {markRaw} from "vue";
-import IconVue from "@/components/icons/technology/IconVue.vue";
-import IconJava from "@/components/icons/technology/IconJava.vue";
-import IconJavascript from "@/components/icons/technology/IconJavascript.vue";
-import IconOther from "@/components/icons/IconOther.vue";
 
 export const useTechnologyStore = defineStore('technologyStore', {
     state: () => ({
@@ -19,19 +14,7 @@ export const useTechnologyStore = defineStore('technologyStore', {
         async fetchTechnologies() {
             try {
                 const technologies = await getAllTechnologies();
-                //this.technologies = technologies;
-                this.technologies = technologies.map(tech => {
-                    switch (tech.technologyValue) {
-                        case 'VUE_JS':
-                            return { ...tech, icon: markRaw(IconVue) };
-                        case 'JAVA':
-                            return { ...tech, icon: markRaw(IconJava) };
-                        case 'JAVASCRIPT':
-                            return { ...tech, icon: markRaw(IconJavascript) };
-                        default:
-                            return { ...tech, icon: markRaw(IconOther) };
-                    }
-                });
+               this.technologies = technologies;
             } catch (error) {
                 console.error('error fetching technologies:', error);
             }

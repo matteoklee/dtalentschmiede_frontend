@@ -383,7 +383,7 @@
                           class="inline-flex flex-col items-center my-2 mt-auto break-all text-center"
                         >
                           <component
-                            :is="item.icon"
+                            :is="getTechnologyIcon(item.technologyValue)"
                             class="w-8 h-8"
                             :class="
                               selectedTechnologies.includes(item)
@@ -397,7 +397,7 @@
                           }}</span>
                         </div>
                         <IconCheck
-                          v-if="selectedTechnologies.includes(item.title)"
+                          v-if="selectedTechnologies.includes(item)"
                           class="w-4 h-4 absolute top-1 right-1 bg-blue-500 rounded-full p-1 text-white"
                         ></IconCheck>
                       </label>
@@ -695,6 +695,7 @@ import IconUsers from '@/components/icons/IconUsers.vue';
 import IconCalendar from '@/components/icons/IconCalendar.vue';
 import IconFolder from '@/components/home/icons/IconFolder.vue';
 import IconPencil from '@/components/icons/IconPencil.vue';
+import {getTechnologyIcon} from "@/utils/iconUtil.js";
 
 import {useProjectStore} from "@/stores/projectStore.js";
 import {useTechnologyStore} from "@/stores/technologyStore.js";
@@ -878,6 +879,7 @@ export default {
     };
   },
   methods: {
+    getTechnologyIcon,
     validateTitle() {
       this.titleValidated = this.title !== '';
     },

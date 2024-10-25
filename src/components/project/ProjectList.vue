@@ -170,7 +170,7 @@ import IconError from '@/components/icons/IconError.vue';
 import ProjectCreateModal from '@/components/project/actions/create/ProjectCreateModal.vue';
 import ProjectInfoSnackbar from '@/components/project/actions/ProjectInfoSnackbar.vue';
 
-import { formatDateOnly } from '@/utils/dateUtils.js';
+import { formatDateOnly } from '@/utils/dateUtil.js';
 import { useProjectStore } from '@/stores/projectStore.js';
 
 export default {

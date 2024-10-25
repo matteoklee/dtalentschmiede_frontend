@@ -25,7 +25,7 @@
 import IconCalendar from '@/components/icons/IconCalendar.vue';
 import IconHourglass from '@/components/icons/IconHourglass.vue';
 
-import { formatDateWithTime } from '@/utils/dateUtils.js';
+import { formatDateWithTime } from '@/utils/dateUtil.js';
 import IconStatus from '@/components/icons/IconStatus.vue';
 import { getReadableProjectStatus } from '@/utils/mappingUtils.js';
 export default {

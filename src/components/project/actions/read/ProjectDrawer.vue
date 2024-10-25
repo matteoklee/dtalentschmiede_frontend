@@ -7,7 +7,7 @@
   <transition name="drawer">
     <div
       v-if="isDrawerOpen"
-      class="flex flex-col fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto bg-gray-100 lg:w-1/2 xl:w-1/3 w-full transition-all duration-500 transform shadow-md"
+      class="flex flex-col fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto bg-gray-100 lg:w-1/2 xl:w-1/3 w-full transition-all duration-500 transform shadow-md shadow-gray-300"
       :class="{ 'translate-x-full': !isDrawerOpen, 'translate-x-0': isDrawerOpen }"
       tabindex="-1"
     >
