@@ -4,32 +4,32 @@
       <p class="font-bold text-2xl lg:px-0 px-6">Sortieren nach</p>
       <div class="grid lg:grid-cols-8 grid-cols-3 gap-8 my-6 lg:mx-0 mx-6">
         <div
-          class="group bg-gray-50 rounded-xl flex flex-col justify-end pb-2 items-center aspect-square hover:scale-105 hover:bg-primary-600 duration-300 transition-all shadow-lg hover:shadow-primary-600/50"
+          class="group bg-gray-50 rounded-xl flex flex-col justify-center lg:justify-end pb-2 items-center aspect-square hover:scale-105 hover:bg-primary-600 duration-300 transition-all shadow-lg hover:shadow-primary-600/50"
         >
           <IconCalendar class="text-gray-400 h-10 group-hover:text-white"></IconCalendar>
           <p class="text-gray-800 font-medium py-4 group-hover:text-white">Neuste</p>
         </div>
         <div
-          class="group bg-gray-50 rounded-xl flex flex-col justify-end pb-2 items-center aspect-square hover:scale-105 hover:bg-primary-600 duration-300 transition-all shadow-lg hover:shadow-primary-600/50"
+          class="group bg-gray-50 rounded-xl flex flex-col justify-center lg:justify-end pb-2 items-center aspect-square hover:scale-105 hover:bg-primary-600 duration-300 transition-all shadow-lg hover:shadow-primary-600/50"
         >
           <IconBook class="text-gray-400 h-10 group-hover:text-white"></IconBook>
           <p class="text-gray-800 font-medium py-4 group-hover:text-white">Thesis</p>
         </div>
         <div
-          class="group bg-gray-50 rounded-xl flex flex-col justify-end pb-2 items-center aspect-square hover:scale-105 hover:bg-primary-600 duration-300 transition-all shadow-lg hover:shadow-primary-600/50"
+          class="group bg-gray-50 rounded-xl flex flex-col justify-center lg:justify-end pb-2 items-center aspect-square hover:scale-105 hover:bg-primary-600 duration-300 transition-all shadow-lg hover:shadow-primary-600/50"
         >
           <IconFolder class="text-gray-400 h-10 group-hover:text-white"></IconFolder>
           <p class="text-gray-800 font-medium py-4 group-hover:text-white">IT-Projekt</p>
         </div>
         <div
-          class="group bg-gray-50 rounded-xl flex flex-col justify-end pb-2 items-center aspect-square hover:scale-105 hover:bg-primary-600 duration-300 transition-all shadow-lg hover:shadow-primary-600/50"
+          class="group bg-gray-50 rounded-xl flex flex-col justify-center lg:justify-end pb-2 items-center aspect-square hover:scale-105 hover:bg-primary-600 duration-300 transition-all shadow-lg hover:shadow-primary-600/50"
         >
           <IconLightbulb class="text-gray-400 h-10 group-hover:text-white"></IconLightbulb>
           <p class="text-gray-800 font-medium py-4 group-hover:text-white">Idee</p>
         </div>
         <div v-for="i in 2" :key="i">
           <div
-            class="group bg-gray-50 rounded-xl flex flex-col justify-end pb-2 items-center aspect-square hover:scale-105 hover:bg-primary-600 duration-300 transition-all shadow-lg hover:shadow-primary-600/50"
+            class="group bg-gray-50 rounded-xl flex flex-col justify-center lg:justify-end pb-2 items-center aspect-square hover:scale-105 hover:bg-primary-600 duration-300 transition-all shadow-lg hover:shadow-primary-600/50"
           >
             <IconOther class="text-gray-400 h-10 group-hover:text-white"></IconOther>
             <p class="text-gray-800 font-medium py-4 group-hover:text-white">Other</p>

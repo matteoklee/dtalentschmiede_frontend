@@ -1,21 +1,6 @@
 <template>
   <div>
-    <!--
-    <div class="text-center">
-      <button
-        type="button"
-        data-drawer-target="drawer-full-example"
-        data-drawer-show="drawer-full-example"
-        data-drawer-placement="right"
-        aria-controls="drawer-full-example"
-        class="bg-red-700 shadow-md px-6 py-3 rounded-lg hover:bg-red-800 hover:text-white text-white lg:mr-4 w-full font-medium"
-      >
-        Erstellen
-      </button>
-    </div>
-    -->
 
-    <!-- drawer component -->
     <!-- bg-black bg-gradient-to-r from-purple-800/50 from-10% via-indigo-700/50 via-30% to-blue-900/50 to-90%     bg-slate-900 -->
     <div
       id="drawer-full-example"
@@ -135,104 +120,11 @@
         </div>
       </div>
 
-      <div v-if="titleValidated" class="bg-gray-50">
-        <div class="max-w-screen-xl mx-auto my-8">
-          <div class="col-span-2 w-full pb-3">
-            <div class="bg-blue-200 rounded-lg p-4 text-center">
-              <div class="inline-flex items-center text-blue-700">
-                <IconInfo class="w-4 h-4 mr-4"></IconInfo>
-                <p class="text-black">Wähle eine Kategorie.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="hidden grid lg:grid-cols-2 grid-cols-1 gap-8 py-6">
-            <div class="">
-              <p class="text-2xl font-bold">Kategorie</p>
-              <div
-                class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
-              >
-                <div class="flex items-center space-x-2 w-full relative mr-2">
-                  <IconCode class="h-5 text-gray-400"></IconCode>
-                  <input
-                    v-model="searchQuery"
-                    @input="searchProject"
-                    type="text"
-                    id="projectSearch"
-                    placeholder="Dein Titel des Projekts"
-                    required
-                    class="border-0 text-lg w-full outline-none focus:ring-0 placeholder-gray-300 pr-6"
-                  />
-                  <button type="button" @click="clear" class="absolute right-0">
-                    <IconClose class="h-5 w-5 text-gray-400 hover:text-gray-600"></IconClose>
-                  </button>
-                </div>
-              </div>
-
-              <div
-                class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
-              >
-                <div class="w-full relative">
-                  <IconList class="h-5 text-gray-400 absolute left-0 top-3"></IconList>
-                  <textarea
-                    rows="8"
-                    class="pl-8 block p-2.5 w-full text-gray-900 border-0 focus:ring-0"
-                    placeholder="Write your thoughts here..."
-                  ></textarea>
-                </div>
-              </div>
-
-              <p class="text-gray-400 font-normal text-md py-2">
-                Example:
-                <span class="border px-3 py-1 mx-2 rounded-md">IT-Projekt</span>
-                <span class="border px-3 py-1 mx-2 rounded-md">Abschlussarbeit</span>
-                <span class="border px-3 py-1 mx-2 rounded-md">Hospitation</span>
-              </p>
-            </div>
-
-            <div class="">
-              <p class="text-2xl font-bold">Kategorie</p>
-              <div
-                class="flex items-center space-x-2 bg-white py-4 my-4 px-4 rounded-lg shadow-md text-gray-900 hover:scale-100 duration-300"
-              >
-                <div class="flex items-center space-x-2 w-full relative mr-2">
-                  <IconFile class="h-5 text-gray-400"></IconFile>
-                  <input
-                    v-model="searchQuery"
-                    @input="searchProject"
-                    type="text"
-                    id="projectSearch"
-                    placeholder="Dein Titel des Projekts"
-                    required
-                    class="border-0 text-lg w-full outline-none focus:ring-0 placeholder-gray-300 pr-6"
-                  />
-                  <button type="button" @click="clear" class="absolute right-0">
-                    <IconClose class="h-5 w-5 text-gray-400 hover:text-gray-600"></IconClose>
-                  </button>
-                </div>
-                <a
-                  type="button"
-                  href="#projects"
-                  class="bg-primary-600 shadow-lg shadow-primary-600/50 px-6 py-3 rounded-lg text-white hover:bg-primary-700 transition"
-                  >Bestätigen</a
-                >
-              </div>
-
-              <p class="text-gray-400 font-normal text-md py-2">
-                Example:
-                <span class="border px-3 py-1 mx-2 rounded-md">Marktpreise</span>
-                <span class="border px-3 py-1 mx-2 rounded-md">Plugin Excel</span>
-                <span class="border px-3 py-1 mx-2 rounded-md">Access DB Update</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="bg-gray-50">
         <div class="max-w-screen-xl mx-auto w-full my-8">
           <div class="p-4 w-full bg-white rounded-lg shadow-lg">
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-8">
+
               <div class="lg:border-r-2 lg:border-0 lg:px-4">
                 <h2 class="text-xl font-bold my-4">Kategorie</h2>
 
@@ -405,6 +297,7 @@
 
               <div class="px-2">
                 <h2 class="text-xl font-bold my-4">Eigenschaften</h2>
+
                 <div class="hidden mb-4">
                   <label for="name" class="block text-sm font-medium pb-1">Projektname *</label>
                   <input
@@ -538,9 +431,18 @@
                 <div class="mt-6 flex justify-end">
                   <button
                     type="button"
-                    @click="submit"
+                    @click="clearInput"
                     data-drawer-hide="drawer-full-example"
-                    class="inline-flex items-center bg-primary-700 rounded-lg px-4 py-2.5 text-white"
+                    class="inline-flex items-center bg-gray-400 rounded-lg px-4 py-2.5 text-white mr-2"
+                  >
+                    <IconClose class="w-5 h-5 mr-4 font-normal"></IconClose>
+                    Abbrechen
+                  </button>
+                  <button
+                      type="button"
+                      @click="submit"
+                      data-drawer-hide="drawer-full-example"
+                      class="inline-flex items-center bg-primary-700 rounded-lg px-4 py-2.5 text-white"
                   >
                     <IconSubmit class="w-5 h-5 mr-4 font-normal"></IconSubmit>
                     Erstellen

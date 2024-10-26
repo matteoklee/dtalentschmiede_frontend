@@ -66,40 +66,157 @@
             </div>
           </div>
 
-          <div class="mb-4">
-            <label for="device" class="block text-sm font-medium pb-1">Technologien</label>
+          <div class="mb-4 flex items-start justify-left">
+            <div class="">
+              <label class="block text-sm font-medium pb-1">Technologien</label>
 
-            <button
-              id="dropdownDefault9"
-              data-dropdown-toggle="dropdown9"
-              class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-0 shadow-lg font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
-              type="button"
-            >
-              Technologien auswählen
-              <IconChevronDown class="w-4 h-4 ml-2"></IconChevronDown>
-            </button>
-
-            <!-- Dropdown menu -->
-            <div id="dropdown9" class="hidden z-10 w-56 p-3 bg-white rounded-lg shadow">
-              <h6 class="mb-3 text-sm font-medium text-gray-900">Technologien</h6>
-              <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault9">
-                <li
-                  v-for="(item, index) in editableProject.projectTechnologies"
-                  :key="index"
-                  class="flex items-center"
-                >
-                  <input
-                    :id="item.technologyId"
-                    type="checkbox"
-                    :value="item"
-                    class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-0"
-                  />
-                  <label :for="item.technologyId" class="ml-2 text-sm font-medium text-gray-900">
-                    {{ item.technologyName }}
-                  </label>
-                </li>
-              </ul>
+              <button
+                  @click="isDropDownTechnologiesOpen = !isDropDownTechnologiesOpen"
+                  id="dropdownDefault1"
+                  data-dropdown-toggle="dropdown1"
+                  class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-0 shadow-lg font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                  type="button"
+              >
+                Technologien auswählen
+                <IconChevronDown class="w-4 h-4 ml-2"></IconChevronDown>
+              </button>
+              <!-- Dropdown menu -->
+              <div v-show="isDropDownTechnologiesOpen" id="dropdown1" class="z-10 w-56 p-3 bg-white rounded-lg shadow">
+                <h6 class="mb-3 text-sm font-medium text-gray-900">Technologien</h6>
+                <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault1">
+                  <li
+                      v-for="(item, index) in technologyStore.technologies"
+                      :key="index"
+                      class="flex items-center"
+                  >
+                    <input
+                        v-model="selectedTechnologies"
+                        :id="item.technologyValue"
+                        type="checkbox"
+                        :value="item.technologyValue"
+                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-0"
+                    />
+                    <label :for="item.technologyValue" class="ml-2 text-sm font-medium text-gray-900">
+                      {{ item.technologyName }}
+                    </label>
+                  </li>
+                </ul>
+              </div>
             </div>
+
+            <div>
+              <label class="block text-sm font-medium pb-1">Projekttyp</label>
+              <button
+                  @click="isDropDownProjectTypeOpen = !isDropDownProjectTypeOpen"
+                  id="dropdownDefault2"
+                  data-dropdown-toggle="dropdown2"
+                  class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-0 shadow-lg font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                  type="button"
+              >
+                Projekttyp auswählen
+                <IconChevronDown class="w-4 h-4 ml-2"></IconChevronDown>
+              </button>
+              <div v-show="isDropDownProjectTypeOpen" id="dropdown2" class="z-10 w-56 p-3 bg-white rounded-lg shadow">
+                <h6 class="mb-3 text-sm font-medium text-gray-900">Projekttypen</h6>
+                <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault2">
+                  <li
+                      v-for="(item, index) in projectTypeStore.projectTypes"
+                      :key="index"
+                      class="flex items-center"
+                  >
+                    <input
+                        v-model="selectedProjectTypes"
+                        :id="item.projectTypeValue"
+                        type="checkbox"
+                        :value="item.projectTypeValue"
+                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-0"
+                    />
+                    <label :for="item.projectTypeValue" class="ml-2 text-sm font-medium text-gray-900">
+                      {{ item.projectTypeName }}
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="mb-4 flex items-start justify-left">
+            <div class="">
+              <label class="block text-sm font-medium pb-1">Hard Skills</label>
+
+              <button
+                  @click="isDropDownHardSkillsOpen = !isDropDownHardSkillsOpen"
+                  id="dropdownDefault3"
+                  data-dropdown-toggle="dropdown3"
+                  class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-0 shadow-lg font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                  type="button"
+              >
+                Hard Skills auswählen
+                <IconChevronDown class="w-4 h-4 ml-2"></IconChevronDown>
+              </button>
+              <!-- Dropdown menu -->
+              <div v-show="isDropDownHardSkillsOpen" id="dropdown3" class="z-10 w-56 p-3 bg-white rounded-lg shadow">
+                <h6 class="mb-3 text-sm font-medium text-gray-900">Hard Skills</h6>
+                <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault3">
+                  <li
+                      v-for="(item, index) in hardSkillStore.hardSkills"
+                      :key="index"
+                      class="flex items-center"
+                  >
+                    <input
+                        v-model="selectedHardSkills"
+                        :id="item.hardSkillValue"
+                        type="checkbox"
+                        :value="item.hardSkillValue"
+                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-0"
+                    />
+                    <label :for="item.hardSkillValue" class="ml-2 text-sm font-medium text-gray-900">
+                      {{ item.hardSkillName }}
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium pb-1">Soft Skills</label>
+              <button
+                  @click="isDropDownSoftSkillsOpen = !isDropDownSoftSkillsOpen"
+                  id="dropdownDefault4"
+                  data-dropdown-toggle="dropdown4"
+                  class="lg:mr-4 mb-2 lg:mb-0 text-white bg-primary-700 hover:bg-primary-800 focus:ring-0 shadow-lg font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                  type="button"
+              >
+                Soft Skills auswählen
+                <IconChevronDown class="w-4 h-4 ml-2"></IconChevronDown>
+              </button>
+              <!-- Dropdown menu -->
+              <div v-show="isDropDownSoftSkillsOpen" id="dropdown4" class="z-10 w-56 p-3 bg-white rounded-lg shadow">
+                <h6 class="mb-3 text-sm font-medium text-gray-900">Hard Skills</h6>
+                <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault4">
+                  <li
+                      v-for="(item, index) in softSkillStore.softSkills"
+                      :key="index"
+                      class="flex items-center"
+                  >
+                    <input
+                        v-model="selectedSoftSkills"
+                        :id="item.softSkillValue"
+                        type="checkbox"
+                        :value="item.softSkillValue"
+                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-0"
+                    />
+                    <label :for="item.softSkillValue" class="ml-2 text-sm font-medium text-gray-900">
+                      {{ item.softSkillName }}
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+
           </div>
 
           <div class="mb-4">
@@ -124,7 +241,7 @@
 
           <div class="mb-2">
             <h2 class="text-sm font-medium pb-4">Projektstatus festlegen</h2>
-            <div class="flex space-x-4">
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
               <div
                 :class="{
                   'border-blue-600 border-2 bg-gray-50': editableProject.projectStatus === 'DRAFT'
@@ -145,6 +262,50 @@
               >
                 <IconFolder class="w-4 h-4"></IconFolder>
                 <span class="ml-2 block text-sm font-medium text-gray-700">OFFEN</span>
+              </div>
+
+              <div
+                  :class="{
+                  'border-blue-600 border-2 bg-gray-50': editableProject.projectStatus === 'IN_PROGRESS'
+                }"
+                  class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer"
+                  @click="selectStatus('OPEN')"
+              >
+                <IconAgil class="w-4 h-4"></IconAgil>
+                <span class="ml-2 block text-sm font-medium text-gray-700">in Bearbeitung</span>
+              </div>
+
+              <div
+                  :class="{
+                  'border-blue-600 border-2 bg-gray-50': editableProject.projectStatus === 'COMPLETED'
+                }"
+                  class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer"
+                  @click="selectStatus('OPEN')"
+              >
+                <IconCheck class="w-4 h-4"></IconCheck>
+                <span class="ml-2 block text-sm font-medium text-gray-700">Abgeschlossen</span>
+              </div>
+
+              <div
+                  :class="{
+                  'border-blue-600 border-2 bg-gray-50': editableProject.projectStatus === 'CANCELLED'
+                }"
+                  class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer"
+                  @click="selectStatus('OPEN')"
+              >
+                <IconBan class="w-4 h-4"></IconBan>
+                <span class="ml-2 block text-sm font-medium text-gray-700">Abgebrochen</span>
+              </div>
+
+              <div
+                  :class="{
+                  'border-blue-600 border-2 bg-gray-50': editableProject.projectStatus === 'ARCHIVED'
+                }"
+                  class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer"
+                  @click="selectStatus('OPEN')"
+              >
+                <IconArchive class="w-4 h-4"></IconArchive>
+                <span class="ml-2 block text-sm font-medium text-gray-700">Archiviert</span>
               </div>
             </div>
           </div>
@@ -197,7 +358,7 @@
           <div class="mt-6 flex justify-end">
             <button
               type="button"
-              @click="submit"
+              @click="submitEditProject"
               data-drawer-hide="drawer-full-example"
               class="inline-flex items-center bg-primary-700 rounded-lg px-4 py-2.5 text-white"
             >
@@ -223,9 +384,40 @@ import IconFolder from '@/components/home/icons/IconFolder.vue';
 import IconCalendar from '@/components/icons/IconCalendar.vue';
 import IconList from '@/components/home/icons/IconList.vue';
 import IconChevronDown from '@/components/icons/IconChevronDown.vue';
+
+import {useProjectTypeStore} from "@/stores/projectTypeStore.js";
+import {useTechnologyStore} from "@/stores/technologyStore.js";
+import {useSoftSkillStore} from "@/stores/softSkillStore.js";
+import {useHardSkillStore} from "@/stores/hardSkillStore.js";
+import IconAgil from "@/components/icons/technology/IconAgil.vue";
+import IconCheck from "@/components/icons/IconCheck.vue";
+import IconBan from "@/components/icons/IconBan.vue";
+import IconArchive from "@/components/icons/IconArchive.vue";
 export default {
   name: 'ProjectDrawer',
+  setup() {
+    const projectStore = useProjectStore();
+    const projectTypeStore = useProjectTypeStore();
+    projectTypeStore.fetchProjectTypes();
+    const technologyStore = useTechnologyStore();
+    technologyStore.fetchTechnologies();
+    const softSkillStore = useSoftSkillStore();
+    softSkillStore.fetchSoftSkills();
+    const hardSkillStore = useHardSkillStore();
+    hardSkillStore.fetchHardSkills();
+    return {
+      projectStore,
+      projectTypeStore,
+      technologyStore,
+      softSkillStore,
+      hardSkillStore
+    };
+  },
   components: {
+    IconArchive,
+    IconBan,
+    IconCheck,
+    IconAgil,
     IconChevronDown,
     IconList,
     IconCalendar,
@@ -240,16 +432,18 @@ export default {
   props: {
     isDrawerOpen: Boolean
   },
-  setup() {
-    const projectStore = useProjectStore();
-    return {
-      projectStore
-    };
-  },
   data() {
     return {
       isEditing: false,
-      editableProject: null
+      editableProject: null,
+      isDropDownTechnologiesOpen: false,
+      isDropDownProjectTypeOpen: false,
+      isDropDownHardSkillsOpen: false,
+      isDropDownSoftSkillsOpen: false,
+      selectedTechnologies: [],
+      selectedProjectTypes: [],
+      selectedHardSkills: [],
+      selectedSoftSkills: [],
     };
   },
   methods: {
@@ -264,6 +458,28 @@ export default {
     editProject() {
       this.isEditing = true;
       this.editableProject = this.projectStore.selectedProject;
+      this.initializeSelection();
+    },
+    initializeSelection() {
+      this.selectedTechnologies = this.editableProject.projectTechnologies.map(t => t.technologyValue);
+      this.selectedProjectTypes = this.editableProject.projectTypes.map(p => p.projectTypeValue);
+      this.selectedHardSkills = this.editableProject.projectHardSkills.map(h => h.hardSkillValue);
+      this.selectedSoftSkills = this.editableProject.projectSoftSkills.map(s => s.softSkillValue);
+      console.log(this.selectedTechnologies);
+      console.log(this.selectedProjectTypes);
+      console.log(this.selectedHardSkills);
+      console.log(this.selectedSoftSkills);
+    },
+    updateProjectTechnologies() {
+      this.editableProject.projectTechnologies = this.technologyStore.technologies.filter(tech =>
+          this.selectedTechnologies.includes(tech.technologyId)
+      );
+    },
+    submitEditProject() {
+      this.updateProjectTechnologies();
+      console.log(this.editableProject)
+      console.log(JSON.stringify(this.selectedTechnologies))
+      this.closeProject()
     },
     selectStatus() {}
   }
