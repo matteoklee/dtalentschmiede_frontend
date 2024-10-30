@@ -1,6 +1,6 @@
 <template>
   <p class="my-6 text-gray-500">
-    Open-source library of over 400+ web components and interactive elements built for better web.
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
   </p>
 </template>
 
