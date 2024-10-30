@@ -1,27 +1,15 @@
-# Schritt 1: Build-Phase
+# Step 1: Build the frontend application
 FROM node:20 AS build
-
-# Setze das Arbeitsverzeichnis
 WORKDIR /app
-
-# Kopiere die package.json und package-lock.json
 COPY package*.json ./
-
-# Installiere die Abhängigkeiten
 RUN npm install
-
-# Kopiere den restlichen Quellcode und baue das Projekt
 COPY . .
 RUN npm run build
 
-# Schritt 2: Nginx Setup für statische Dateien
+# Step 2: Set up Nginx for serving the built files
 FROM nginx:alpine AS production
-
-# Kopiere das erstellte Build aus der Build-Phase in das Nginx-Standardverzeichnis
 COPY --from=build /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose den Nginx-Standardport
 EXPOSE 80
-
-# Standard-Nginx-Befehl zum Starten des Webservers
 CMD ["nginx", "-g", "daemon off;"]
