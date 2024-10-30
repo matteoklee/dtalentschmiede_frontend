@@ -16,7 +16,7 @@ export default defineConfig({
     proxy: {
       '/api/v1': {
         //target: 'http://localhost:8085',
-        target: 'http://deploy-backend-1:8085',
+        target: 'http://backend:8085',
         changeOrigin: true,
         //rewrite: (path) => path.replace(/^\/api/, '')
       }
