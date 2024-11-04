@@ -14,7 +14,7 @@
             class="group bg-gray-50 rounded-xl flex flex-col justify-center py-2 items-center aspect-square hover:scale-105 hover:bg-primary-600 duration-300 transition-all shadow-lg hover:shadow-primary-600/50 hover:cursor-pointer"
             @click="sortBy('updatedAt')"
         >
-          <IconCalendar class="text-gray-400 h-10 group-hover:text-white"></IconCalendar>
+          <IconPencil class="text-gray-400 h-10 group-hover:text-white"></IconPencil>
           <p class="text-gray-800 font-medium pt-4 group-hover:text-white text-center">Zuletzt bearbeitet</p>
         </div>
         <div
@@ -58,10 +58,11 @@ import IconFolder from '@/components/home/icons/IconFolder.vue';
 import IconBook from '@/components/icons/IconBook.vue';
 import IconOther from '@/components/icons/IconOther.vue';
 import {useProjectStore} from "@/stores/projectStore.js";
+import IconPencil from "@/components/icons/IconPencil.vue";
 
 export default {
   name: 'ProjectSorting',
-  components: { IconOther, IconBook, IconFolder, IconLightbulb, IconCalendar },
+  components: {IconPencil, IconOther, IconBook, IconFolder, IconLightbulb, IconCalendar },
   setup() {
     const projectStore = useProjectStore();
     return {

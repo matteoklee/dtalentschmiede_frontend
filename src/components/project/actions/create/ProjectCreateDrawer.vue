@@ -388,6 +388,7 @@
                     <h2 class="text-xl font-bold my-4">Projektansprechpartner</h2>
                     <button
                       type="button"
+                      disabled
                       class="bg-gray-400 hover:bg-gray-500 rounded-lg px-3 py-2 text-white"
                     >
                       Daten aus Profil übernehmen

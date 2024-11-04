@@ -113,11 +113,16 @@ export const useProjectStore = defineStore('projectStore', {
       if (state.sortBy) {
         filtered = [...filtered].sort((a, b) => {
           if (state.sortBy === 'createdAt') {
-            return new Date(a.createdAt) - new Date(b.createdAt);
+            return new Date(b.projectCreatedAt) - new Date(a.projectCreatedAt);
           } else if (state.sortBy === 'updatedAt') {
-            return new Date(a.updatedAt) - new Date(b.updatedAt);
+            if (!a.projectUpdatedAt && !b.projectUpdatedAt) return 0;
+            if (!a.projectUpdatedAt) return 1;
+            if (!b.projectUpdatedAt) return -1;
+            return new Date(a.projectUpdatedAt) - new Date(b.projectUpdatedAt);
           } else if (state.sortBy === 'projectType') {
-            return a.projectType.localeCompare(b.projectType);
+            const typeA = a.projectTypes?.[0]?.projectTypeName || '';
+            const typeB = b.projectTypes?.[0]?.projectTypeName || '';
+            return typeA.localeCompare(typeB);
           }
         });
       }
