@@ -73,6 +73,9 @@ export const useProjectStore = defineStore('projectStore', {
     setFilteredSoftSkills(softSkills) {
       this.filteredSoftSkills = softSkills;
     },
+    setFilteredProjectTypes(projectTypes) {
+      this.filteredProjectTypes = projectTypes;
+    },
     toggleProjectViewLimit() {
       this.projectViewLimit = this.projectViewLimit === 5 ? null : 5;
     },
@@ -114,6 +117,14 @@ export const useProjectStore = defineStore('projectStore', {
         );
       }
 
+      if (state.filteredProjectTypes.length > 0) {
+        filtered = filtered.filter(project =>
+            project.projectTypes.some(type =>
+                state.filteredProjectTypes.includes(type.projectTypeValue)
+            )
+        );
+      }
+
       if (state.sortBy) {
         filtered = [...filtered].sort((a, b) => {
           if (state.sortBy === 'createdAt') {
@@ -123,10 +134,11 @@ export const useProjectStore = defineStore('projectStore', {
             if (!a.projectUpdatedAt) return 1;
             if (!b.projectUpdatedAt) return -1;
             return new Date(a.projectUpdatedAt) - new Date(b.projectUpdatedAt);
-          } else if (state.sortBy === 'projectType') {
+          /*} else if (state.sortBy === 'projectType') {
             const typeA = a.projectTypes?.[0]?.projectTypeName || '';
             const typeB = b.projectTypes?.[0]?.projectTypeName || '';
             return typeA.localeCompare(typeB);
+          */
           }
         });
       }
