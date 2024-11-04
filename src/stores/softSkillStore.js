@@ -13,6 +13,9 @@ export const useSoftSkillStore = defineStore('softSkillStore', {
   actions: {
     async fetchSoftSkills() {
       try {
+        if(this.softSkills.length > 0) {
+          return this.softSkills;
+        }
         const softSkills = await getAllSoftSkills();
         this.softSkills = softSkills;
       } catch (error) {

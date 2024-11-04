@@ -13,6 +13,9 @@ export const useTechnologyStore = defineStore('technologyStore', {
   actions: {
     async fetchTechnologies() {
       try {
+        if(this.technologies.length > 0) {
+          return this.technologies;
+        }
         const technologies = await getAllTechnologies();
         this.technologies = technologies;
       } catch (error) {

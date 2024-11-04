@@ -13,6 +13,9 @@ export const useHardSkillStore = defineStore('hardSkillStore', {
   actions: {
     async fetchHardSkills() {
       try {
+        if(this.hardSkills.length > 0) {
+          return this.hardSkills;
+        }
         const hardSkills = await getAllHardSkills();
         this.hardSkills = hardSkills;
       } catch (error) {

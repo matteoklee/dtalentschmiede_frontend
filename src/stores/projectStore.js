@@ -60,6 +60,7 @@ export const useProjectStore = defineStore('projectStore', {
       this.selectedProject = project;
     },
     setSortBy(value) {
+      console.log(value);
       this.sortBy = value;
     },
     setFilteredTechnologies(technologies) {
@@ -85,8 +86,6 @@ export const useProjectStore = defineStore('projectStore', {
         );
       }
 
-      // Filter by selected technologies
-      console.log(state.filteredTechnologies);
       if (state.filteredTechnologies.length > 0) {
         filtered = filtered.filter(project =>
             project.projectTechnologies.some(tech =>
@@ -95,7 +94,6 @@ export const useProjectStore = defineStore('projectStore', {
         );
       }
 
-      // Filter by selected hard skills
       if (state.filteredHardSkills.length > 0) {
         filtered = filtered.filter(project =>
             project.projectHardSkills.some(skill =>
@@ -104,7 +102,6 @@ export const useProjectStore = defineStore('projectStore', {
         );
       }
 
-      // Filter by selected soft skills
       if (state.filteredSoftSkills.length > 0) {
         filtered = filtered.filter(project =>
             project.projectSoftSkills.some(skill =>
@@ -113,7 +110,6 @@ export const useProjectStore = defineStore('projectStore', {
         );
       }
 
-      // Sort projects
       if (state.sortBy) {
         filtered = [...filtered].sort((a, b) => {
           if (state.sortBy === 'createdAt') {

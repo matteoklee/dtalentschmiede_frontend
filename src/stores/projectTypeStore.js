@@ -13,6 +13,9 @@ export const useProjectTypeStore = defineStore('projectTypeStore', {
   actions: {
     async fetchProjectTypes() {
       try {
+        if(this.projectTypes.length > 0) {
+          return this.projectTypes;
+        }
         const projectTypes = await getAllProjectTypes();
         this.projectTypes = projectTypes;
       } catch (error) {
