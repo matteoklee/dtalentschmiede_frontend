@@ -134,9 +134,9 @@
 
       <div class="flex justify-center my-8">
         <button
-          v-if="projectViewLimit !== -1"
+          v-if="projectStore.projectViewLimit === 5"
           type="button"
-          @click="showAllProjects"
+          @click="toggleProjectViewLimit"
           class="lg:w-1/4 w-3/4 bg-gray-400 shadow-lg text-white px-6 py-3 rounded-lg hover:bg-gray-500 transition"
         >
           Alle anzeigen
@@ -144,7 +144,7 @@
         <button
           v-else
           type="button"
-          @click="showLessProjects"
+          @click="toggleProjectViewLimit"
           class="lg:w-1/4 w-3/4 bg-gray-400 shadow-lg text-white px-6 py-3 rounded-lg hover:bg-gray-500 transition"
         >
           Weniger anzeigen
@@ -183,8 +183,6 @@ export default {
     return {
       isReadDrawerOpen: false,
       isCreateModalOpen: false,
-
-      projectViewLimit: 5
     };
   },
   methods: {
@@ -193,6 +191,9 @@ export default {
     },
     closeReadDrawer() {
       this.isReadDrawerOpen = false;
+      setTimeout(() => {
+        this.projectStore.fetchProjects();
+      }, 3000);
     },
     openCreateModal() {
       this.isCreateModalOpen = true;
@@ -208,12 +209,8 @@ export default {
     closeProject() {
       this.projectStore.setSelectedProject(null);
     },
-
-    showAllProjects() {
-      this.projectViewLimit = -1;
-    },
-    showLessProjects() {
-      this.projectViewLimit = 5;
+    toggleProjectViewLimit() {
+      this.projectStore.toggleProjectViewLimit();
     },
     submitProject() {
       this.projectStore.fetchProjects();

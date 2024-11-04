@@ -15,7 +15,8 @@ export const useProjectStore = defineStore('projectStore', {
     filteredHardSkills: [],
     filteredSoftSkills: [],
     filteredProjectTypes: [],
-    sortBy: null
+    sortBy: 'updatedAt',
+    projectViewLimit: 5
   }),
   actions: {
     async fetchProjects() {
@@ -71,7 +72,10 @@ export const useProjectStore = defineStore('projectStore', {
     },
     setFilteredSoftSkills(softSkills) {
       this.filteredSoftSkills = softSkills;
-    }
+    },
+    toggleProjectViewLimit() {
+      this.projectViewLimit = this.projectViewLimit === 5 ? null : 5;
+    },
   },
   getters: {
     filteredProjects: (state) => {
@@ -127,6 +131,9 @@ export const useProjectStore = defineStore('projectStore', {
         });
       }
 
+      if (state.projectViewLimit !== null) {
+        filtered = filtered.slice(0, state.projectViewLimit);
+      }
       return filtered;
       /*
       if (state.searchQuery === '') {

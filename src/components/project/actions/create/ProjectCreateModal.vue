@@ -117,7 +117,6 @@ export default {
       this.$emit('closeModal', true);
     },
     submitProject() {
-      console.log('DEBUG TEST3');
       this.closeModal();
       this.$emit('submitProject', true);
     }

@@ -390,6 +390,8 @@ import {useProjectTypeStore} from "@/stores/projectTypeStore.js";
 import {useTechnologyStore} from "@/stores/technologyStore.js";
 import {useSoftSkillStore} from "@/stores/softSkillStore.js";
 import {useHardSkillStore} from "@/stores/hardSkillStore.js";
+import {useSnackbarStore} from "@/stores/snackbarStore.js";
+
 import IconAgil from "@/components/icons/technology/IconAgil.vue";
 import IconCheck from "@/components/icons/IconCheck.vue";
 import IconBan from "@/components/icons/IconBan.vue";
@@ -406,12 +408,14 @@ export default {
     softSkillStore.fetchSoftSkills();
     const hardSkillStore = useHardSkillStore();
     hardSkillStore.fetchHardSkills();
+    const snackbarStore = useSnackbarStore();
     return {
       projectStore,
       projectTypeStore,
       technologyStore,
       softSkillStore,
-      hardSkillStore
+      hardSkillStore,
+      snackbarStore
     };
   },
   components: {
@@ -496,7 +500,9 @@ export default {
       this.updateProjectSoftSkills();
       console.log(this.editableProject);
       this.projectStore.updateProject(this.editableProject.projectId, this.editableProject);
+      this.snackbarStore.showSnackbar('Projekt wurde erfolgreich aktualisiert!', 'success', 5000);
       this.closeProject();
+
     },
     selectStatus(status) {
       this.editableProject.projectStatus = status;
