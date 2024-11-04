@@ -257,6 +257,7 @@ export default {
       this.resetFilteredTechnologies();
       this.resetFilteredHardSkills();
       this.resetFilteredSoftSkills();
+      this.projectStore.setFilteredProjectTypes([]);
     },
     clearSearch() {
       this.searchQuery = '';
