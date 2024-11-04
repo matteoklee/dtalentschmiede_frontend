@@ -3,7 +3,7 @@
     <ProjectLanding></ProjectLanding>
   </div>
   <div>
-    <ProjectCategories></ProjectCategories>
+    <ProjectSorting></ProjectSorting>
   </div>
   <div>
     <ProjectFilter></ProjectFilter>
@@ -16,13 +16,13 @@
 
 <script>
 import ProjectLanding from '@/components/project/ProjectLanding.vue';
-import ProjectCategories from '@/components/project/ProjectCategories.vue';
+import ProjectSorting from '@/components/project/ProjectSorting.vue';
 import ProjectList from '@/components/project/ProjectList.vue';
 import ProjectFilter from '@/components/project/ProjectFilter.vue';
 
 export default {
   name: 'ProjectMain',
-  components: { ProjectFilter, ProjectList, ProjectCategories, ProjectLanding },
+  components: { ProjectFilter, ProjectList, ProjectSorting, ProjectLanding },
   data() {
     return {};
   }

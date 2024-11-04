@@ -1,7 +1,10 @@
 <template>
   <div class="bg-white">
     <div class="max-w-screen-xl mx-auto pb-8">
-      <p class="font-bold text-2xl lg:px-0 px-6">Filtern und suchen nach</p>
+      <div class="flex lg:flex-row flex-col justify-between items-start">
+        <p class="font-bold text-2xl lg:px-0 px-6">Filtern und suchen nach</p>
+        <button @click="resetAllFilters" type="button" class="py-2.5 px-4 bg-gray-400 text-white rounded-lg hover:bg-gray-600">Zurücksetzen</button>
+      </div>
       <div class="flex lg:flex-row flex-col justify-start mt-6 lg:mx-0 mx-6">
         <button
           id="dropdownDefault"
@@ -28,21 +31,30 @@
         </button>
 
         <!-- Dropdown menu -->
-        <div id="dropdown" class="z-10 hidden w-56 p-3 bg-white rounded-lg shadow">
+        <div id="dropdown" class="z-10 hidden min-w-56 p-3 bg-white rounded-lg shadow">
           <h6 class="mb-3 text-sm font-medium text-gray-900">Fachliche Fähigkeiten</h6>
           <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault">
-            <li v-for="(filter, index) in softSkills" :key="index" class="flex items-center">
+            <li v-for="(filter, index) in softSkillStore.softSkills" :key="index" class="flex items-center">
               <input
                 :id="filter.id"
                 type="checkbox"
-                value=""
+                :value="filter.softSkillValue"
                 class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-0"
+                v-model="filteredSoftSkills"
               />
               <label :for="filter.id" class="ml-2 text-sm font-medium text-gray-900">
-                {{ filter.name }}
+                {{ filter.softSkillName }}
               </label>
             </li>
           </ul>
+          <div class="flex flex-row justify-between items-center">
+            <button @click="resetFilteredSoftSkills" type="button" class="text-white rounded-lg bg-gray-400 px-4 py-1.5 mr-2 mt-2">
+              Zurücksetzen
+            </button>
+            <button @click="filterSoftSkills" type="button" class="text-white rounded-lg bg-primary-600 px-4 py-1.5 mr-2 mt-2">
+              Filtern
+            </button>
+          </div>
         </div>
 
         <button
@@ -70,21 +82,30 @@
         </button>
 
         <!-- Dropdown menu -->
-        <div id="dropdown2" class="z-10 hidden w-56 p-3 bg-white rounded-lg shadow">
+        <div id="dropdown2" class="z-10 hidden min-w-56 p-3 bg-white rounded-lg shadow">
           <h6 class="mb-3 text-sm font-medium text-gray-900">Technische Fähigkeiten</h6>
           <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault2">
-            <li v-for="(filter, index) in hardSkills" :key="index" class="flex items-center">
+            <li v-for="(filter, index) in hardSkillStore.hardSkills" :key="index" class="flex items-center">
               <input
                 :id="filter.id"
                 type="checkbox"
-                value=""
+                :value="filter.hardSkillValue"
                 class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-0"
+                v-model="filteredHardSkills"
               />
               <label :for="filter.id" class="ml-2 text-sm font-medium text-gray-900">
-                {{ filter.name }}
+                {{ filter.hardSkillName }}
               </label>
             </li>
           </ul>
+          <div class="flex flex-row justify-between items-center">
+            <button @click="resetFilteredHardSkills" type="button" class="text-white rounded-lg bg-gray-400 px-4 py-1.5 mr-2 mt-2">
+              Zurücksetzen
+            </button>
+            <button @click="filterHardSkills" type="button" class="text-white rounded-lg bg-primary-600 px-4 py-1.5 mr-2 mt-2">
+              Filtern
+            </button>
+          </div>
         </div>
 
         <button
@@ -112,21 +133,33 @@
         </button>
 
         <!-- Dropdown menu -->
-        <div id="dropdown3" class="z-10 hidden w-56 p-3 bg-white rounded-lg shadow">
+        <div id="dropdown3" class="z-10 hidden min-w-56 p-3 bg-white rounded-lg shadow">
           <h6 class="mb-3 text-sm font-medium text-gray-900">Technologien</h6>
           <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault3">
-            <li v-for="(filter, index) in technologies" :key="index" class="flex items-center">
+            <li v-for="(filter, index) in technologyStore.technologies" :key="index" class="flex items-center">
+              <!-- @change="filterTechnologies" -->
               <input
                 :id="filter.id"
                 type="checkbox"
-                value=""
+                :value="filter.technologyValue"
                 class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-0"
+                v-model="filteredTechnologies"
               />
               <label :for="filter.id" class="ml-2 text-sm font-medium text-gray-900">
-                {{ filter.name }}
+                {{ filter.technologyName }}
               </label>
             </li>
           </ul>
+          <div class="flex flex-row justify-between items-center">
+            <button @click="resetFilteredTechnologies" type="button" class="text-white rounded-lg bg-gray-400 px-4 py-1.5 mr-2 mt-2">
+              Zurücksetzen
+            </button>
+            <button
+                    @click="filterTechnologies" type="button" class="text-white rounded-lg bg-primary-600 px-4 py-1.5 mr-2 mt-2">
+              Filtern
+            </button>
+          </div>
+
         </div>
 
         <div
@@ -160,52 +193,70 @@ import IconSearch from '@/components/icons/IconSearch.vue';
 import IconClose from '@/components/icons/IconClose.vue';
 
 import { useProjectStore } from '@/stores/projectStore.js';
+import {useTechnologyStore} from "@/stores/technologyStore.js";
+import {useHardSkillStore} from "@/stores/hardSkillStore.js";
+import {useSoftSkillStore} from "@/stores/softSkillStore.js";
+import {useProjectTypeStore} from "@/stores/projectTypeStore.js";
 export default {
   name: 'ProjectFilter',
   setup() {
     const projectStore = useProjectStore();
     projectStore.fetchProjects();
+    const technologyStore = useTechnologyStore();
+    technologyStore.fetchTechnologies();
+    const hardSkillStore = useHardSkillStore();
+    hardSkillStore.fetchHardSkills();
+    const softSkillStore = useSoftSkillStore();
+    softSkillStore.fetchSoftSkills();
+    const projectTypeStore = useProjectTypeStore();
+    projectTypeStore.fetchProjectTypes();
     return {
-      projectStore
+      projectStore,
+      technologyStore,
+      hardSkillStore,
+      softSkillStore,
+      projectTypeStore
     };
   },
   components: { IconClose, IconSearch },
   data() {
     return {
       searchQuery: '',
-      technologies: [
-        { id: 'java', name: 'Java' },
-        { id: 'vue', name: 'Vue.js' },
-        { id: 'vuetify', name: 'Vuetify' },
-        { id: 'spring', name: 'Spring Boot' },
-        { id: 'js', name: 'JavaScript' },
-        { id: 'react', name: 'React' },
-        { id: 'node', name: 'Node.js' }
-      ],
-      softSkills: [
-        { id: 'requirements_analysis', name: 'Anforderungsanalyse' },
-        { id: 'project_management', name: 'Projektmanagement' },
-        { id: 'client_interaction', name: 'Kundenkontakt' },
-        { id: 'problem_solving', name: 'Problemlösung' },
-        { id: 'communication_teamwork', name: 'Kommunikation und Teamarbeit' },
-        { id: 'time_management', name: 'Zeitmanagement' }
-      ],
-      hardSkills: [
-        { id: 'software_architecture', name: 'Softwarearchitektur' },
-        { id: 'testing_qa', name: 'Testen und Qualitätssicherung' },
-        { id: 'version_control', name: 'Versionsverwaltung' },
-        { id: 'documentation', name: 'Dokumentation' },
-        { id: 'database_management', name: 'Datenbankverwaltung' },
-        { id: 'agile_methods', name: 'Agile Methoden' },
-        { id: 'programming', name: 'Programmierung' },
-        { id: 'cybersecurity', name: 'Cybersecurity' },
-        { id: 'devops', name: 'DevOps und CI/CD' }
-      ]
+      filteredTechnologies: [],
+      filteredHardSkills: [],
+      filteredSoftSkills: []
     };
   },
   methods: {
     searchProject() {
       this.projectStore.setSearchQuery(this.searchQuery);
+    },
+    filterTechnologies() {
+      this.projectStore.setFilteredTechnologies(this.filteredTechnologies);
+    },
+    filterSoftSkills() {
+      this.projectStore.setFilteredSoftSkills(this.filteredSoftSkills);
+    },
+    filterHardSkills() {
+      this.projectStore.setFilteredHardSkills(this.filteredHardSkills);
+    },
+    resetFilteredTechnologies() {
+      this.filteredTechnologies = [];
+      this.filterTechnologies();
+    },
+    resetFilteredHardSkills() {
+      this.filteredHardSkills = [];
+      this.filterHardSkills();
+    },
+    resetFilteredSoftSkills() {
+      this.filteredSoftSkills = [];
+      this.filterSoftSkills();
+    },
+    resetAllFilters() {
+      this.clearSearch();
+      this.resetFilteredTechnologies();
+      this.resetFilteredHardSkills();
+      this.resetFilteredSoftSkills();
     },
     clearSearch() {
       this.searchQuery = '';

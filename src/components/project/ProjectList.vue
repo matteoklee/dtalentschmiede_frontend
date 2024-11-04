@@ -20,7 +20,7 @@
             type="button"
             id="addProject"
           >
-            Erstellen
+            Projekt erstellen
           </button>
           <ProjectCreateModal
             @submitProject="submitProject"

@@ -48,7 +48,7 @@ import IconBook from '@/components/icons/IconBook.vue';
 import IconOther from '@/components/icons/IconOther.vue';
 
 export default {
-  name: 'ProjectCategories',
+  name: 'ProjectSorting',
   components: { IconOther, IconBook, IconFolder, IconLightbulb, IconCalendar }
 };
 </script>
