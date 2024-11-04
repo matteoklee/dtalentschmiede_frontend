@@ -269,7 +269,7 @@
                   'border-blue-600 border-2 bg-gray-50': editableProject.projectStatus === 'IN_PROGRESS'
                 }"
                   class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer"
-                  @click="selectStatus('OPEN')"
+                  @click="selectStatus('IN_PROGRESS')"
               >
                 <IconAgil class="w-4 h-4"></IconAgil>
                 <span class="ml-2 block text-sm font-medium text-gray-700">in Bearbeitung</span>
@@ -280,7 +280,7 @@
                   'border-blue-600 border-2 bg-gray-50': editableProject.projectStatus === 'COMPLETED'
                 }"
                   class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer"
-                  @click="selectStatus('OPEN')"
+                  @click="selectStatus('COMPLETED')"
               >
                 <IconCheck class="w-4 h-4"></IconCheck>
                 <span class="ml-2 block text-sm font-medium text-gray-700">Abgeschlossen</span>
@@ -291,7 +291,7 @@
                   'border-blue-600 border-2 bg-gray-50': editableProject.projectStatus === 'CANCELLED'
                 }"
                   class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer"
-                  @click="selectStatus('OPEN')"
+                  @click="selectStatus('CANCELLED')"
               >
                 <IconBan class="w-4 h-4"></IconBan>
                 <span class="ml-2 block text-sm font-medium text-gray-700">Abgebrochen</span>
@@ -302,7 +302,7 @@
                   'border-blue-600 border-2 bg-gray-50': editableProject.projectStatus === 'ARCHIVED'
                 }"
                   class="flex items-center border rounded-lg px-4 hover:bg-gray-50 py-2 w-full cursor-pointer"
-                  @click="selectStatus('OPEN')"
+                  @click="selectStatus('ARCHIVED')"
               >
                 <IconArchive class="w-4 h-4"></IconArchive>
                 <span class="ml-2 block text-sm font-medium text-gray-700">Archiviert</span>
@@ -373,6 +373,7 @@
 </template>
 
 <script>
+import {initFlowbite} from "flowbite";
 import ProjectInfo from '@/components/project/actions/read/ProjectInfo.vue';
 import IconClose from '@/components/icons/IconClose.vue';
 import IconPencil from '@/components/icons/IconPencil.vue';
@@ -444,6 +445,7 @@ export default {
       selectedProjectTypes: [],
       selectedHardSkills: [],
       selectedSoftSkills: [],
+      selectedProjectStatus: '',
     };
   },
   methods: {
@@ -458,6 +460,7 @@ export default {
     editProject() {
       this.isEditing = true;
       this.editableProject = this.projectStore.selectedProject;
+      console.log(this.editableProject);
       this.initializeSelection();
     },
     initializeSelection() {
@@ -465,23 +468,42 @@ export default {
       this.selectedProjectTypes = this.editableProject.projectTypes.map(p => p.projectTypeValue);
       this.selectedHardSkills = this.editableProject.projectHardSkills.map(h => h.hardSkillValue);
       this.selectedSoftSkills = this.editableProject.projectSoftSkills.map(s => s.softSkillValue);
-      console.log(this.selectedTechnologies);
-      console.log(this.selectedProjectTypes);
-      console.log(this.selectedHardSkills);
-      console.log(this.selectedSoftSkills);
     },
     updateProjectTechnologies() {
-      this.editableProject.projectTechnologies = this.technologyStore.technologies.filter(tech =>
-          this.selectedTechnologies.includes(tech.technologyId)
+      this.editableProject.projectTechnologies = this.technologyStore.technologies.filter(technology =>
+          this.selectedTechnologies.includes(technology.technologyValue)
+      );
+    },
+    updateProjectTypes() {
+      this.editableProject.projectTypes = this.projectTypeStore.projectTypes.filter(projectType =>
+          this.selectedProjectTypes.includes(projectType.projectTypeValue)
+      );
+    },
+    updateProjectHardSkills() {
+      this.editableProject.projectHardSkills = this.hardSkillStore.hardSkills.filter(hardSkill =>
+          this.selectedHardSkills.includes(hardSkill.hardSkillValue)
+      );
+    },
+    updateProjectSoftSkills() {
+      this.editableProject.projectSoftSkills = this.softSkillStore.softSkills.filter(softSkill =>
+          this.selectedSoftSkills.includes(softSkill.softSkillValue)
       );
     },
     submitEditProject() {
       this.updateProjectTechnologies();
-      console.log(this.editableProject)
-      console.log(JSON.stringify(this.selectedTechnologies))
-      this.closeProject()
+      this.updateProjectTypes();
+      this.updateProjectHardSkills();
+      this.updateProjectSoftSkills();
+      console.log(this.editableProject);
+      this.projectStore.updateProject(this.editableProject.projectId, this.editableProject);
+      this.closeProject();
     },
-    selectStatus() {}
+    selectStatus(status) {
+      this.editableProject.projectStatus = status;
+    }
+  },
+  mounted() {
+    initFlowbite();
   }
 };
 </script>
