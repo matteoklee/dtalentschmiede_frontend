@@ -23,7 +23,7 @@
           <div class="py-12 text-gray-100">
             <p class="text-2xl font-bold">Willkommen!</p>
             <p class="text-lg font-thin pt-4">
-              Explore our intuitive dashboard and set up your account in just a few clicks.
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.
             </p>
           </div>
           <div class="mt-auto py-4">

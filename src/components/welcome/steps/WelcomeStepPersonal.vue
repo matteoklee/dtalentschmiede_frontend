@@ -8,42 +8,42 @@
         <button
           class="w-full border rounded-lg border-gray-300 px-6 py-3 mt-2 mb-1 hover:cursor-pointer hover:border-primary-700 hover:border focus:outline-none focus:ring-1 focus:ring-primary-700"
         >
-          Experienced Property Investor
+          Softwareentwickler
         </button>
         <button
           class="w-full border rounded-lg border-gray-300 px-6 py-3 mb-1 hover:cursor-pointer hover:border-primary-700 hover:border focus:outline-none focus:ring-1 focus:ring-primary-700"
         >
-          Experienced Property Investor
+          Softwareentwickler - Frontend
         </button>
         <button
           class="w-full border rounded-lg border-gray-300 px-6 py-3 mb-1 hover:cursor-pointer hover:border-primary-700 hover:border focus:outline-none focus:ring-1 focus:ring-primary-700"
         >
-          Experienced Property Investor
+          Softwareentwickler - Backend
         </button>
         <button
           class="w-full border rounded-lg border-gray-300 px-6 py-3 mb-1 hover:cursor-pointer hover:border-primary-700 hover:border focus:outline-none focus:ring-1 focus:ring-primary-700"
         >
-          Experienced Property Investor
+          Scrum Master
         </button>
         <button
           class="w-full border rounded-lg border-gray-300 px-6 py-3 mb-1 hover:cursor-pointer hover:border-primary-700 hover:border focus:outline-none focus:ring-1 focus:ring-primary-700"
         >
-          Experienced Property Investor
+          Project Owner
         </button>
         <button
           class="w-full border rounded-lg border-gray-300 px-6 py-3 mb-1 hover:cursor-pointer hover:border-primary-700 hover:border focus:outline-none focus:ring-1 focus:ring-primary-700"
         >
-          Experienced Property Investor
+          UI/UX Designer
         </button>
         <button
           class="w-full border rounded-lg border-gray-300 px-6 py-3 mb-1 hover:cursor-pointer hover:border-primary-700 hover:border focus:outline-none focus:ring-1 focus:ring-primary-700"
         >
-          Experienced Property Investor
+          Buisness Operation Manager
         </button>
         <button
           class="w-full border rounded-lg border-gray-300 px-6 py-3 mb-1 hover:cursor-pointer hover:border-primary-700 hover:border focus:outline-none focus:ring-1 focus:ring-primary-700"
         >
-          Experienced Property Investor
+          Hauptausbilder
         </button>
       </div>
     </div>

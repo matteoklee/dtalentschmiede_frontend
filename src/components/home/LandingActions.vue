@@ -15,7 +15,7 @@
         </div>
       </div>
     </RouterLink>
-    <RouterLink to="/projects" class="mx-8 hidden">
+    <RouterLink to="/projects" class="mx-8">
       <div
         class="bg-white shadow-gray-400 shadow-md rounded-lg h-48 w-52 mx-auto m-4 group flex flex-col items-center justify-center cursor-pointer transition-all duration-300 hover:scale-105"
       >
