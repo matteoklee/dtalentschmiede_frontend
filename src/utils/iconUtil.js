@@ -23,6 +23,32 @@ import IconList from '@/components/home/icons/IconList.vue';
 import IconHandshake from '@/components/icons/technology/IconHandshake.vue';
 import IconUsers from '@/components/icons/IconUsers.vue';
 import IconClock from '@/components/icons/technology/IconClock.vue';
+import IconPencil from "@/components/icons/IconPencil.vue";
+import IconFolder from "@/components/home/icons/IconFolder.vue";
+import IconCheck from "@/components/icons/IconCheck.vue";
+import IconBan from "@/components/icons/IconBan.vue";
+import IconArchive from "@/components/icons/IconArchive.vue";
+
+export function getProjectStatusIcon(status) {
+  switch (status) {
+    case 'DRAFT':
+      return IconPencil;
+    case 'OPEN':
+      return IconFolder;
+    case 'IN_PROGRESS':
+      return IconAgil;
+    case 'COMPLETED':
+      return IconCheck;
+    case 'CANCELLED':
+      return IconBan;
+    case 'ARCHIVED':
+      return IconArchive;
+    default:
+      return IconOther;
+  }
+}
+
+
 
 export function getTechnologyIcon(technologyValue) {
   switch (technologyValue) {

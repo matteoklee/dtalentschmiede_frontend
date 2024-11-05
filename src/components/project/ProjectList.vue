@@ -62,17 +62,21 @@
           ]"
         >
           <div
-            class="grid grid-cols-1 lg:grid-cols-8 lg:gap-6 gap-2 items-center flex justify-center flex-col auto-cols-auto"
+            class="relative grid grid-cols-1 lg:grid-cols-8 lg:gap-6 gap-2 items-center flex justify-center flex-col auto-cols-auto"
           >
             <div class="flex items-center space-x-4 lg:col-span-2">
-              <IconLightbulb
+              <component :is="getProjectTypeIcon(project.projectTypes[0]?.projectTypeValue || 'OTHER')"
                 class="text-gray-400 h-12 bg-gray-100 rounded-full p-2 avatar aspect-square"
-              ></IconLightbulb>
+              ></component>
               <div class="flex flex-col">
                 <p
                   class="text-left text-gray-800 text-lg font-medium group-hover:font-bold group-hover:text-blue-600"
                 >
-                  {{ project.projectTitle }}
+                  {{
+                    project.projectTitle.length > 30
+                        ? project.projectTitle.slice(0, 20) + '...'
+                        : project.projectTitle
+                  }}
                 </p>
                 <p class="text-gray-400 text-left">
                   {{
@@ -99,8 +103,15 @@
               </p>
             </div>
 
-            <div class="flex flex-row lg:justify-center items-center">
-              <p class="text-gray-400 text-sm">{{ formatDateOnly(project.projectCreatedAt) }}</p>
+            <div class="flex flex-col lg:justify-center items-center">
+              <p class="text-gray-400 text-sm mb-1">{{ formatDateOnly(project.projectCreatedAt) }}</p>
+              <div class="inline-flex items-center">
+                <component :is="getProjectStatusIcon(project.projectStatus)"
+                           class="text-gray-400 h-3 aspect-square mr-2"
+                ></component>
+                <p class="text-gray-400">{{ getReadableProjectStatus(project.projectStatus) }}</p>
+              </div>
+
             </div>
 
             <div class="flex flex-row lg:justify-center items-center">
@@ -127,6 +138,12 @@
                 :isDrawerOpen="isReadDrawerOpen"
                 @closeDrawer="closeReadDrawer"
               ></ProjectDrawer>
+            </div>
+
+            <div class="hidden absolute -right-5 -top-4">
+              <component :is="getProjectStatusIcon(project.projectStatus)"
+                         class="text-gray-400 h-4 aspect-square"
+              ></component>
             </div>
           </div>
         </div>
@@ -165,6 +182,8 @@ import ProjectSnackbar from '@/components/project/actions/ProjectSnackbar.vue';
 import { formatDateOnly } from '@/utils/dateUtil.js';
 import { useProjectStore } from '@/stores/projectStore.js';
 import { useSnackbarStore } from '@/stores/snackbarStore.js';
+import {getProjectTypeIcon, getProjectStatusIcon} from "@/utils/iconUtil.js";
+import {getReadableProjectStatus} from "@/utils/mappingUtils.js";
 
 export default {
   name: 'ProjectList',
@@ -186,6 +205,9 @@ export default {
     };
   },
   methods: {
+    getProjectTypeIcon,
+    getReadableProjectStatus,
+    getProjectStatusIcon,
     openReadDrawer() {
       this.isReadDrawerOpen = true;
     },
@@ -221,40 +243,6 @@ export default {
       return formatDateOnly(dateString);
     }
   },
-  computed: {
-    filterProjects() {
-      let filteredProjects;
-
-      if (this.searchQuery !== '' && this.searchQuery !== undefined) {
-        filteredProjects = this.allProjects.filter((project) => {
-          const query = this.searchQuery.toLowerCase();
-          return (
-            project.projectTitle.toLowerCase().includes(query) ||
-            project.projectDescription.toLowerCase().includes(query) ||
-            project.projectRepresentativeEmail.toLowerCase().includes(query) ||
-            project.projectRepresentative.toLowerCase().includes(query)
-
-            //(project.projectTypes && project.projectTypes.some(type => type.toLowerCase().includes(query))) ||
-            //(project.projectStatus && project.projectStatus.toLowerCase().includes(query)) ||
-            //(project.projectTechnologies && project.projectTechnologies.some(tech => tech.toLowerCase().includes(query))) ||
-            //(project.projectSoftSkills && project.projectSoftSkills.some(skill => skill.toLowerCase().includes(query))) ||
-            //(project.projectHardSkills && project.projectHardSkills.some(skill => skill.toLowerCase().includes(query)))
-          );
-        });
-      } else {
-        filteredProjects = this.allProjects;
-      }
-      if (this.projectViewLimit > 0) {
-        if (this.projectViewLimit > 5) {
-          return filteredProjects.slice(0, this.projectViewLimit);
-        } else {
-          return filteredProjects;
-        }
-      } else {
-        return filteredProjects;
-      }
-    }
-  }
 };
 </script>
 

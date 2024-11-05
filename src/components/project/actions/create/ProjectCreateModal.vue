@@ -46,23 +46,23 @@
                 </div>
               </label>
             </li>
-            <li>
-              <input type="radio" id="job-2" name="job" value="job-2" class="hidden peer" />
+            <li class="">
+              <input type="radio" id="job-2" name="job" value="job-2" class="hidden peer" disabled />
               <label
                 for="job-2"
-                class="aspect-square h-48 border-dashed border-2 inline-flex items-center justify-center w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500"
+                class="aspect-square h-48 border-dashed border-2 inline-flex items-center justify-center w-full p-5 text-gray-900 bg-white border border-gray-200  rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-9000"
               >
                 <div class="block">
-                  <div class="w-full text-lg font-semibold">Projekt erstellen</div>
-                  <div class="w-full text-gray-500">Alphabet</div>
+                  <div class="w-full text-lg font-semibold">Template Projekt</div>
+                  <div class="w-full text-gray-500">Coming Soon</div>
                 </div>
               </label>
             </li>
-            <li>
+            <li class="hidden">
               <input type="radio" id="job-3" name="job" value="job-3" class="hidden peer" />
               <label
                 for="job-3"
-                class="aspect-square h-48 border-dashed border-2 inline-flex items-center justify-center w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500"
+                class="aspect-square h-48 border-dashed border-2 inline-flex items-center justify-center w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100"
               >
                 <div class="block">
                   <div class="w-full text-lg font-semibold">Idee erstellen</div>

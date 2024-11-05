@@ -340,7 +340,7 @@
                   </select>
                 </div>
 
-                <div class="mb-4">
+                <div class="hidden mb-4">
                   <label for="device" class="block text-sm font-medium pb-1"
                     >Deadline (falls nötig)</label
                   >

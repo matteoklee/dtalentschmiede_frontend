@@ -8,7 +8,7 @@
             :key="index"
             class="mb-4 px-4 py-2 bg-green-100 mr-2 rounded-lg"
           >
-            {{ getReadableProjectType(type.projectTypeName) }}
+            {{ type.projectTypeName }}
           </div>
         </div>
       </div>
@@ -22,13 +22,11 @@
 <script>
 import ProjectDetails from '@/components/project/actions/read/details/ProjectDetails.vue';
 
-import { getReadableProjectType } from '@/utils/mappingUtils.js';
 export default {
   name: 'ProjectHeader',
   components: { ProjectDetails },
   props: ['project'],
   methods: {
-    getReadableProjectType
   }
 };
 </script>
