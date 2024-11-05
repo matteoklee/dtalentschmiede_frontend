@@ -13,7 +13,7 @@
         </div>
       </div>
       <h2 class="text-2xl font-bold mb-1 ml-1">{{ project.projectTitle }}</h2>
-      <p class="text-lg mb-4 ml-1">Untertitel</p>
+      <p class="text-lg mb-4 ml-1"></p><!-- Untertitel -->
       <ProjectDetails :project="project"></ProjectDetails>
     </div>
   </div>

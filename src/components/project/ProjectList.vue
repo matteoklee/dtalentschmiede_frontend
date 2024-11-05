@@ -234,8 +234,8 @@ export default {
     toggleProjectViewLimit() {
       this.projectStore.toggleProjectViewLimit();
     },
-    submitProject() {
-      this.projectStore.fetchProjects();
+    async submitProject() {
+      await this.projectStore.fetchProjects();
       console.log('submitted project');
       this.snackbarStore.showSnackbar('Neues Projekt wurde angelegt!', 'success', 5000);
     },

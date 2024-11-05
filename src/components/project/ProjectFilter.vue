@@ -3,7 +3,7 @@
     <div class="max-w-screen-xl mx-auto pb-8">
       <div class="flex lg:flex-row flex-col justify-between items-start">
         <p class="font-bold text-2xl lg:px-0 px-6">Filtern und suchen nach</p>
-        <button @click="resetAllFilters" type="button" class="lg:mx-0 mx-6 lg:my-0 my-2 py-2.5 px-4 bg-gray-400 text-white rounded-lg hover:bg-gray-600">Zurücksetzen</button>
+        <button @click="resetAllFilters" type="button" class="lg:mx-0 mx-6 lg:my-0 my-2 py-2.5 px-4 bg-gray-400 text-white rounded-lg hover:bg-gray-600">Filter zurücksetzen</button>
       </div>
       <div class="flex lg:flex-row flex-col justify-start mt-6 lg:mx-0 mx-6">
         <button

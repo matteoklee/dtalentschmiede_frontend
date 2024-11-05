@@ -389,8 +389,8 @@
                     <button
                       type="button"
                       disabled
-                      class="bg-gray-400 hover:bg-gray-500 rounded-lg px-3 py-2 text-white"
-                    >
+                      class="bg-gray-400 rounded-lg px-3 py-2 text-white"
+                    > <!--  hover:bg-gray-500 -->
                       Daten aus Profil übernehmen
                     </button>
                   </div>

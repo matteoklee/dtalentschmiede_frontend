@@ -20,7 +20,7 @@
             @input="searchProject"
             type="text"
             id="projectSearch"
-            placeholder="Suche nach Titel, Technologie, ..."
+            placeholder="Suche nach Titel und Beschreibung ..."
             required
             class="border-0 text-lg w-full outline-none focus:ring-0 placeholder-gray-300 pr-6"
           />
@@ -38,9 +38,9 @@
 
       <p class="text-gray-400 font-normal text-md py-4">
         Example:
-        <span class="border px-3 py-1 mx-2 rounded-md">Idee</span>
-        <span class="border px-3 py-1 mx-2 rounded-md">Abschlussarbeit</span>
-        <span class="border px-3 py-1 mx-2 rounded-md">Projekt</span>
+        <span class="border px-3 py-1 mx-2 rounded-md">Marktpreise</span>
+        <span class="border px-3 py-1 mx-2 rounded-md">App</span>
+        <span class="border px-3 py-1 mx-2 rounded-md">Plattform</span>
       </p>
     </div>
     <div class="flex flex-row">
